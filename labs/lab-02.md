@@ -1,18 +1,16 @@
-# Laboratório 02 – Analisadores de Protocolos (Sniffers)
-
 Disciplina: **ENE0011 – Laboratório de Redes**  
 Curso: **Engenharia de Redes e Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
 Departamento: **Engenharia Elétrica**
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
----
+## Experimento 02 – Analisadores de Protocolos (Sniffers)
+
+
 
 ## Objetivo
 
 Verificar o acesso ao meio em uma rede Ethernet por meio da utilização de um analisador de protocolos (*sniffer*), analisando o tráfego de rede, os protocolos envolvidos e os mecanismos de encapsulamento entre camadas.
-
----
 
 ## Introdução Teórica
 
@@ -27,13 +25,13 @@ Este experimento aborda conceitos fundamentais relacionados à análise de tráf
   - Tipos de sniffers;
   - Aplicações em monitoramento, diagnóstico e segurança de redes.
 
----
+
 
 ## Descrição da Atividade
 
 O experimento está dividido em quatro partes.
 
----
+
 
 ### Parte 1 – Utilização de Sniffer para Coleta de Estatísticas da Rede
 
