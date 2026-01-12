@@ -1,12 +1,10 @@
-# Laboratório de Arquitetura e Protocolos de Redes  
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes e Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**
+Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
+---
 ## Experimento 01 – Introdução aos Dispositivos de Redes
-## Professor Dr. Laerte Peotta de Melo
-
-**Universidade de Brasília**  
-Faculdade de Tecnologia  
-Departamento de Engenharia Elétrica  
-Laboratório de Redes de Comunicação  
-
 ---
 
 ## Objetivo
