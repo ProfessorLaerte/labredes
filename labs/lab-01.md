@@ -1,17 +1,15 @@
+
 Disciplina: **ENE0011 – Laboratório de Redes**  
 Curso: **Engenharia de Redes e Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica**
+Departamento: **Engenharia Elétrica** 
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
----
+
 ## Experimento 01 – Introdução aos Dispositivos de Redes
----
 
 ## Objetivo
 
 Conhecer os dispositivos básicos de rede e realizar operações básicas em um roteador Cisco.
-
----
 
 ## Introdução Teórica
 
