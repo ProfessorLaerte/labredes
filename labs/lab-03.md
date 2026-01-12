@@ -120,7 +120,8 @@ Uma possível solução de projeto considera:
 ### Etapa 3 – Configuração e Verificação de VLANs em Switches
 
 1. Inicie o **Cisco Packet Tracer**.
-2. Abra o arquivo de topologia fornecido.
+2. Abra o arquivo de topologia fornecido. [Baixar arquivo do laboratório](https://drive.google.com/file/d/1VqMa11OYRS9bMHEfkWrAHtE9zrmCbiiz/view?usp=sharing)
+
 3. Configure os switches para:
    - Criar as VLANs;
    - Associar as portas de acesso às VLANs corretas;
