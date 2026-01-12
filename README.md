@@ -45,7 +45,7 @@ Cada laboratório possui um diretório próprio contendo:
 | Laboratório | Tema | Link |
 |------------:|------|------|
 | Lab 01 | Introdução aos Dispositivos de Redes | [Acessar](./labs/lab-01.md) |
-| Lab 02 | Configuração Básica de Roteadores | Em breve |
+| Lab 02 | Analisadores de Protocolos (Sniffers) | [Acessar](./labs/lab-02.md) |
 | Lab 03 | Protocolos de Roteamento | Em breve |
 
 ---
