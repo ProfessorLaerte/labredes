@@ -50,6 +50,8 @@ Cada laboratório possui um diretório próprio contendo:
 | Lab 03 | VLAN e Roteamento Estático | [Acessar](./labs/lab-03.md) |
 | Lab 04 | Roteamento Estático | [Acessar](./labs/lab-04.md) |
 | Lab 05 | Protocolo RIP | [Acessar](./labs/lab-05.md) |
+| Lab 06 | OSPF (Open Shortest Path First) | [Acessar](./labs/lab-06.md) |
+
 
 
 ---
