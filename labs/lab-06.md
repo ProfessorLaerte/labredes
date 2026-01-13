@@ -14,6 +14,8 @@ Este laboratório tem como objetivo a **configuração prática do protocolo OSP
 
 A atividade enfatiza a organização hierárquica do OSPF e sua importância para **escalabilidade e desempenho** em redes IP de médio e grande porte.
 
+**Dica:** Lista de Comandos | [Acessar](./labs/comandos.md) |
+
 > **Observações** Este laboratório integra a disciplina Protocolos de Transporte e Roteamento e deve ser realizado após os laboratórios de Roteamento Estático e RIP, pois pressupõe compreensão prévia de tabelas de rotas e convergência.
 
 ---
