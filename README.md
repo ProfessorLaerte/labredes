@@ -52,7 +52,7 @@ Cada laboratório possui um diretório próprio contendo:
 | Lab 05 | Protocolo RIP | [Acessar](./labs/lab-05.md) |
 | Lab 06 | OSPF (Open Shortest Path First) | [Acessar](./labs/lab-06.md) |
 | Lab 07 | Roteamento OSPF (Áreas, DR/BDR e Enlaces Virtuais) | [Acessar](./labs/lab-07.md) |
-
+| Comandos | Lista de Comandos | [Acessar](./labs/comandos.md) |
 ---
 
 ## Metodologia
