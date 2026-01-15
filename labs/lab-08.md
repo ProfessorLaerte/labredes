@@ -20,7 +20,7 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ## Contexto
 
-Este laboratório é uma **continuação direta do Laboratório 03**, utilizando **a mesma topologia física e lógica**, o mesmo plano de endereçamento IP e as mesmas VLANs previamente configuradas.
+Este laboratório é uma **continuação direta do Experimento 03**, utilizando **a mesma topologia física e lógica**, o mesmo plano de endereçamento IP e as mesmas VLANs previamente configuradas.
 
 A partir desta base funcional, o aluno deverá **expandir, reforçar e validar** a rede, incorporando **novos requisitos técnicos**, **mecanismos de segurança** e **procedimentos de diagnóstico**.
 
