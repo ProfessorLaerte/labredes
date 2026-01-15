@@ -156,4 +156,5 @@ Ao final do laboratório, o estudante deverá compreender que:
 
 ---
 
-
+> Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
+> **Prof. Dr. Laerte Peotta de Melo**
