@@ -160,5 +160,5 @@ Este laboratório consolida o OSPF como **protocolo de nível profissional**, ap
 
 ---
 
-> Laboratório avançado baseado no Experimento 07  
+> Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
 > **Prof. Dr. Laerte Peotta de Melo**
