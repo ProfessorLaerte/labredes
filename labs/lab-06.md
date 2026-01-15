@@ -16,7 +16,7 @@ A atividade enfatiza a organização hierárquica do OSPF e sua importância par
 
 **Dica:** Lista de Comandos [Acessar](./comandos.md) 
 
-> **Observações** Este laboratório integra a disciplina Protocolos de Transporte e Roteamento e deve ser realizado após os laboratórios de Roteamento Estático e RIP, pois pressupõe compreensão prévia de tabelas de rotas e convergência.
+> **Observações** Este laboratório deve ser realizado após os laboratórios de Roteamento Estático e RIP, pois pressupõe compreensão prévia de tabelas de rotas e convergência.
 
 ---
 
@@ -195,5 +195,7 @@ Ao final do laboratório, o estudante deverá compreender que:
 
 ---
 
-- OSPF é adequado para redes médias e grandes
+> Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
+> **Prof. Dr. Laerte Peotta de Melo**
+
 
