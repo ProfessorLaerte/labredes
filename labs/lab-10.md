@@ -1,5 +1,3 @@
-# Laboratório 09 – Ataques ao OSPF e Técnicas de Mitigação
-
 Disciplina: **ENE0011 – Laboratório de Redes**  
 Curso: **Engenharia de Redes de Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
@@ -8,8 +6,10 @@ Departamento: **Engenharia Elétrica**
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ---
+## Laboratório 09 – Ataques ao OSPF e Técnicas de Mitigação
 
-## Contexto
+
+## Descrição Geral
 
 Este laboratório utiliza como base **as configurações finais do Laboratório 08 – OSPF Avançado**, no qual a topologia encontra-se totalmente funcional, com múltiplas áreas OSPF, eleição de DR/BDR, ajustes de custo e enlaces virtuais (quando aplicável).
 
