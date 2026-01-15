@@ -115,4 +115,5 @@ O relatório deve conter, no mínimo:
 
 ---
 
-> Este laboratório tem caráter **didático e acadêmico**, sendo vedado o uso das técnicas apresentadas para fins não autorizados ou que violem políticas institucionais ou legislações vigentes.
+> Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
+> **Prof. Dr. Laerte Peotta de Melo**
