@@ -70,5 +70,9 @@ Conhecer os dispositivos básicos de rede e realizar operações básicas em um 
 
 6. Salve toda a configuração ativa do roteador da **RAM para a NVRAM**:
 
-   ```bash
+```bash
    copy running-config startup-config
+```
+
+> Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
+> **Prof. Dr. Laerte Peotta de Melo**
