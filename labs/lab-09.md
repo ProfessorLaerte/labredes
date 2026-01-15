@@ -9,7 +9,7 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 ## Experimento 08 – OSPF Avançado: Falhas, Convergência, Custos e Engenharia de Tráfego
 
 
-## Contexto
+## Descrição Geral
 
 Este laboratório é uma **continuação direta do Experimento 07 – Roteamento OSPF**, utilizando **a mesma topologia**, **as mesmas áreas**, **os mesmos endereçamentos IP** e **a configuração OSPF já funcional**.
 
