@@ -9,7 +9,7 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ## Experimento 08 – VLAN Avançado, Trunking, Segurança e Diagnóstico de Redes
 
-## Contexto
+## Descrição Direta
 
 Este laboratório é uma **continuação direta do Experimento 03**, utilizando **a mesma topologia física e lógica**, o mesmo plano de endereçamento IP e as mesmas VLANs previamente configuradas.
 
