@@ -6,7 +6,7 @@ Departamento: **Engenharia Elétrica**
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ---
-# Laboratório 07 – Roteamento OSPF (Áreas, DR/BDR e Enlaces Virtuais)
+## Experimento 07 – Roteamento OSPF (Áreas, DR/BDR e Enlaces Virtuais)
 
 
 ##  Descrição Geral
