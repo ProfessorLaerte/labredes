@@ -6,7 +6,7 @@ Departamento: **Engenharia Elétrica**
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ---
-## Experimento 08 – OSPF Avançado: Falhas, Convergência, Custos e Engenharia de Tráfego
+## Experimento 09 – OSPF Avançado: Falhas, Convergência, Custos e Engenharia de Tráfego
 
 
 ## Descrição Geral
