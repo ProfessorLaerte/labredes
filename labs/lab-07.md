@@ -17,7 +17,7 @@ O experimento é dividido em **duas partes complementares**.
 
 **Dica:** Lista de Comandos [Acessar](./comandos.md) 
 
-> **Observações:**  Este laboratório faz parte da disciplina Protocolos de Transporte e Roteamento e deve ser executado após os laboratórios de Roteamento Estático, RIP e OSPF primeira parte, pois pressupõe conhecimento prévio de tabelas de rotas e convergência.
+> **Observações:**  Este laboratório deve ser executado após os laboratórios de Roteamento Estático, RIP e OSPF primeira parte, pois pressupõe conhecimento prévio de tabelas de rotas e convergência.
 
 ---
 
@@ -181,4 +181,7 @@ Ao final do laboratório, o estudante deverá compreender que:
 - DR e BDR reduzem a quantidade de adjacências
 - Enlaces virtuais são soluções excepcionais e complexas
 
+---
 
+> Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
+> **Prof. Dr. Laerte Peotta de Melo**
