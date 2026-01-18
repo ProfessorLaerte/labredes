@@ -1,4 +1,11 @@
-# Relatório 
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica** 
+
+Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
+
+# Relatório do Experimento "X"
 
 ## Identificação
 - Nome:
