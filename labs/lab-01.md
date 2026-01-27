@@ -1,4 +1,3 @@
-
 Disciplina: **ENE0011 – Laboratório de Redes**  
 Curso: **Engenharia de Redes de Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
@@ -26,15 +25,17 @@ Conhecer os dispositivos básicos de rede e realizar operações básicas em um 
 
 ## Descrição da Atividade
 
-1. Utilize o **HyperTerminal do Windows** e acesse o roteador.
+1. Utilize o cliente de conexão remota **PuTTY** e acesse o roteador.
 
-2. Entre no **modo SETUP** (comando `#setup`) e configure o roteador conforme os parâmetros abaixo:
+2. Entre no **modo SETUP** e configure o roteador conforme os parâmetros abaixo:
 
-   - **Nome do roteador**: `lab_1`  
-   - **Senha criptografada para acesso ao modo EXEC privilegiado**: `apr`  
-   - **Senha de acesso via Telnet**: `apr`  
-   - **Endereço IP da interface FastEthernet0/0**: `192.168.0.10`  
-   - Salve as configurações no arquivo de inicialização do roteador (**NVRAM** ou `startup-config`)
+   ***Obs.:** Caso o equipamento não possua uma configuração inicial, ele entrará em **modo setup** logo após a inicialização. Caso contrário ultima configuração será carregada e a reconfiguração pode ser realizada com o comando `#setup`.*
+
+   1. **Nome do roteador**: `lab_1`  
+   2. **Senha criptografada para acesso ao modo EXEC privilegiado**: `apr`  
+   3. **Senha de acesso via Telnet**: `apr`  
+   4. **Endereço IP da interface FastEthernet0/0**: `192.168.0.10`  
+   5. Salve as configurações no arquivo de inicialização do roteador (**NVRAM** ou `startup-config`)
 
 3. Colete as seguintes informações sobre o equipamento e sua configuração.  
    Utilize os comandos:
