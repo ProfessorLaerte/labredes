@@ -292,11 +292,9 @@ Todos os comandos executados devem ser registrados e explicados.
 
 ## Bibliografia
 
-1. KUROSE, J. F.; ROSS, K. W.  
-   *Computer Networks: A Top-Down Approach*. 5ª ed. Pearson Addison-Wesley, 2009.
+1. KUROSE, J. F.; ROSS, K. W.  **Redes de computadores e a Internet 8ª edição** – Bookman - 2021.
 
-2. COMER, D. E.  
-   *Internetworking with TCP/IP – Volume I*. 5ª ed. Prentice Hall, 2005.
+2. COMER, D. E.  **Internetworking with TCP/IP – Volume I 5ª edição** - Prentice Hall, 2005.
 
 ---
 > Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
