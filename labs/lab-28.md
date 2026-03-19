@@ -1,7 +1,9 @@
 # Atividade Extraclasse  
-## Tema 07 — Modelagem de Dados (Modelo Entidade-Relacionamento)
+## Disciplina: CIC0097 — Bancos de Dados  
 
-Disciplina: Bancos de Dados  
+**Tema 07** - Modelagem de Dados (Modelo Entidade-Relacionamento)   
+**Docente:** Dr. Laerte Peotta de Melo
+
 
 ---
 
