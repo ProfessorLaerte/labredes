@@ -74,6 +74,19 @@ Conhecer os dispositivos básicos de rede e realizar operações básicas em um 
 ```bash
    copy running-config startup-config
 ```
+---
+
+## Entregas
+
+O aluno deverá entregar, via **Microsoft Teams (atividade criada pelo professor)**:
+
+- **Relatório em PDF**, contendo:
+  - Descrição objetiva das configurações realizadas;
+  - Resultados dos testes executados;
+  - Respostas às questões do roteiro;
+  - Conclusão do experimento.
+
+---
 
 > Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
 > **Prof. Dr. Laerte Peotta de Melo**
