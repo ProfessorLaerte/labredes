@@ -3,7 +3,8 @@ Curso: **Engenharia de Redes de Comunicação**
 Instituição: **Universidade de Brasília (UnB)**  
 Departamento: **Engenharia Elétrica**
 
-Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
+Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**  
+Monitores: **Caio Soares Rodriges / Huan Guilherme Ribeiro Miranda**   
 
 ---
 ## Experimento 09 – OSPF Avançado: Falhas, Convergência, Custos e Engenharia de Tráfego
