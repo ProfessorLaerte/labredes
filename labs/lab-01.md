@@ -4,7 +4,7 @@ Instituição: **Universidade de Brasília (UnB)**
 Departamento: **Engenharia Elétrica** 
 
 Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**   
-Monitor: **Caio Soares Rodriges**  
+Monitores: **Caio Soares Rodriges / Huan Guilherme Ribeiro Miranda**   
 
 ---
 ## Experimento 01 – Introdução aos Dispositivos de Redes
