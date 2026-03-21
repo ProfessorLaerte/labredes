@@ -105,6 +105,10 @@ O relatório deve conter, no mínimo:
 - Respostas claras e objetivas para cada item;
 - Análise crítica dos resultados observados.
 
+> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de [**relatório**](./labs/relatório.md) e registrar os resultados conforme solicitado.
+
+
+
 ---
 
 > Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
