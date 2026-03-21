@@ -87,7 +87,8 @@ O aluno deverá entregar, via **Microsoft Teams (atividade criada pelo professor
   - Respostas às questões do roteiro;
   - Conclusão do experimento.
 
->> Use o modelo labs/relatorio.md
+> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de [**relatório**](./labs/relatório.md) e registrar os resultados conforme solicitado.
+
 ---
 
 > Laboratório desenvolvido para a disciplina **ENE0011 – Laboratório de Redes**  
