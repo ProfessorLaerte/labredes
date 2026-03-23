@@ -66,7 +66,8 @@ As atividades laboratoriais serão desenvolvidas de forma **prática e supervisi
 - Observação do comportamento da rede;
 - Registro técnico das atividades realizadas.
 
-> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de **relatório** [Acessar](./labs/relatório.md) e registrar os resultados conforme solicitado. 
+> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de **relatório** [Acessar](https://github.com/ProfessorLaerte/labredes/blob/main/labs/relatorio.md) e registrar os resultados conforme solicitado. 
+
 
 ---
 
