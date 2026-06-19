@@ -15,7 +15,7 @@ Monitores: **Caio Soares Rodriges / Huan Guilherme Ribeiro Miranda**
 Este laboratório é uma **continuação direta do Experimento 03**, utilizando **a mesma topologia física e lógica**, o mesmo plano de endereçamento IP e as mesmas VLANs previamente configuradas.
 
 1. Inicie o **Cisco Packet Tracer**.
-2. Abra o arquivo de topologia fornecido. [Baixar arquivo do laboratório](arquivos/Exp-08 -Vlan_configurado.pkt)
+2. Abra o arquivo de topologia fornecido. [Baixar arquivo do laboratório](https://github.com/ProfessorLaerte/labredes/blob/d496af5754b7c7db9fbe50c234c069533c6d8775/arquivos/Exp-08%20-Vlan_configurado.pkt)
 
 A partir desta base funcional, o aluno deverá **expandir, reforçar e validar** a rede, incorporando **novos requisitos técnicos**, **mecanismos de segurança** e **procedimentos de diagnóstico**.
 
