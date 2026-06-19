@@ -100,25 +100,8 @@ Implemente **Port Security** nas portas de acesso dos switches:
 
 ---
 
-## Desafio 4 – Diagnóstico de Falhas Induzidas
 
-O professor (ou o roteiro) irá **introduzir propositalmente erros**, como:
-- VLAN inexistente associada a uma porta;
-- Trunk configurado como access;
-- Subinterface do roteador sem encapsulamento;
-- Gateway incorreto em um host.
-
-O aluno deverá:
-1. Identificar a falha;
-2. Explicar o impacto na comunicação;
-3. Corrigir a configuração.
-
-**Questão:**  
-Quais comandos foram mais úteis para identificar o problema? Justifique.
-
----
-
-## Desafio 5 – Testes e Análise de Tráfego
+## Desafio 4 – Testes e Análise de Tráfego
 
 1. Execute testes de conectividade:
    - Intra-VLAN;
@@ -154,13 +137,6 @@ O aluno deverá entregar um **relatório técnico** contendo:
 - Capacidade de diagnóstico;
 - Uso adequado de comandos;
 - Organização do relatório.
-
----
-
-## Equipamentos e Software
-
-- Computadores do laboratório;
-- **Cisco Packet Tracer**.
 
 ---
 
