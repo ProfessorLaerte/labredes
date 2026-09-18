@@ -23,7 +23,8 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 - Configurar e operar roteadores e switches, com ênfase em equipamentos Cisco;
 - Analisar protocolos de comunicação nas camadas de rede e transporte;
 - Interpretar informações operacionais e de diagnóstico de equipamentos de rede;
-- Desenvolver raciocínio prático para identificação e resolução de problemas em redes.
+- Desenvolver raciocínio prático para identificação e resolução de problemas em redes;
+- Aplicar boas práticas de segurança em dispositivos de rede (senhas seguras, SSH, hardening de camada 2).
 
 ---
 
@@ -31,8 +32,10 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 A estrutura do repositório segue o padrão abaixo:
 
+- `laboratórios/` — roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
+- `labs/` — pasta **antiga**, mantida apenas como referência histórica. Contém os roteiros anteriores (Experimentos 01 a 11: dispositivos de rede, sniffers, VLAN e roteamento estático, RIP, OSPF em suas variações, ataques ao OSPF e BGP), além de uma lista de comandos OSPF, um modelo de relatório e uma lista de VMs para cibersegurança.
 
-Cada laboratório possui um diretório próprio contendo:
+Cada laboratório possui um roteiro próprio contendo:
 - Objetivo do experimento;
 - Fundamentação teórica;
 - Roteiro de atividades;
@@ -45,17 +48,13 @@ Cada laboratório possui um diretório próprio contendo:
 
 | Laboratório | Tema | Link |
 |:------------:|:------|------|
-| 01 | Introdução aos Dispositivos de Redes | [Acessar](./labs/lab-01.md) |
-| 02 | Analisadores de Protocolos (Sniffers) | [Acessar](./labs/lab-02.md) |
-| 03 | VLAN e Roteamento Estático | [Acessar](./labs/lab-03.md) |
-| 04 | Roteamento Estático | [Acessar](./labs/lab-04.md) |
-| 05 | Protocolo RIP | [Acessar](./labs/lab-05.md) |
-| 06 | OSPF (Open Shortest Path First) | [Acessar](./labs/lab-06.md) |
-| 07 | Roteamento OSPF (Áreas, DR/BDR e Enlaces Virtuais) | [Acessar](./labs/lab-07.md) |
-| 08 | VLAN Avançado, Trunking, Segurança e Diagnóstico de Redes | [Acessar](./labs/lab-08.md) |
-| 09 | OSPF Avançado: Falhas, Convergência, Custos e Engenharia de Tráfego | [Acessar](./labs/lab-09.md) | 
-| 10 | Ataques ao OSPF e Técnicas de Mitigação | [Acessar](./labs/lab-10.md) | 
-| Comandos | Lista de Comandos | [Acessar](./labs/comandos.md) |
+| 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratórios/Roteiro_experimento_1.md) |
+| 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratórios/Roteiro_experimento_2.md) |
+| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratórios/Roteiro_experimento_3.md) |
+| 04 | VLAN e Roteamento Estático | [Acessar](./laboratórios/Roteiro_experimento_4.md) |
+| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratórios/Roteiro_experimento_5.md) |
+| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratórios/Roteiro_experimento_6.md) |
+
 ---
 
 ## Metodologia
@@ -67,7 +66,6 @@ As atividades laboratoriais serão desenvolvidas de forma **prática e supervisi
 - Registro técnico das atividades realizadas.
 
 > O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de **relatório** [Acessar](https://github.com/ProfessorLaerte/labredes/blob/main/labs/relatorio.md) e registrar os resultados conforme solicitado. 
-
 
 ---
 
@@ -104,13 +102,14 @@ A avaliação da disciplina será baseada em:
 - **STALLINGS, William.** Comunicações de dados e redes de computadores. 10. ed. São Paulo: Pearson, 2014.
 - **COMER, Douglas E.** Interligação de redes com TCP/IP: princípios, protocolos e arquitetura. 5. ed. Rio de Janeiro: Elsevier, 2006.
 
-- ## Documentos Normativos e Técnicos
+## Documentos Normativos e Técnicos
+
 - **POSTEL, Jon.** Transmission Control Protocol. RFC 793. Marina del Rey: ISI, 1981.
 - **POSTEL, Jon.** User Datagram Protocol. RFC 768. Marina del Rey: ISI, 1980.
 - **MOY, John T.** OSPF version 2. RFC 2328. Marina del Rey: ISI, 1998.
 - **REKHTER, Yakov et al.** A border gateway protocol 4 (BGP-4). RFC 4271. Marina del Rey: ISI, 2006.
 
-  ---
+---
 
 ## Observações Importantes
 
