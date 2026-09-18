@@ -50,10 +50,10 @@ Cada laboratório possui um roteiro próprio contendo:
 |:------------:|:------|------|
 | 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratórios/Roteiro_experimento_1.md) |
 | 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratórios/Roteiro_experimento_2.md) |
-| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratórios/Roteiro_experimento_3.md) |
-| 04 | VLAN e Roteamento Estático | [Acessar](./laboratórios/Roteiro_experimento_4.md) |
-| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratórios/Roteiro_experimento_5.md) |
-| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratórios/Roteiro_experimento_6.md) |
+| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratórios/Roteiro_experimento_3.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento3_nao_configurado.pkt) |
+| 04 | VLAN e Roteamento Estático | [Acessar](./laboratórios/Roteiro_experimento_4.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento4_nao_configurado.pkt) |
+| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratórios/Roteiro_experimento_5.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento5_nao_configurado.pkt) |
+| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratórios/Roteiro_experimento_6.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento_6_nao_resolvido.pkt) |
 
 ---
 
