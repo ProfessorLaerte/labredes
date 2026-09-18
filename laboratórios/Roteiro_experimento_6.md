@@ -164,7 +164,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
 3. **EtherChannel entre Switch0 e Switch3 não funciona**
   
   - Teste: `show interfaces port-channel 3` → deve mostrar `Port-channel3 is up`.
-4. **Switch3 inacessível via SSH ou ping**
+4. **Switch 1 inacessível via SSH ou ping**
   
   - Teste: ping para IP de gerência ou `ssh -l [usuário] [end. IP]`.
 
