@@ -48,14 +48,14 @@ Cada laboratório possui um roteiro próprio contendo:
 
 ## Laboratórios
 
-| Laboratório | Tema | Link |
-|:------------:|:------|------|
-| 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) |
-| 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratorios/02_roteiro.md) |
-| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratorios/03_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
-| 04 | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
-| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratorios/05_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
-| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
+| Laboratório | Tema | Roteiro | Packet Tracer |
+|:------------:|:------|:-------:|:-------------:|
+| 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) | - |
+| 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratorios/02_roteiro.md) | - |
+| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratorios/03_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
+| 04 | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
+| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratorios/05_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
+| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
 
 ---
 
