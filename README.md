@@ -32,7 +32,7 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 A estrutura do repositório segue o padrão abaixo:
 
-- `laboratorios/` - Roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
+- `laboratorios/` - Roteiros atuais dos experimentos, divididos entre práticas de redes (endereçamento, VLAN, SSH, VLSM, redundância e troubleshooting) e serviços de rede (DHCP em ambiente Linux).
   - `topologias/` - Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
 - `modelo_relatorio.md` - Modelo oficial de relatório a ser preenchido e entregue pelos alunos.
 - `labs/` - Pasta mantida como referência histórica, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
@@ -48,6 +48,8 @@ Cada laboratório possui um roteiro próprio contendo:
 
 ## Laboratórios
 
+### Laboratórios de Redes
+
 | Laboratório | Tema | Roteiro | Packet Tracer |
 |:------------:|:------|:-------:|:-------------:|
 | 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) | - |
@@ -56,6 +58,12 @@ Cada laboratório possui um roteiro próprio contendo:
 | 04 | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
 | 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratorios/05_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
 | 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
+
+### Laboratórios de Serviços de Rede
+
+| Laboratório | Tema | Roteiro | Ambiente / Simulador |
+|:------------:|:------|:-------:|:--------------------:|
+| 07 | Configuração e Análise do Protocolo DHCP | [Acessar](./laboratorios/07_roteiro.md) | PNetLab (Linux) |
 
 ---
 
