@@ -1,4 +1,4 @@
-Disciplina: **ENE0011 – Laboratório de Redes**  
+Disciplina: **ENE0011 - Laboratório de Redes**  
 Curso: **Engenharia de Redes de Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
 Departamento: **Engenharia Elétrica**  
@@ -6,7 +6,7 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 ---
 
-# Roteiro do Experimento 04 – VLAN e Roteamento Estático
+# Roteiro do Experimento 04 - VLAN e Roteamento Estático
 
 ## Objetivo
 
@@ -33,7 +33,7 @@ A atividade está dividida em quatro etapas principais.
 
 ---
 
-### Etapa 1 – Descrição do Caso
+### Etapa 1 - Descrição do Caso
 
 Você foi designado para projetar e implementar a configuração dos equipamentos de uma rede corporativa destinada a interligar **50 dispositivos de rede**, incluindo:
 
@@ -47,9 +47,9 @@ O prédio da empresa possui **3 andares** e **4 departamentos**:
 - Marketing  
 - Tecnologia  
 
-A distribuição dos equipamentos por andar e departamento deve seguir a **Tabela 1 – Lista de Equipamentos**.
+A distribuição dos equipamentos por andar e departamento deve seguir a **Tabela 1 - Lista de Equipamentos**.
 
-### Tabela 1 – Lista de Equipamentos
+### Tabela 1 - Lista de Equipamentos
 
 | Andar | Equipamento | Qtde | Departamento |
 |:----:|-------------|:----:|--------------|
@@ -59,7 +59,7 @@ A distribuição dos equipamentos por andar e departamento deve seguir a **Tabel
 | 1º | Computador | 5 | Tecnologia |
 | 1º | Servidor | 4 | Tecnologia |
 | 1º | Impressora | 2 | Tecnologia |
-| **1º** | **Total** | **15** | — |
+| **1º** | **Total** | **15** | - |
 | 2º | Computador | 2 | Administrativo |
 | 2º | Servidor | 1 | Administrativo |
 | 2º | Impressora | 1 | Administrativo |
@@ -68,7 +68,7 @@ A distribuição dos equipamentos por andar e departamento deve seguir a **Tabel
 | 2º | Computador | 6 | Marketing |
 | 2º | Servidor | 2 | Marketing |
 | 2º | Impressora | 2 | Marketing |
-| **2º** | **Total** | **17** | — |
+| **2º** | **Total** | **17** | - |
 | 3º | Computador | 1 | Administrativo |
 | 3º | Computador | 3 | Diretoria |
 | 3º | Servidor | 2 | Diretoria |
@@ -78,7 +78,7 @@ A distribuição dos equipamentos por andar e departamento deve seguir a **Tabel
 | 3º | Impressora | 1 | Marketing |
 | 3º | Computador | 2 | Tecnologia |
 | 3º | Impressora | 1 | Tecnologia |
-| **3º** | **Total** | **18** | — |
+| **3º** | **Total** | **18** | - |
 
 
 
@@ -92,7 +92,7 @@ Considere ainda que:
 
 ---
 
-### Etapa 2 – Projeto da Rede
+### Etapa 2 - Projeto da Rede
 
 Uma possível solução de projeto considera:
 
@@ -115,7 +115,7 @@ Uma possível solução de projeto considera:
 
 ---
 
-### Etapa 3 – Configuração e Verificação de VLANs em Switches
+### Etapa 3 - Configuração e Verificação de VLANs em Switches
 
 1. Inicie o **Cisco Packet Tracer**.
 2. Abra o arquivo de topologia fornecido: [Baixar arquivo do laboratório](./topologias/experimento_04_nao_configurado.pkt)
@@ -141,7 +141,7 @@ Sw1(config-if)# switchport access vlan 2
 % Access VLAN does not exist. Creating vlan 2
 Sw1(config-if)# switchport mode access
 Sw1(config-if)# interface FastEthernet0/5
-Swl (config–if)# switchport access vlan 5
+Swl (config-if)# switchport access vlan 5
 % Access VLAN does not exist. Creating vlan 5
 Sw1(config-if)# switchport mode access
 Sw1(config-if)# interface FastEthernet0/24
@@ -169,7 +169,7 @@ Fa0/1
  
 active 
 Fa0/5
-1002 fddi–default 
+1002 fddi-default 
  
 act/unsup
 1003 token-ring-default 
@@ -224,7 +224,7 @@ Caso executasse um comando ping de qualquer computador para outro em uma mesma V
   - Por que o ping não funcionou?
 ---
 
-### Etapa 4 – Interconexão de VLANs via Roteador
+### Etapa 4 - Interconexão de VLANs via Roteador
 
 Nesta etapa, será implementado o **roteamento entre VLANs** utilizando subinterfaces no roteador.
 
@@ -234,7 +234,7 @@ O roteador deve ficar localizado no **primeiro andar**, conectado diretamente ao
 
 Essa interface deve ser configurada com **cinco subinterfaces**, de forma a permitir o roteamento de tráfego entre as **cinco VLANs** existentes. Para cada subinterface, deve ser configurado um **endereço IP** correspondente ao *default gateway* da respectiva VLAN, com a devida especificação do **VLAN ID**, conforme apresentado na Tabela 3.
 
-#### Tabela 3 – Endereçamento das Subinterfaces do Roteador
+#### Tabela 3 - Endereçamento das Subinterfaces do Roteador
 
 | Subinterface | Endereçamento IP | VLAN ID |
 |--------------|------------------|--------:|
@@ -292,6 +292,7 @@ Todos os comandos executados devem ser registrados e explicados.
 
 ## Bibliografia
 
-1. KUROSE, J. F.; ROSS, K. W.  **Redes de computadores e a Internet 8ª edição** – Bookman - 2021.
+1. KUROSE, J. F.; ROSS, K. W.  **Redes de computadores e a Internet 8ª edição** - Bookman - 2021.
 
-2. COMER, D. E.  **Internetworking with TCP/IP – Volume I 5ª edição** - Prentice Hall, 2005.
+2. COMER, D. E.  **Internetworking with TCP/IP - Volume I 5ª edição** - Prentice Hall, 2005.
+

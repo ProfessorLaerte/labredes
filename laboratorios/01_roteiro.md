@@ -1,4 +1,4 @@
-Disciplina: **ENE0011 – Laboratório de Redes**  
+Disciplina: **ENE0011 - Laboratório de Redes**  
 Curso: **Engenharia de Redes de Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
 Departamento: **Engenharia Elétrica**  
@@ -6,7 +6,7 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 ---
 
-# Roteiro do Experimento 01 – Introdução aos Dispositivos de Redes
+# Roteiro do Experimento 01 - Introdução aos Dispositivos de Redes
 
 
 
@@ -218,9 +218,10 @@ Microcomputadores do laboratório.
 
 
 BIBLIOGRAFIA   
-[1] J. F. Kurose e K. W. Ross – Computer Networks: A Top-Down Approach. (5th ed.). Pearson
+[1] J. F. Kurose e K. W. Ross - Computer Networks: A Top-Down Approach. (5th ed.). Pearson
 Addison-Wesley, 2009.   
 [2] W. Stallings - Data and Computer Communications. Prentice-Hall, 2006.   
 [3] F. C. Xavier - Roteadores Cisco. (2a ed.). Novatec, 2010.   
 [4] Cisco Networking Academy, disponível em http://cisco.netacad.net.   
 [5] Sites diversos sobre protocolo RIP na Internet.   
+

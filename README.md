@@ -1,4 +1,4 @@
-Disciplina: **ENE0011 – Laboratório de Redes**  
+Disciplina: **ENE0011 - Laboratório de Redes**  
 Curso: **Engenharia de Redes de Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
 Departamento: **Engenharia Elétrica** 
@@ -9,7 +9,7 @@ Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
 
 ## Apresentação
 
-A disciplina **ENE0011 – Laboratório de Redes** tem como objetivo proporcionar aos alunos experiências práticas relacionadas aos conceitos fundamentais de redes de computadores, protocolos de comunicação e dispositivos de interconexão.
+A disciplina **ENE0011 - Laboratório de Redes** tem como objetivo proporcionar aos alunos experiências práticas relacionadas aos conceitos fundamentais de redes de computadores, protocolos de comunicação e dispositivos de interconexão.
 
 Ao longo do curso, os estudantes irão configurar, analisar e testar redes de computadores utilizando equipamentos reais e ambientes de simulação, consolidando os conhecimentos teóricos adquiridos em disciplinas correlatas.
 
@@ -32,10 +32,10 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 A estrutura do repositório segue o padrão abaixo:
 
-- `laboratorios/` — Roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
-  - `topologias/` — Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
-- `modelo_relatorio.md` — Modelo oficial de relatório a ser preenchido e entregue pelos alunos.
-- `labs/` — Pasta mantida como referência histórica, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
+- `laboratorios/` - Roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
+  - `topologias/` - Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
+- `modelo_relatorio.md` - Modelo oficial de relatório a ser preenchido e entregue pelos alunos.
+- `labs/` - Pasta mantida como referência histórica, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
 
 Cada laboratório possui um roteiro próprio contendo:
 - Objetivo do experimento;
@@ -127,4 +127,4 @@ A avaliação da disciplina será baseada em:
 
 ---
 
-> Este repositório é de uso acadêmico e destina-se exclusivamente às atividades da disciplina ENE0011 – Laboratório de Redes.
+> Este repositório é de uso acadêmico e destina-se exclusivamente às atividades da disciplina ENE0011 - Laboratório de Redes.

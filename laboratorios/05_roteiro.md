@@ -1,4 +1,4 @@
-Disciplina: **ENE0011 – Laboratório de Redes**  
+Disciplina: **ENE0011 - Laboratório de Redes**  
 Curso: **Engenharia de Redes de Comunicação**  
 Instituição: **Universidade de Brasília (UnB)**  
 Departamento: **Engenharia Elétrica**  
@@ -6,7 +6,7 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 ---
 
-# Roteiro do Experimento 05 – Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2
+# Roteiro do Experimento 05 - Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2
 
 
 
@@ -48,7 +48,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
   - Ele atua como um **firewall para mensagens DHCP**, permitindo apenas respostas vindas de portas confiáveis.
 
-  - Cria uma **tabela de ligações IP–MAC–Porta** baseada nas concessões legítimas do servidor DHCP.
+  - Cria uma **tabela de ligações IP-MAC-Porta** baseada nas concessões legítimas do servidor DHCP.
   - Essa tabela é usada por outros recursos de segurança, como o **Dynamic ARP Inspection (DAI)**.
 
   - **Portas confiáveis (trusted)**: normalmente conectadas ao servidor DHCP ou ao uplink para o core.
@@ -340,10 +340,11 @@ Microcomputadores do laboratório.
 
 
 BIBLIOGRAFIA   
-[1] J. F. Kurose e K. W. Ross – Computer Networks: A Top-Down Approach. (5th ed.). Pearson
+[1] J. F. Kurose e K. W. Ross - Computer Networks: A Top-Down Approach. (5th ed.). Pearson
 Addison-Wesley, 2009.   
 [2] W. Stallings - Data and Computer Communications. Prentice-Hall, 2006.   
 [3] F. C. Xavier - Roteadores Cisco. (2a ed.). Novatec, 2010.   
 [4] Cisco Networking Academy, disponível em http://cisco.netacad.net.   
 [5] Sites diversos sobre protocolo RIP na Internet.   
+
 
