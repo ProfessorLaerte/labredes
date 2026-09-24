@@ -1,6 +1,12 @@
-# Roteiro do Experimento 02:
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**  
+Professor: **Prof. Dr. Laerte Peotta de Melo**
 
-## Configurar Senhas Seguras e SSH
+---
+
+# Roteiro do Experimento 02 – Configurar Senhas Seguras e SSH
 
 
 

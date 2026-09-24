@@ -1,6 +1,12 @@
-# Roteiro do Experimento 01:
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**  
+Professor: **Prof. Dr. Laerte Peotta de Melo**
 
-## Introdução aos dispositivos de Redes
+---
+
+# Roteiro do Experimento 01 – Introdução aos Dispositivos de Redes
 
 
 

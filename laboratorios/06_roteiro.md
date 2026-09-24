@@ -1,6 +1,12 @@
-# Roteiro do Experimento 06
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**  
+Professor: **Prof. Dr. Laerte Peotta de Melo**
 
-## Desafio de resolução de problemas.
+---
+
+# Roteiro do Experimento 06 – Desafio de Resolução de Problemas (Troubleshooting)
 
 ## Objetivo
 
@@ -20,7 +26,7 @@ O foco é desenvolver habilidades práticas de:
 
 ## Descrição da Atividade
 
-O arquivo `.pkt` fornecido contém uma rede dividida em três andares, com computadores, impressoras, switches e um roteador configurados.
+O arquivo `.pkt` fornecido ([Baixar arquivo do laboratório](./topologias/experimento_06_nao_resolvido.pkt)) contém uma rede dividida em três andares, com computadores, impressoras, switches e um roteador configurados.
 Apesar da configuração inicial, **existem falhas de acesso** que precisam ser analisadas e corrigidas.
 
 O estudante deve:

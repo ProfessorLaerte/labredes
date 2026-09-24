@@ -1,6 +1,12 @@
-# Roteiro do Experimento 05:
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**  
+Professor: **Prof. Dr. Laerte Peotta de Melo**
 
-## Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2
+---
+
+# Roteiro do Experimento 05 – Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2
 
 
 
@@ -101,6 +107,8 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 9. Configurar SSH.
 
 <img width="819" height="457" alt="Captura de tela de 2026-09-07 19-31-38" src="https://github.com/user-attachments/assets/0ee450c5-b149-4766-94eb-67e6c008fa7d" />
+ 
+> **Topologia Packet Tracer:** [Baixar arquivo do laboratório](./topologias/experimento_05_nao_configurado.pkt)
 
 
 

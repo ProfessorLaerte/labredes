@@ -32,8 +32,10 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 A estrutura do repositório segue o padrão abaixo:
 
-- `laboratórios/` — roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
-- `labs/` — pasta **antiga**, mantida apenas como referência histórica. Contém os roteiros anteriores (Experimentos 01 a 11: dispositivos de rede, sniffers, VLAN e roteamento estático, RIP, OSPF em suas variações, ataques ao OSPF e BGP), além de uma lista de comandos OSPF, um modelo de relatório e uma lista de VMs para cibersegurança.
+- `laboratorios/` — Roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
+  - `topologias/` — Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
+- `modelo_relatorio.md` — Modelo oficial de relatório a ser preenchido e entregue pelos alunos.
+- `labs/` — Pasta mantida como **referência histórica**, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
 
 Cada laboratório possui um roteiro próprio contendo:
 - Objetivo do experimento;
@@ -48,12 +50,12 @@ Cada laboratório possui um roteiro próprio contendo:
 
 | Laboratório | Tema | Link |
 |:------------:|:------|------|
-| 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratórios/Roteiro_experimento_1.md) |
-| 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratórios/Roteiro_experimento_2.md) |
-| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratórios/Roteiro_experimento_3.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento3_nao_configurado.pkt) |
-| 04 | VLAN e Roteamento Estático | [Acessar](./laboratórios/Roteiro_experimento_4.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento4_nao_configurado.pkt) |
-| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratórios/Roteiro_experimento_5.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento5_nao_configurado.pkt) |
-| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratórios/Roteiro_experimento_6.md)<br>[Arquivo Packet Tracer](./laboratórios/Experimento_6_nao_resolvido.pkt) |
+| 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) |
+| 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratorios/02_roteiro.md) |
+| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratorios/03_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
+| 04 | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
+| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratorios/05_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
+| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md)<br>[Arquivo Packet Tracer](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
 
 ---
 
@@ -65,7 +67,7 @@ As atividades laboratoriais serão desenvolvidas de forma **prática e supervisi
 - Observação do comportamento da rede;
 - Registro técnico das atividades realizadas.
 
-> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de **relatório** [Acessar](https://github.com/ProfessorLaerte/labredes/blob/main/labs/relatorio.md) e registrar os resultados conforme solicitado. 
+> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de **relatório** [Acessar](./modelo_relatorio.md) e registrar os resultados conforme solicitado. 
 
 ---
 

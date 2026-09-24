@@ -1,6 +1,12 @@
-# Roteiro do Experimento 03:
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**  
+Professor: **Prof. Dr. Laerte Peotta de Melo**
 
-## Configurar Sub-redes com VLSM
+---
+
+# Roteiro do Experimento 03 – Configurar Sub-redes com VLSM
 
 
 
@@ -86,7 +92,7 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 <img width="1110" height="491" alt="image" src="https://github.com/user-attachments/assets/63bd0377-8a2d-4ac2-9c25-cf18b4198c7a" />
 
 
-No cenário fornecido, a conexão entre o roteadores R1 e o servidor estão configurados. 
+No cenário fornecido ([Baixar arquivo do laboratório](./topologias/experimento_03_nao_configurado.pkt)), a conexão entre o roteadores R1 e o servidor estão configurados. 
 
 Você deve criar um novo esquema de endereçamento IPv4 que acomode 4 sub-redes usando a rede 192.168.0.0/24. 
 

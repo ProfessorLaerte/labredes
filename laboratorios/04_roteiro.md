@@ -1,4 +1,12 @@
-# Experimento 04 – VLAN e Roteamento Estático
+Disciplina: **ENE0011 – Laboratório de Redes**  
+Curso: **Engenharia de Redes de Comunicação**  
+Instituição: **Universidade de Brasília (UnB)**  
+Departamento: **Engenharia Elétrica**  
+Professor: **Prof. Dr. Laerte Peotta de Melo**
+
+---
+
+# Roteiro do Experimento 04 – VLAN e Roteamento Estático
 
 ## Objetivo
 
@@ -110,7 +118,7 @@ Uma possível solução de projeto considera:
 ### Etapa 3 – Configuração e Verificação de VLANs em Switches
 
 1. Inicie o **Cisco Packet Tracer**.
-2. Abra o arquivo de topologia fornecido. [Baixar arquivo do laboratório](https://drive.google.com/file/d/1VqMa11OYRS9bMHEfkWrAHtE9zrmCbiiz/view?usp=sharing)
+2. Abra o arquivo de topologia fornecido: [Baixar arquivo do laboratório](./topologias/experimento_04_nao_configurado.pkt)
 
 3. Configure os switches para:
    - Criar as VLANs;
