@@ -30,19 +30,58 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 ## Organização do Repositório
 
-A estrutura do repositório segue o padrão abaixo:
+A estrutura de arquivos e diretórios do repositório está organizada da seguinte forma:
 
-- `laboratorios/` — Roteiros atuais dos experimentos, com foco em endereçamento, VLAN, segurança (senhas seguras, SSH, VLSM, redundância e hardening de camada 2) e um desafio de troubleshooting.
-  - `topologias/` — Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
-- `modelo_relatorio.md` — Modelo oficial de relatório a ser preenchido e entregue pelos alunos.
-- `labs/` — Pasta mantida como **referência histórica**, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
+```text
+labredes/
+├── README.md                              # Apresentação da disciplina, diretrizes e índice geral
+├── modelo_relatorio.md                    # Modelo oficial para confecção e entrega dos relatórios
+│
+├── laboratorios/                          # Diretório padrão da disciplina com os roteiros vigentes
+│   ├── 01_roteiro.md                      # Exp 01: Introdução aos Dispositivos de Redes
+│   ├── 02_roteiro.md                      # Exp 02: Configurar Senhas Seguras e SSH
+│   ├── 03_roteiro.md                      # Exp 03: Configurar Sub-redes com VLSM
+│   ├── 04_roteiro.md                      # Exp 04: VLAN e Roteamento Estático
+│   ├── 05_roteiro.md                      # Exp 05: Topologia Redundante com VLANs, EtherChannel e Hardening
+│   ├── 06_roteiro.md                      # Exp 06: Desafio de Resolução de Problemas (Troubleshooting)
+│   └── topologias/                        # Arquivos de simulação do Cisco Packet Tracer (.pkt)
+│       ├── experimento_03_nao_configurado.pkt
+│       ├── experimento_04_nao_configurado.pkt
+│       ├── experimento_05_nao_configurado.pkt
+│       └── experimento_06_nao_resolvido.pkt
+│
+└── labs/                                  # Diretório com o histórico anterior da disciplina
+    ├── README.md                          # Informações e índice do acervo histórico
+    ├── lab-01.md a lab-11.md              # Roteiros anteriores (Dispositivos, RIP, OSPF, BGP, etc.)
+    ├── comandos.md                        # Guia rápido de comandos Cisco IOS e OSPF
+    ├── relatorio.md                       # Modelo histórico de relatório
+    ├── VM-Cybersecurity.md                # Orientações sobre máquinas virtuais para práticas de cibersegurança
+    └── arquivos/                          # Topologias de apoio dos experimentos históricos
+        └── Exp-08 -Vlan_configurado.pkt
+```
 
-Cada laboratório possui um roteiro próprio contendo:
-- Objetivo do experimento;
-- Fundamentação teórica;
-- Roteiro de atividades;
-- Comandos a serem utilizados;
-- Orientações para entrega.
+### Detalhamento dos Diretórios e Arquivos
+
+- **`laboratorios/` (Padrão da Disciplina)**:  
+  Diretório principal com as atividades práticas ativas do semestre. Cada arquivo `XX_roteiro.md` contém:
+  - Cabeçalho de identificação institucional;
+  - Objetivo e fundamentação teórica;
+  - Descrição da atividade e comandos a serem utilizados;
+  - Passo a passo da montagem/configuração;
+  - Orientações e critérios para entrega do relatório.
+
+  - **`laboratorios/topologias/`**:  
+    Centraliza os arquivos de topologia pré-configurados ou de desafio do **Cisco Packet Tracer** (`.pkt`) vinculados aos experimentos atuais, prontos para download e uso direto pelos alunos.
+
+- **`labs/` (Histórico da Disciplina)**:  
+  Mantido como registro e acervo de consulta das edições anteriores da disciplina. Inclui 11 experimentos legados (com foco em analisadores de protocolo/Wireshark, protocolos de roteamento dinâmico RIP, OSPF e BGP, além de testes de segurança de roteamento), guias rápidos e orientações para uso de máquinas virtuais (VMs).
+
+  - **`labs/arquivos/`**:  
+    Armazena arquivos de topologia Packet Tracer utilizados nas atividades históricas.
+
+- **Arquivos da Raiz**:  
+  - **`README.md`**: Guia central da disciplina, com ementa, objetivos, metodologia, tabela de acesso rápido aos laboratórios e bibliografia.
+  - **`modelo_relatorio.md`**: Estrutura padronizada em Markdown que cada estudante deve clonar e preencher com seus dados, procedimentos, evidências visuais e análises técnicas para a entrega das atividades.
 
 ---
 
