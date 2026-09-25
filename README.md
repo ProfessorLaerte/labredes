@@ -34,7 +34,6 @@ A estrutura do repositório segue o padrão abaixo:
 
 - `laboratorios/` - Roteiros atuais dos experimentos, divididos entre práticas de redes (endereçamento, VLAN, SSH, VLSM, redundância e troubleshooting) e serviços de rede (DHCP em ambiente Linux).
   - `topologias/` - Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
-- `modelo_relatorio.md` - Modelo oficial de relatório a ser preenchido e entregue pelos alunos.
 - `labs/` - Pasta mantida como referência histórica, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
 
 Cada laboratório possui um roteiro próprio contendo:
@@ -75,7 +74,7 @@ As atividades laboratoriais serão desenvolvidas de forma **prática e supervisi
 - Observação do comportamento da rede;
 - Registro técnico das atividades realizadas.
 
-> O aluno deve seguir rigorosamente os **roteiros** utilizando o modelo de **relatório** [Acessar](./modelo_relatorio.md) e registrar os resultados conforme solicitado. 
+> O aluno deve seguir rigorosamente os **roteiros** e registrar os resultados conforme solicitado. 
 
 ---
 
