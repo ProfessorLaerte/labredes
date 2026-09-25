@@ -238,30 +238,6 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 4. **Teste de Conectividade**   Execute testes de **ping** entre os PCs e o servidor, além de acessar o site **[www.lab3.com](https://www.lab3.com)** pelo navegador. Documente os prints das respostas e justifique como esses testes comprovam que o esquema de endereçamento e as configurações de segurança foram aplicados corretamente.
 
-
-
----
-
-
-
-EQUIPAMENTO E MATERIAL
-Microcomputadores do laboratório.
-
----
-
-
-
-
-BIBLIOGRAFIA   
-[1] J. F. Kurose e K. W. Ross - Computer Networks: A Top-Down Approach. (5th ed.). Pearson
-Addison-Wesley, 2009.   
-[2] W. Stallings - Data and Computer Communications. Prentice-Hall, 2006.   
-[3] F. C. Xavier - Roteadores Cisco. (2a ed.). Novatec, 2010.   
-[4] Cisco Networking Academy, disponível em http://cisco.netacad.net.   
-[5] Sites diversos sobre protocolo RIP na Internet.   
-
-**Adatptado de www.netacad.com**
-
 ---
 
 [← Anterior: Experimento 02](02_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 04 →](04_roteiro.md)

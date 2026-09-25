@@ -329,25 +329,5 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 ---
 
-
-
-EQUIPAMENTO E MATERIAL
-Microcomputadores do laboratório.
-
----
-
-
-
-
-BIBLIOGRAFIA   
-[1] J. F. Kurose e K. W. Ross - Computer Networks: A Top-Down Approach. (5th ed.). Pearson
-Addison-Wesley, 2009.   
-[2] W. Stallings - Data and Computer Communications. Prentice-Hall, 2006.   
-[3] F. C. Xavier - Roteadores Cisco. (2a ed.). Novatec, 2010.   
-[4] Cisco Networking Academy, disponível em http://cisco.netacad.net.   
-[5] Sites diversos sobre protocolo RIP na Internet.   
-
----
-
 [← Anterior: Experimento 04](04_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 06 →](06_roteiro.md)
 

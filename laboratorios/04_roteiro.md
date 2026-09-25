@@ -283,20 +283,5 @@ Todos os comandos executados devem ser registrados e explicados.
 
 ---
 
-## Equipamentos e Materiais
-
-- Computadores do laboratório;
-- Software **Cisco Packet Tracer**.
-
----
-
-## Bibliografia
-
-1. KUROSE, J. F.; ROSS, K. W.  **Redes de computadores e a Internet 8ª edição** - Bookman - 2021.
-
-2. COMER, D. E.  **Internetworking with TCP/IP - Volume I 5ª edição** - Prentice Hall, 2005.
-
----
-
 [← Anterior: Experimento 03](03_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 05 →](05_roteiro.md)
 

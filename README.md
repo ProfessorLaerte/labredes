@@ -111,6 +111,7 @@ A avaliação da disciplina será baseada em:
 - **TANENBAUM, Andrew S.; WETHERALL, David J.** Redes de computadores. 5. ed. São Paulo: Pearson, 2011.
 - **STALLINGS, William.** Comunicações de dados e redes de computadores. 10. ed. São Paulo: Pearson, 2014.
 - **COMER, Douglas E.** Interligação de redes com TCP/IP: princípios, protocolos e arquitetura. 5. ed. Rio de Janeiro: Elsevier, 2006.
+- **XAVIER, Fabrício de Castro.** Roteadores Cisco. 2. ed. São Paulo: Novatec, 2010.
 
 ## Documentos Normativos e Técnicos
 
