@@ -10,11 +10,11 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 
 
-### OBJETIVO
+## Objetivo
 
 O objetivo deste experimento é aplicar medidas básicas de segurança em dispositivos de rede Cisco, configurando senhas seguras e habilitando o acesso remoto via SSH. Dessa forma, busca-se garantir a proteção contra acessos não autorizados e preparar o ambiente para gerenciamento confiável e seguro.
 
-### INTRODUÇÃO TEÓRICA
+## Introdução Teórica
 
 A configuração de senhas fortes e o uso do protocolo SSH são práticas essenciais de segurança em redes. Enquanto as senhas protegem o acesso local e remoto ao equipamento, o SSH substitui o Telnet ao oferecer criptografia nas comunicações, evitando que credenciais e dados trafeguem em texto claro. Além disso, o uso de interfaces lógicas como a VLAN1 e SVIs permite o gerenciamento remoto dos switches, reforçando a importância de boas práticas na administração de redes corporativas.
 
@@ -46,7 +46,7 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
   
 
-<img width="1279" height="213" alt="Captura de tela de 2026-08-08 16-33-38" src="https://github.com/user-attachments/assets/adac3eaf-4dc7-4475-8684-86dd5bd1d366" />
+<img width="1279" height="213" alt="Linhas de acesso do Cisco IOS" src="https://github.com/user-attachments/assets/adac3eaf-4dc7-4475-8684-86dd5bd1d366" />
 
 
 
@@ -69,7 +69,7 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
 
 
-### DESCRIÇÃO DA ATIVIDADE
+## Descrição da Atividade
 
 
 
@@ -83,7 +83,7 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
    - O cenário deverá ser montado e configurado da seguinte forma:
 
-     <img width="458" height="352" alt="Captura de tela de 2026-08-08 15-36-25" src="https://github.com/user-attachments/assets/e75f7b9f-fddb-4cd3-878f-187e940b9e9d" />
+     <img width="458" height="352" alt="Topologia do Experimento 02 no Packet Tracer" src="https://github.com/user-attachments/assets/e75f7b9f-fddb-4cd3-878f-187e940b9e9d" />
 
 
 
@@ -277,7 +277,7 @@ O administrador de redes pediu que você prepare o RTA e SW1 para implantação.
     
 
 
-# Questões
+## Questões
 
 1. Mostre um print da configuração das senhas no roteador (VTY e enable secret). Explique como cada uma protege o acesso ao dispositivo.
 2. Apresente um print da configuração da interface VLAN1 no switch com IP e máscara. Explique a função dessa interface.

@@ -10,12 +10,12 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 
 
-### OBJETIVO
+## Objetivo
 
 O objetivo deste experimento é aplicar a técnica de VLSM para planejar e configurar sub-redes em uma rede IPv4, garantindo que cada departamento receba 
 a quantidade adequada de endereços IP, com eficiência e segurança na utilização dos recursos de endereçamento.
 
-### INTRODUÇÃO TEÓRICA
+## Introdução Teórica
 
 O uso de CIDR e VLSM permite dividir uma rede em sub-redes de tamanhos diferentes, otimizando o espaço de endereçamento e evitando desperdício de IPs. 
 Além disso, configurações de segurança como SSH e criptografia de senhas garantem conectividade confiável e proteção contra acessos não autorizados.
@@ -24,7 +24,7 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 ## Conceitos complementares
 
-## CIDR
+### CIDR
 
 - **CIDR** significa *Classless Inter-Domain Routing*.
 - A notação é escrita como `IP/prefixo`.
@@ -43,7 +43,7 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 
 
-## VLSM
+### VLSM
 
 - **Variable Length Subnet Mask (VLSM)** é a técnica de usar **máscaras de sub-rede de diferentes tamanhos** dentro da mesma rede.
 - Enquanto o CIDR define um prefixo fixo para uma rede, o VLSM permite **dividir a rede em sub-redes menores**, cada uma com a máscara adequada ao número de hosts necessários.
@@ -77,7 +77,7 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 
 
-## Benefícios do VLSM
+### Benefícios do VLSM
 
 - **Eficiência**: reduz desperdício de endereços IP.
 - **Flexibilidade**: cada sub-rede pode ter o tamanho exato necessário.
@@ -85,11 +85,11 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 
 
-# Experimento
+## Experimento
 
-## Histórico/Cenário 
+### Histórico/Cenário
 
-<img width="1110" height="491" alt="image" src="https://github.com/user-attachments/assets/63bd0377-8a2d-4ac2-9c25-cf18b4198c7a" />
+<img width="1110" height="491" alt="Topologia do Experimento 03 no Packet Tracer" src="https://github.com/user-attachments/assets/63bd0377-8a2d-4ac2-9c25-cf18b4198c7a" />
 
 
 No cenário fornecido ([Baixar arquivo do laboratório](./topologias/experimento_03_nao_configurado.pkt)), a conexão entre o roteadores R1 e o servidor estão configurados. 
@@ -110,9 +110,9 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-## Instruções
+### Instruções
 
-### Endereçamento IPv4
+#### Endereçamento IPv4
 
 - Use **192.168.0.0/24** para criar sub-redes que atendem aos requisitos do host.
 
@@ -130,13 +130,13 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
   
 
-### Configurações dos computadores
+#### Configurações dos computadores
 
 - Defina as configurações de endereço IPv4, máscara de sub-rede, gateway padrão e DNS server nos atribuídos dos PCs, usando seu esquema de endereçamento.
 
   
 
-### Configurações de R1 e dos Swicthes
+#### Configurações de R1 e dos Switches
 
 - Configure o nome do dispositivo conforme a Tabela de Endereçamento.
 
@@ -181,7 +181,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-## Tabela de Documentação das Redes
+### Tabela de Documentação das Redes
 
 | **Nome da Rede** | **Endereço da Rede** | **Broadcast**   | **Máscara CIDR** | **Hosts Utilizáveis** | **Primeiro Host** | **Último Host** |
 | ---------------- | -------------------- | --------------- | ---------------- | --------------------- | ----------------- | --------------- |
@@ -193,7 +193,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-## Tabela de Endereçamento
+### Tabela de Endereçamento
 
 | Dispositivo        | Interface | End. IP / Prefixo | Gateway   |
 | ------------------ | --------- | ----------------- | --------- |
@@ -214,7 +214,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-### Requisitos de conectividade
+#### Requisitos de conectividade
 
 - Usando navegadores Web nos computadores ADM, Vendas e TI, navegue para www.lab3.com.
 
@@ -222,7 +222,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
   
 
-# Questões
+## Questões
 
 1. **Teste de conexão SSH**   Realize um teste de conexão via SSH em um **switch** e em um **roteador**. Documente os **comandos utilizados** e as **saídas obtidas** (print da tela). Explique como o resultado confirma que o acesso remoto seguro foi configurado corretamente.
 

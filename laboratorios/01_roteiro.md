@@ -10,16 +10,16 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 
 
-### OBJETIVO
+## Objetivo
 
 Conhecer os dispositivos básicos de rede. Realizar operações básicas em um roteador CISCO.
 
-### INTRODUÇÃO TEÓRICA
+## Introdução Teórica
 
 Switch. Roteador. Comparação entre os dispositivos de rede. Roteadores Cisco. Sistema
 Operacional Cisco IOS (Internetworking Operating System).
 
-### DESCRIÇÃO DA ATIVIDADE
+## Descrição da Atividade
 
 1. Crie um cenário no cisco Packet Tracer com os seguintes dispositivos:
    - 2 Roteadores (1841)
@@ -27,7 +27,7 @@ Operacional Cisco IOS (Internetworking Operating System).
    - 2 Dispositivos finais (PCs/Laptops)
    - O cenário deverá ser montado e configurado da seguinte forma:
 
-<img width="924" height="492" alt="Captura de tela de 2026-08-04 15-52-58" src="https://github.com/user-attachments/assets/0bf34e6e-11b7-4ebc-9215-0194af1df709" />
+<img width="924" height="492" alt="Topologia do Experimento 01 no Packet Tracer" src="https://github.com/user-attachments/assets/0bf34e6e-11b7-4ebc-9215-0194af1df709" />
 
 | **Dispositivo** | **Interface** | **Endereço IP** | **Máscara de Sub-rede** |
 | --------------- | ------------- | --------------- | ----------------------- |
@@ -44,7 +44,7 @@ Operacional Cisco IOS (Internetworking Operating System).
 
 - PCs e Laptops devem ser configurados utilizando a interface gráfica.
 
-- Swicthes não precisam ser configurados .
+- Switches não precisam ser configurados.
 
   
 

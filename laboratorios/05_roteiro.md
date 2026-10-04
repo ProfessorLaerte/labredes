@@ -10,7 +10,7 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 
 
-### OBJETIVO
+## Objetivo
 
 Implementar uma topologia redundante em laboratório utilizando **VLANs**, **EtherChannel**, **roteamento inter-VLAN** e mecanismos de **segurança de camada 2**, de forma a garantir maior disponibilidade, desempenho e proteção da rede.
 
@@ -89,7 +89,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 
 
-### DESCRIÇÃO DA ATIVIDADE
+## Descrição da Atividade
 
 1. Cenário:
    1. Switch0 Core - vlan100
@@ -100,13 +100,13 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 2. Escolher os blocos de redes que serão utilizados
 3. Configurar agregação de links (EtherChannels) entre os switches de acesso e o core
 4. Configurar sub-interfaces do roteador para servirem de gateway para as vlans
-5. Configurar DHCP server nos swicthes de acesso excluindo os endereços do 1 ao 49
+5. Configurar DHCP server nos switches de acesso excluindo os endereços do 1 ao 49
 6. Implementar DHCP snooping e ARP inspection
 7. Configurar SVI para gerenciamento das vlans
 8. Desligar portas não ativas
 9. Configurar SSH.
 
-<img width="819" height="457" alt="Captura de tela de 2026-09-07 19-31-38" src="https://github.com/user-attachments/assets/0ee450c5-b149-4766-94eb-67e6c008fa7d" />
+<img width="819" height="457" alt="Topologia do Experimento 05 no Packet Tracer" src="https://github.com/user-attachments/assets/0ee450c5-b149-4766-94eb-67e6c008fa7d" />
  
 > **Topologia Packet Tracer:** [Baixar arquivo do laboratório](./topologias/experimento_05_nao_configurado.pkt)
 
@@ -117,7 +117,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 ### Instruções
 
-#### Etapa 1:   Configuração do Switch1 (VLAN 10, DHCP, SSH, EtherChannels, Snooping e DAI)
+#### Etapa 1: Configuração do Switch1 (VLAN 10, DHCP, SSH, EtherChannels, Snooping e DAI)
 
 1. Nome do dispositivo
 
@@ -316,7 +316,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    
 
 
-# Questões
+## Questões
 
 1. **EtherChannel em funcionamento**   Configure o EtherChannel entre o Switch1 e o Switch0. Em seguida, execute o comando `show etherchannel summary`.
    - Pergunta: O Port-Channel aparece como ativo?

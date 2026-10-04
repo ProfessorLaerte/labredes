@@ -127,7 +127,7 @@ Uma possível solução de projeto considera:
 
 Também deve ser configurado o **endereço IP de gerência** em cada switch, utilizando a VLAN 1, bem como o *default gateway*.
 
-<img width="766" height="567" alt="image" src="https://github.com/user-attachments/assets/44657322-8eaa-4457-a598-d7e3bb2fe86d" />
+<img width="766" height="567" alt="Topologia do Experimento 04 no Packet Tracer" src="https://github.com/user-attachments/assets/44657322-8eaa-4457-a598-d7e3bb2fe86d" />
 
 
 #### Configuração de VLANs no Sw1:

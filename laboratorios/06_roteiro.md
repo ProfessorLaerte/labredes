@@ -22,7 +22,7 @@ O foco é desenvolver habilidades práticas de:
 - Documentação clara do processo de troubleshooting.
 
 ## Cenário
-<img width="1767" height="685" alt="image" src="https://github.com/user-attachments/assets/3723416e-7a83-4e60-83c4-e18352e46fea" />
+<img width="1767" height="685" alt="Topologia do Experimento 06 no Packet Tracer" src="https://github.com/user-attachments/assets/3723416e-7a83-4e60-83c4-e18352e46fea" />
 
 ## Descrição da Atividade
 
