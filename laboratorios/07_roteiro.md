@@ -8,6 +8,8 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 # Roteiro do Experimento 07 - Configuração e Análise do Protocolo DHCP
 
+> **Recurso Didático:** Para auxílio na compreensão dinâmica do protocolo, está disponível o [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html), que permite acompanhar passo a passo o processo DORA, a validação de endereços com ARP Probe e o tratamento de colisões de IP. Mais detalhes e recursos de prática estão descritos na [Seção 21](#21-recurso-complementar-simulador-visual-de-dhcp-dora).
+
 ## 1. Objetivo
 
 Este laboratório tem como objetivo demonstrar o funcionamento do protocolo **DHCP (Dynamic Host Configuration Protocol)** em uma rede IPv4 privada classe C.
@@ -582,6 +584,24 @@ A rede utilizada foi `192.168.0.0/24`, com o servidor DHCP no endereço `192.168
 A prática permitiu observar que o DHCP reduz o esforço de configuração manual, evita erros operacionais e centraliza a administração dos parâmetros básicos de rede.
 
 Além da configuração, a análise com `tcpdump`, logs do sistema e arquivo de concessões permitiu compreender o funcionamento real do protocolo DHCP em uma rede local.
+
+---
+
+## 21. Recurso Complementar: Simulador Visual de DHCP (DORA)
+
+Para consolidar os conceitos teóricos e visualizar a troca de mensagens do protocolo em tempo real antes ou após a prática no PNetLab, recomenda-se explorar o simulador interativo:
+
+> **Simulador Visual de DHCP (RFC 2131):**  
+> Acompanhe passo a passo a máquina de estados do cliente DHCP, o fluxo das mensagens no domínio de broadcast e a formação da concessão (*lease*).  
+> Acesso à ferramenta: [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html)
+
+### Principais Recursos para Prática:
+- **Execução Passo a Passo do DORA:** Observação detalhada das fases *Discover*, *Offer*, *Request* e *Acknowledge*.
+- **Inspeção de Cabeçalhos e Opções:** Análise dos campos `xid`, `ciaddr`, `yiaddr`, `chaddr` e das opções DHCP essenciais (53, 54, 51, 1, 3 e 6).
+- **Validação de Endereço com ARP Probe:** Emissão de sondas ARP pelo cliente (RFC 5227 e RFC 2131) antes de fixar o endereço oferecido, prevenindo duplicidades na rede local.
+- **Simulação de Colisão de Endereço IP:** Cenário de teste onde um host preexistente responde ao ARP Probe, disparando o envio de uma mensagem *DHCPDECLINE* e a solicitação de um novo endereço.
+- **Ciclo de Vida e Renovação de Leases:** Testes de renovação no temporizador $T_1$ (50% da concessão) e liberação voluntária com *DHCPRELEASE*.
+- **Resiliência e Tolerância a Falhas:** Simulação com múltiplos servidores DHCP concorrentes, desconexão de enlaces e servidores inativos.
 
 ---
 
