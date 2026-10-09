@@ -294,7 +294,7 @@ Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da
 
 Ferramentas de IA podem apoiar o estudo dos mecanismos de autenticação, do SSH e da sintaxe dos comandos do Cisco IOS. As configurações, as capturas de tela e as respostas às questões devem ser produzidas pelo próprio estudante; nenhuma senha ou chave usada no laboratório deve ser inserida em plataformas externas.
 
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
 **Condutas vedadas:**
 

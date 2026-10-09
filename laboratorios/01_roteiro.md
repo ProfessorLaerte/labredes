@@ -215,7 +215,7 @@ Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da
 
 Ferramentas de IA podem apoiar o estudo das funções de *hubs*, *switches* e roteadores e a revisão do texto das respostas. A montagem da topologia, as configurações e as capturas de tela devem ser produzidas pelo próprio estudante no simulador.
 
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
 **Condutas vedadas:**
 

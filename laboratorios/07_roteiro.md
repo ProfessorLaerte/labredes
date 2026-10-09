@@ -50,6 +50,8 @@ ACK       -> o servidor confirma a concessão
 
 <img width="1448" height="1086" alt="Ilustração do processo DORA do DHCP: Discover, Offer, Request e ACK" src="https://github.com/user-attachments/assets/de81010d-24be-4d57-80c9-ee1d59524dbe" />
 
+*Imagem gerada com uso de inteligência artificial (OpenAI, ChatGPT).*
+
 ---
 
 ## 3. Topologia
@@ -568,7 +570,7 @@ Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da
 
 Ferramentas de IA podem apoiar o estudo da fundamentação teórica do DHCP, a interpretação de mensagens de erro do serviço e a revisão do texto das respostas. A configuração do servidor e dos clientes, as capturas com `tcpdump` e as saídas de comandos devem ser produzidas pelo próprio estudante no PNetLab.
 
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
 **Condutas vedadas:**
 

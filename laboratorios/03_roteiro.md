@@ -248,7 +248,7 @@ Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da
 
 Ferramentas de IA podem apoiar o estudo dos conceitos de sub-rede e a conferência de resultados já calculados. O dimensionamento VLSM, os cálculos de endereçamento e as configurações devem ser feitos e justificados pelo próprio estudante.
 
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
 **Condutas vedadas:**
 

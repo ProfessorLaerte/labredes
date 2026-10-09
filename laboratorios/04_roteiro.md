@@ -291,7 +291,7 @@ Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da
 
 Ferramentas de IA podem apoiar o estudo de VLAN, *trunking* 802.1Q e roteamento estático e a interpretação de mensagens de erro. As configurações, as saídas de comandos e as capturas de tela devem ser produzidas pelo próprio estudante no simulador.
 
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
 **Condutas vedadas:**
 

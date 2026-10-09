@@ -217,7 +217,7 @@ Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da
 
 Ferramentas de IA podem apoiar a consulta à sintaxe e ao significado dos comandos de verificação. A identificação dos problemas, o raciocínio de diagnóstico e as correções registradas no relatório devem ser do próprio estudante, a partir das evidências coletadas na topologia.
 
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
 **Condutas vedadas:**
 
