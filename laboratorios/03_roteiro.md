@@ -240,4 +240,33 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 ---
 
+## Uso de Inteligência Artificial
+
+Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026.
+
+**Regime desta atividade:** uso permitido.
+
+Ferramentas de IA podem apoiar o estudo dos conceitos de sub-rede e a conferência de resultados já calculados. O dimensionamento VLSM, os cálculos de endereçamento e as configurações devem ser feitos e justificados pelo próprio estudante.
+
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+
+**Condutas vedadas:**
+
+- fabricar ou alterar saídas de comandos, capturas, dados ou referências;
+- apresentar como própria uma resposta substancialmente elaborada por IA sem contribuição intelectual compatível;
+- omitir o uso relevante de IA;
+- inserir em plataformas externas dados pessoais, senhas, chaves ou capturas de redes reais.
+
+**Declaração:** obrigatória quando a IA tiver influência relevante sobre o conteúdo, a análise, a interpretação ou as conclusões do relatório. Anexar ao relatório:
+
+| Campo | Preenchimento |
+| :--- | :--- |
+| Ferramenta e versão | |
+| Finalidade | |
+| Etapas do trabalho em que foi empregada | |
+| Natureza da contribuição | |
+| Validação humana realizada | |
+
+---
+
 [← Anterior: Experimento 02](02_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 04 →](04_roteiro.md)

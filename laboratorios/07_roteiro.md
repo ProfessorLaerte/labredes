@@ -8,7 +8,7 @@ Professor: **Prof. Dr. Laerte Peotta de Melo**
 
 # Roteiro do Experimento 07 - Configuração e Análise do Protocolo DHCP
 
-> **Recurso Didático:** Para auxílio na compreensão dinâmica do protocolo, está disponível o [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html), que permite acompanhar passo a passo o processo DORA, a validação de endereços com ARP Probe e o tratamento de colisões de IP. Mais detalhes e recursos de prática estão descritos na [Seção 21](#21-recurso-complementar-simulador-visual-de-dhcp-dora).
+> **Recurso Didático:** Para auxílio na compreensão dinâmica do protocolo, está disponível o [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html), que permite acompanhar passo a passo o processo DORA, a validação de endereços com ARP Probe e o tratamento de colisões de IP. Mais detalhes e recursos de prática estão descritos na [Seção 22](#22-recurso-complementar-simulador-visual-de-dhcp-dora).
 
 ## 1. Objetivo
 
@@ -555,11 +555,41 @@ Cada aluno deverá entregar um relatório contendo:
 - saída do arquivo `/var/lib/dhcp/dhcpd.leases`;
 - evidência do processo DORA usando `tcpdump`;
 - teste de conectividade entre clientes e servidor;
-- respostas das questões de fixação.
+- respostas das questões de fixação;
+- declaração de uso de IA generativa, conforme a seção "Uso de Inteligência Artificial" (obrigatória se houve uso relevante de IA).
 
 ---
 
-## 19. Critérios de Avaliação
+## 19. Uso de Inteligência Artificial
+
+Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026.
+
+**Regime desta atividade:** uso permitido.
+
+Ferramentas de IA podem apoiar o estudo da fundamentação teórica do DHCP, a interpretação de mensagens de erro do serviço e a revisão do texto das respostas. A configuração do servidor e dos clientes, as capturas com `tcpdump` e as saídas de comandos devem ser produzidas pelo próprio estudante no PNetLab.
+
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+
+**Condutas vedadas:**
+
+- fabricar ou alterar saídas de comandos, capturas, dados ou referências;
+- apresentar como própria uma resposta substancialmente elaborada por IA sem contribuição intelectual compatível;
+- omitir o uso relevante de IA;
+- inserir em plataformas externas dados pessoais, senhas, chaves ou capturas de redes reais.
+
+**Declaração:** obrigatória quando a IA tiver influência relevante sobre o conteúdo, a análise, a interpretação ou as conclusões do relatório. Anexar ao relatório:
+
+| Campo | Preenchimento |
+| :--- | :--- |
+| Ferramenta e versão | |
+| Finalidade | |
+| Etapas do trabalho em que foi empregada | |
+| Natureza da contribuição | |
+| Validação humana realizada | |
+
+---
+
+## 20. Critérios de Avaliação
 
 | Critério | Pontuação |
 |---|---:|
@@ -575,7 +605,7 @@ Cada aluno deverá entregar um relatório contendo:
 
 ---
 
-## 20. Conclusão
+## 21. Conclusão
 
 Neste laboratório, foi configurado um servidor DHCP para distribuir automaticamente endereços IPv4 em uma rede privada classe C.
 
@@ -587,7 +617,7 @@ Além da configuração, a análise com `tcpdump`, logs do sistema e arquivo de 
 
 ---
 
-## 21. Recurso Complementar: Simulador Visual de DHCP (DORA)
+## 22. Recurso Complementar: Simulador Visual de DHCP (DORA)
 
 Para consolidar os conceitos teóricos e visualizar a troca de mensagens do protocolo em tempo real antes ou após a prática no PNetLab, recomenda-se explorar o simulador interativo:
 

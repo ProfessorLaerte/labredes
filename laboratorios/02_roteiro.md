@@ -286,4 +286,33 @@ O administrador de redes pediu que você prepare o RTA e SW1 para implantação.
 
 ---
 
+## Uso de Inteligência Artificial
+
+Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026.
+
+**Regime desta atividade:** uso permitido.
+
+Ferramentas de IA podem apoiar o estudo dos mecanismos de autenticação, do SSH e da sintaxe dos comandos do Cisco IOS. As configurações, as capturas de tela e as respostas às questões devem ser produzidas pelo próprio estudante; nenhuma senha ou chave usada no laboratório deve ser inserida em plataformas externas.
+
+**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue. A IA não pode ser indicada como autora ou coautora.
+
+**Condutas vedadas:**
+
+- fabricar ou alterar saídas de comandos, capturas, dados ou referências;
+- apresentar como própria uma resposta substancialmente elaborada por IA sem contribuição intelectual compatível;
+- omitir o uso relevante de IA;
+- inserir em plataformas externas dados pessoais, senhas, chaves ou capturas de redes reais.
+
+**Declaração:** obrigatória quando a IA tiver influência relevante sobre o conteúdo, a análise, a interpretação ou as conclusões do relatório. Anexar ao relatório:
+
+| Campo | Preenchimento |
+| :--- | :--- |
+| Ferramenta e versão | |
+| Finalidade | |
+| Etapas do trabalho em que foi empregada | |
+| Natureza da contribuição | |
+| Validação humana realizada | |
+
+---
+
 [← Anterior: Experimento 01](01_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 03 →](03_roteiro.md)
