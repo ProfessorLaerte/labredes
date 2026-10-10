@@ -213,9 +213,11 @@ O estudante deve apresentar para cada problema:
 
 Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026.
 
-**Regime desta atividade:** uso permitido.
+**Regime desta atividade:** uso restrito.
 
-Ferramentas de IA podem apoiar a consulta à sintaxe e ao significado dos comandos de verificação. A identificação dos problemas, o raciocínio de diagnóstico e as correções registradas no relatório devem ser do próprio estudante, a partir das evidências coletadas na topologia.
+Ferramentas de IA podem ser usadas apenas para consultar a sintaxe e o significado dos comandos de verificação. É vedado usá-las para identificar os problemas, formular o diagnóstico ou definir as correções registradas na seção "Problemas Identificados" e no relatório final.
+
+Justificativa: a atividade avalia a capacidade do estudante de diagnosticar falhas a partir das evidências coletadas na própria topologia, competência que o uso de IA nessas etapas impediria de aferir.
 
 **Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
 
