@@ -129,12 +129,6 @@ A avaliação da disciplina será baseada em:
 
 ---
 
-## Professor Responsável
-
-**Prof. Dr. Laerte Peotta de Melo**
-
----
-
 > Este repositório é de uso acadêmico e destina-se exclusivamente às atividades da disciplina ENE0011 - Laboratório de Redes.
 
 ---
