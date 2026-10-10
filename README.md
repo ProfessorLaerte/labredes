@@ -136,3 +136,9 @@ A avaliação da disciplina será baseada em:
 ---
 
 > Este repositório é de uso acadêmico e destina-se exclusivamente às atividades da disciplina ENE0011 - Laboratório de Redes.
+
+---
+
+## Uso de Inteligência Artificial
+
+Em conformidade com a Política de Uso Responsável da IA da FT/UnB, declara-se que este material foi elaborado com apoio de ferramentas de inteligência artificial generativa (Claude, ChatGPT e Gemini), sob revisão e responsabilidade do professor.
