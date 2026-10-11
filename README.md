@@ -32,9 +32,9 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 A estrutura do repositório segue o padrão abaixo:
 
-- `laboratorios/` - Roteiros atuais dos experimentos, divididos entre práticas de redes (endereçamento, VLAN, SSH, VLSM, redundância e troubleshooting) e serviços de rede (DHCP em ambiente Linux).
+- `laboratorios/` - Roteiros dos experimentos práticos (dispositivos de rede, segurança, VLANs, VLSM, redundância, troubleshooting e serviços de infraestrutura DHCP e DNS).
   - `topologias/` - Arquivos de simulação e topologias do Cisco Packet Tracer (`.pkt`).
-- `labs/` - Pasta mantida como referência histórica, contendo materiais de edições anteriores da disciplina (Experimentos 01 a 11, comandos OSPF e VMs).
+- `images/` - Diagramas técnicos e ilustrações esquemáticas das práticas de laboratório.
 
 Cada laboratório possui um roteiro próprio contendo:
 - Objetivo do experimento;
@@ -63,6 +63,7 @@ Cada laboratório possui um roteiro próprio contendo:
 | Laboratório | Tema | Roteiro | Ambiente / Simulador |
 |:------------:|:------|:-------:|:--------------------:|
 | 07 | Configuração e Análise do Protocolo DHCP | [Acessar](./laboratorios/07_roteiro.md) | PNetLab (Linux) |
+| 08 | Configuração e Análise do Serviço DNS | [Acessar](./laboratorios/08_roteiro.md) | PNetLab (Linux) |
 
 ---
 
@@ -131,4 +132,15 @@ A avaliação da disciplina será baseada em:
 
 ## Uso de Inteligência Artificial
 
-Em conformidade com a Política de Uso Responsável da IA da FT/UnB, declara-se que este material foi elaborado com apoio de ferramentas de inteligência artificial generativa (Claude, ChatGPT e Gemini), sob revisão e responsabilidade do professor.
+Em conformidade com a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026, estabelecem-se as seguintes diretrizes:
+
+### Declaração Docente
+Declara-se que este material didático foi elaborado com apoio de ferramentas de inteligência artificial generativa (Claude, ChatGPT e Gemini), sob estrita supervisão, revisão técnica e responsabilidade do professor responsável.
+
+### Diretrizes para os Estudantes
+- **Regime Geral da Disciplina:** O uso de ferramentas de IA generativa é **permitido** como instrumento de apoio ao aprendizado em todas as atividades laboratoriais (pesquisa conceitual de RFCs, esclarecimento de sintaxe de comandos, interpretação de saídas e suporte à redação técnica dos relatórios).
+- **Responsabilidade Acadêmica:** O estudante é o único responsável pela exatidão técnica, autoria e originalidade de suas entregas. Todas as configurações práticas, comandos executados e capturas de telas e comandos devem ser obrigatoriamente produzidos pelo estudante.
+- **Condutas Vedadas:**
+  - Fabricar, adulterar ou simular saídas de comandos, capturas de telas e comandos ou evidências de laboratório;
+  - Apresentar análises e conclusões elaboradas com o uso de IA sem reflexão, revisão ou contribuição intelectual própria;
+  - Inserir dados sensíveis, credenciais de acesso ou informações confidenciais em plataformas públicas de IA.

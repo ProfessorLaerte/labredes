@@ -557,41 +557,11 @@ Cada aluno deverá entregar um relatório contendo:
 - saída do arquivo `/var/lib/dhcp/dhcpd.leases`;
 - evidência do processo DORA usando `tcpdump`;
 - teste de conectividade entre clientes e servidor;
-- respostas das questões de fixação;
-- declaração de uso de IA generativa, conforme a seção "Uso de Inteligência Artificial" (obrigatória se houve uso relevante de IA).
+- respostas das questões de fixação.
 
 ---
 
-## 19. Uso de Inteligência Artificial
-
-Esta atividade segue a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026.
-
-**Regime desta atividade:** uso permitido.
-
-Ferramentas de IA podem apoiar o estudo da fundamentação teórica do DHCP, a interpretação de mensagens de erro do serviço e a revisão do texto das respostas. A configuração do servidor e dos clientes, as capturas com `tcpdump` e as saídas de comandos devem ser produzidas pelo próprio estudante no PNetLab.
-
-**Responsabilidade:** o estudante responde integralmente pelo conteúdo entregue.
-
-**Condutas vedadas:**
-
-- fabricar ou alterar saídas de comandos, capturas, dados ou referências;
-- apresentar como própria uma resposta substancialmente elaborada por IA sem contribuição intelectual compatível;
-- omitir o uso relevante de IA;
-- inserir em plataformas externas dados pessoais, senhas, chaves ou capturas de redes reais.
-
-**Declaração:** obrigatória quando a IA tiver influência relevante sobre o conteúdo, a análise, a interpretação ou as conclusões do relatório. Anexar ao relatório:
-
-| Campo | Preenchimento |
-| :--- | :--- |
-| Ferramenta e versão | |
-| Finalidade | |
-| Etapas do trabalho em que foi empregada | |
-| Natureza da contribuição | |
-| Validação humana realizada | |
-
----
-
-## 20. Critérios de Avaliação
+## 19. Critérios de Avaliação
 
 | Critério | Pontuação |
 |---|---:|
@@ -607,7 +577,7 @@ Ferramentas de IA podem apoiar o estudo da fundamentação teórica do DHCP, a i
 
 ---
 
-## 21. Conclusão
+## 20. Conclusão
 
 Neste laboratório, foi configurado um servidor DHCP para distribuir automaticamente endereços IPv4 em uma rede privada classe C.
 
@@ -619,7 +589,7 @@ Além da configuração, a análise com `tcpdump`, logs do sistema e arquivo de 
 
 ---
 
-## 22. Recurso Complementar: Simulador Visual de DHCP (DORA)
+## 21. Recurso Complementar: Simulador Visual de DHCP (DORA)
 
 Para consolidar os conceitos teóricos e visualizar a troca de mensagens do protocolo em tempo real antes ou após a prática no PNetLab, recomenda-se explorar o simulador interativo:
 
@@ -637,4 +607,4 @@ Para consolidar os conceitos teóricos e visualizar a troca de mensagens do prot
 
 ---
 
-[← Anterior: Experimento 06](06_roteiro.md) | [Índice Geral (README)](../README.md)
+[← Anterior: Experimento 06](06_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 08 →](08_roteiro.md)
