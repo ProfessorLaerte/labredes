@@ -1,13 +1,14 @@
-Disciplina: **ENE0011 - Laboratório de Redes**  
-Curso: **Engenharia de Redes de Comunicação**  
-Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica** 
+# ENE0011 - Laboratório de Redes
 
-Professor Responsável: **Prof. Dr. Laerte Peotta de Melo**
+- **Instituição:** Universidade de Brasília (UnB)
+- **Departamento:** Departamento de Engenharia Elétrica (ENE)
+- **Curso:** Engenharia de Redes de Comunicação
+- **Disciplina:** ENE0011 - Laboratório de Redes
+- **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
 
 ---
 
-## Apresentação
+## 1. Apresentação
 
 A disciplina **ENE0011 - Laboratório de Redes** tem como objetivo proporcionar aos alunos experiências práticas relacionadas aos conceitos fundamentais de redes de computadores, protocolos de comunicação e dispositivos de interconexão.
 
@@ -17,7 +18,7 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 ---
 
-## Objetivos da Disciplina
+## 2. Objetivos da Disciplina
 
 - Compreender o funcionamento de dispositivos de rede (hubs, switches, roteadores);
 - Configurar e operar roteadores e switches, com ênfase em equipamentos Cisco;
@@ -28,7 +29,7 @@ Este repositório reúne os **roteiros de laboratório**, **materiais de apoio**
 
 ---
 
-## Organização do Repositório
+## 3. Organização do Repositório
 
 A estrutura do repositório segue o padrão abaixo:
 
@@ -45,99 +46,96 @@ Cada laboratório possui um roteiro próprio contendo:
 
 ---
 
-## Laboratórios
+## 4. Laboratórios Práticos
 
-### Laboratórios de Redes
+### 4.1 Laboratórios de Redes Locais
 
 | Laboratório | Tema | Roteiro | Packet Tracer |
 |:------------:|:------|:-------:|:-------------:|
-| 01 | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) | - |
-| 02 | Configurar Senhas Seguras e SSH | [Acessar](./laboratorios/02_roteiro.md) | - |
-| 03 | Configurar Sub-redes com VLSM | [Acessar](./laboratorios/03_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
-| 04 | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
-| 05 | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratorios/05_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
-| 06 | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
+| **01** | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) | - |
+| **02** | Configurar Senhas Seguras e SSH | [Acessar](./laboratorios/02_roteiro.md) | - |
+| **03** | Configurar Sub-redes com VLSM | [Acessar](./laboratorios/03_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
+| **04** | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
+| **05** | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2 | [Acessar](./laboratorios/05_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
+| **06** | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
 
-### Laboratórios de Serviços de Rede
+### 4.2 Laboratórios de Serviços de Rede
 
 | Laboratório | Tema | Roteiro | Ambiente / Simulador |
 |:------------:|:------|:-------:|:--------------------:|
-| 07 | Configuração e Análise do Protocolo DHCP | [Acessar](./laboratorios/07_roteiro.md) | PNetLab (Linux) |
-| 08 | Configuração e Análise do Serviço DNS | [Acessar](./laboratorios/08_roteiro.md) | PNetLab (Linux) |
+| **07** | Configuração e Análise do Protocolo DHCP | [Acessar](./laboratorios/07_roteiro.md) | PNetLab (Linux) |
+| **08** | Configuração e Análise do Serviço DNS | [Acessar](./laboratorios/08_roteiro.md) | PNetLab (Linux) |
 
 ---
 
-## Metodologia
+## 5. Metodologia
 
 As atividades laboratoriais serão desenvolvidas de forma **prática e supervisionada**, envolvendo:
 - Configuração direta de equipamentos;
 - Análise de saídas de comandos;
 - Observação do comportamento da rede;
-- Registro técnico das atividades realizadas.
+- Registro técnico dos comandos e evidências.
 
-> O aluno deve seguir rigorosamente os **roteiros** e registrar os resultados conforme solicitado. 
+O aluno deve seguir rigorosamente os roteiros e registrar os resultados conforme solicitado.
 
 ---
 
-## Avaliação
+## 6. Avaliação
 
 A avaliação da disciplina será baseada em:
 - Execução correta dos laboratórios;
-- Qualidade dos registros e respostas apresentadas;
-- Participação e envolvimento durante as atividades;
-- Cumprimento dos prazos estabelecidos.
-
-> Os critérios específicos de cada experimento serão informados no respectivo roteiro.
+- Qualidade dos relatórios técnicos e respostas às questões de análise;
+- Participação e envolvimento durante as práticas;
+- Cumprimento dos prazos de entrega estabelecidos.
 
 ---
 
-## Requisitos
+## 7. Requisitos
 
-- Conhecimentos básicos de redes de computadores;
-- Familiaridade com sistemas operacionais;
-- Noções iniciais de protocolos TCP/IP;
-- Atenção às normas de uso do laboratório.
+- Conhecimentos básicos de arquitetura TCP/IP;
+- Familiaridade com o ambiente de simulação Cisco Packet Tracer e PNetLab;
+- Noções de comandos básicos em sistemas Linux;
+- Atenção às normas de segurança e integridade do laboratório.
 
 ---
 
-## Bibliografia Básica
+## 8. Bibliografia e Documentos Normativos
 
-- **DOYLE, Jeff; CARROLL, Jennifer DeHaven**. Routing TCP/IP: volume 1. Indianapolis: Cisco Press, 1998.
-- **FOROUZAN, Behrouz A.** Protocolo TCP/IP. 3. ed. Porto Alegre: AMGH, 2010.
+### 8.1 Bibliografia Básica
 
-## Bibliografia Complementar
+- **KUROSE, James F.; ROSS, Keith W.** Redes de computadores e a Internet: uma abordagem top-down. 8. ed. Porto Alegre: Pearson/Bookman, 2021.
+- **LAMMLE, Todd.** Cisco CCNA Routing and Switching Complete Study Guide. 2. ed. Indianapolis: Sybex, 2016.
+- **ODOM, Wendell.** CCNA 200-301 Official Cert Guide, Volume 1. Indianapolis: Cisco Press, 2020.
 
-- **KUROSE, James F.; ROSS, Keith W**. Redes de computadores e a Internet: uma abordagem top-down. 6. ed. São Paulo: Pearson, 2013.
-- **TANENBAUM, Andrew S.; WETHERALL, David J.** Redes de computadores. 5. ed. São Paulo: Pearson, 2011.
-- **STALLINGS, William.** Comunicações de dados e redes de computadores. 10. ed. São Paulo: Pearson, 2014.
+### 8.2 Bibliografia Complementar
+
 - **COMER, Douglas E.** Interligação de redes com TCP/IP: princípios, protocolos e arquitetura. 5. ed. Rio de Janeiro: Elsevier, 2006.
-- **XAVIER, Fabrício de Castro.** Roteadores Cisco. 2. ed. São Paulo: Novatec, 2010.
+- **FOROUZAN, Behrouz A.** Comunicação de dados e redes de computadores. 4. ed. São Paulo: McGraw-Hill, 2008.
+- **TANENBAUM, Andrew S.; WETHERALL, David J.** Redes de computadores. 5. ed. São Paulo: Pearson, 2011.
 
-## Documentos Normativos e Técnicos
+### 8.3 Documentos Normativos e Técnicos
 
-- **POSTEL, Jon.** Transmission Control Protocol. RFC 793. Marina del Rey: ISI, 1981.
-- **POSTEL, Jon.** User Datagram Protocol. RFC 768. Marina del Rey: ISI, 1980.
-- **MOY, John T.** OSPF version 2. RFC 2328. Marina del Rey: ISI, 1998.
-- **REKHTER, Yakov et al.** A border gateway protocol 4 (BGP-4). RFC 4271. Marina del Rey: ISI, 2006.
-
----
-
-## Observações Importantes
-
-- É responsabilidade do aluno **salvar e documentar** corretamente todas as configurações realizadas;
-- Alterações não autorizadas nos equipamentos podem acarretar penalidades acadêmicas;
-- Dúvidas técnicas devem ser registradas e discutidas durante as aulas práticas.
+- **DROMS, Ralph.** Dynamic Host Configuration Protocol. RFC 2131. Bucknell University, 1997.
+- **MOCKAPETRIS, Paul.** Domain names - implementation and specification. RFC 1035. ISI, 1987.
+- **IEEE 802.1Q.** IEEE Standard for Local and metropolitan area networks - Bridges and Bridged Networks. IEEE, 2018.
 
 ---
 
-## Uso de Inteligência Artificial
+## 9. Observações Importantes
+
+- Os arquivos `.pkt` disponíveis na pasta `laboratorios/topologias/` devem ser abertos utilizando a versão recomendada do Cisco Packet Tracer.
+- As evidências de execução (telas de teste de conectividade, tabelas de roteamento e saídas da CLI) devem ser anexadas aos relatórios individuais de cada prática.
+
+---
+
+## 10. Uso de Inteligência Artificial
 
 Em conformidade com a Política de Integridade Acadêmica e Uso Responsável da Inteligência Artificial da Faculdade de Tecnologia (FT/UnB), aprovada pelo Conselho da FT em 30/09/2026, estabelecem-se as seguintes diretrizes:
 
-### Declaração Docente
+### 10.1 Declaração Docente
 Declara-se que este material didático foi elaborado com apoio de ferramentas de inteligência artificial generativa (Claude, ChatGPT e Gemini), sob estrita supervisão, revisão técnica e responsabilidade do professor responsável.
 
-### Diretrizes para os Estudantes
+### 10.2 Diretrizes para os Estudantes
 - **Regime Geral da Disciplina:** O uso de ferramentas de IA generativa é **permitido** como instrumento de apoio ao aprendizado em todas as atividades laboratoriais (pesquisa conceitual de RFCs, esclarecimento de sintaxe de comandos, interpretação de saídas e suporte à redação técnica dos relatórios).
 - **Responsabilidade Acadêmica:** O estudante é o único responsável pela exatidão técnica, autoria e originalidade de suas entregas. Todas as configurações práticas, comandos executados e capturas de telas e comandos devem ser obrigatoriamente produzidos pelo estudante.
 - **Condutas Vedadas:**
