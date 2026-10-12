@@ -1,15 +1,13 @@
-Disciplina: **ENE0011 - Laboratório de Redes**  
-Curso: **Engenharia de Redes de Comunicação**  
-Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica**  
-Professor: **Prof. Dr. Laerte Peotta de Melo**
-
----
-
 # Roteiro do Experimento 05 - Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2
 
+- **Instituição:** Universidade de Brasília (UnB)
+- **Departamento:** Departamento de Engenharia Elétrica (ENE)
+- **Curso:** Engenharia de Redes de Comunicação
+- **Disciplina:** ENE0011 - Laboratório de Redes
+- **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
+- **Tema:** Redundância de enlaces com EtherChannel, spanning-tree, roteamento inter-VLAN e hardening L2
 
-
+---
 ## Objetivo
 
 Implementar uma topologia redundante em laboratório utilizando **VLANs**, **EtherChannel**, **roteamento inter-VLAN** e mecanismos de **segurança de camada 2**, de forma a garantir maior disponibilidade, desempenho e proteção da rede.

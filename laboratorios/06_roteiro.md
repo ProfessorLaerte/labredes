@@ -1,13 +1,13 @@
-Disciplina: **ENE0011 - Laboratório de Redes**  
-Curso: **Engenharia de Redes de Comunicação**  
-Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica**  
-Professor: **Prof. Dr. Laerte Peotta de Melo**
-
----
-
 # Roteiro do Experimento 06 - Desafio de Resolução de Problemas (Troubleshooting)
 
+- **Instituição:** Universidade de Brasília (UnB)
+- **Departamento:** Departamento de Engenharia Elétrica (ENE)
+- **Curso:** Engenharia de Redes de Comunicação
+- **Disciplina:** ENE0011 - Laboratório de Redes
+- **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
+- **Tema:** Metodologia sistemática de diagnóstico e resolução de problemas (troubleshooting) em redes locais
+
+---
 ## Objetivo
 
 O estudante deve **diagnosticar e corrigir falhas de configuração** em uma rede previamente montada no Cisco Packet Tracer.

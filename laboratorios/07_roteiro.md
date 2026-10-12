@@ -1,13 +1,13 @@
-Disciplina: **ENE0011 - Laboratório de Redes**  
-Curso: **Engenharia de Redes de Comunicação**  
-Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica**  
-Professor: **Prof. Dr. Laerte Peotta de Melo**
-
----
-
 # Roteiro do Experimento 07 - Configuração e Análise do Protocolo DHCP
 
+- **Instituição:** Universidade de Brasília (UnB)
+- **Departamento:** Departamento de Engenharia Elétrica (ENE)
+- **Curso:** Engenharia de Redes de Comunicação
+- **Disciplina:** ENE0011 - Laboratório de Redes
+- **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
+- **Tema:** Configuração e análise do serviço de distribuição dinâmica de endereços (DHCP) em ambiente Linux
+
+---
 > **Recurso Didático:** Para auxílio na compreensão dinâmica do protocolo, está disponível o [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html), que permite acompanhar passo a passo o processo DORA, a validação de endereços com ARP Probe e o tratamento de colisões de IP. Mais detalhes e recursos de prática estão descritos na [Seção 22](#22-recurso-complementar-simulador-visual-de-dhcp-dora).
 
 ## 1. Objetivo

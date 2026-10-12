@@ -1,13 +1,15 @@
-Disciplina: **ENE0011 - Laboratório de Redes**  
-Curso: **Engenharia de Redes de Comunicação**  
-Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica**  
-Professor: **Prof. Dr. Laerte Peotta de Melo**
-
----
-
 # Roteiro do Experimento 08 - Configuração e Análise do Serviço DNS
 
+- **Instituição:** Universidade de Brasília (UnB)
+- **Departamento:** Departamento de Engenharia Elétrica (ENE)
+- **Curso:** Engenharia de Redes de Comunicação
+- **Disciplina:** ENE0011 - Laboratório de Redes
+- **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
+- **Tema:** Configuração e validação de serviço DNS autoritativo (BIND 9) integrado ao escopo DHCP
+
+> **Pré-requisito:** Este laboratório dá continuidade direta à infraestrutura implementada no **Experimento 07**.
+
+---
 ## 1. Objetivo
 
 Este laboratório dá continuidade direta à infraestrutura implementada no **Experimento 07**, integrando o serviço **DNS (*Domain Name System*)** à rede local gerenciada por DHCP. O objetivo é configurar um servidor DNS autoritativo simples em ambiente Linux para resolução de nomes locais, atualizar o escopo DHCP para fornecer as configurações de DNS aos clientes e validar a resolução direta e de apelidos (*aliases*).

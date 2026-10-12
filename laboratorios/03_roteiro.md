@@ -1,15 +1,13 @@
-Disciplina: **ENE0011 - Laboratório de Redes**  
-Curso: **Engenharia de Redes de Comunicação**  
-Instituição: **Universidade de Brasília (UnB)**  
-Departamento: **Engenharia Elétrica**  
-Professor: **Prof. Dr. Laerte Peotta de Melo**
-
----
-
 # Roteiro do Experimento 03 - Configurar Sub-redes com VLSM
 
+- **Instituição:** Universidade de Brasília (UnB)
+- **Departamento:** Departamento de Engenharia Elétrica (ENE)
+- **Curso:** Engenharia de Redes de Comunicação
+- **Disciplina:** ENE0011 - Laboratório de Redes
+- **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
+- **Tema:** Endereçamento IPv4, dimensionamento de blocos CIDR e projeto de sub-redes com VLSM
 
-
+---
 ## Objetivo
 
 O objetivo deste experimento é aplicar a técnica de VLSM para planejar e configurar sub-redes em uma rede IPv4, garantindo que cada departamento receba 
