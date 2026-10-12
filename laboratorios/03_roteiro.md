@@ -8,21 +8,21 @@
 - **Tema:** Endereçamento IPv4, dimensionamento de blocos CIDR e projeto de sub-redes com VLSM
 
 ---
-## Objetivo
+## 1. Objetivo
 
 O objetivo deste experimento é aplicar a técnica de VLSM para planejar e configurar sub-redes em uma rede IPv4, garantindo que cada departamento receba 
 a quantidade adequada de endereços IP, com eficiência e segurança na utilização dos recursos de endereçamento.
 
-## Introdução Teórica
+## 2. Introdução Teórica
 
 O uso de CIDR e VLSM permite dividir uma rede em sub-redes de tamanhos diferentes, otimizando o espaço de endereçamento e evitando desperdício de IPs. 
 Além disso, configurações de segurança como SSH e criptografia de senhas garantem conectividade confiável e proteção contra acessos não autorizados.
 
 
 
-## Conceitos complementares
+## 3. Conceitos Complementares
 
-### CIDR
+### 3.1 CIDR
 
 - **CIDR** significa *Classless Inter-Domain Routing*.
 - A notação é escrita como `IP/prefixo`.
@@ -41,7 +41,7 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 
 
-### VLSM
+### 3.2 VLSM
 
 - **Variable Length Subnet Mask (VLSM)** é a técnica de usar **máscaras de sub-rede de diferentes tamanhos** dentro da mesma rede.
 - Enquanto o CIDR define um prefixo fixo para uma rede, o VLSM permite **dividir a rede em sub-redes menores**, cada uma com a máscara adequada ao número de hosts necessários.
@@ -75,7 +75,7 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 
 
-### Benefícios do VLSM
+### 3.3 Benefícios do VLSM
 
 - **Eficiência**: reduz desperdício de endereços IP.
 - **Flexibilidade**: cada sub-rede pode ter o tamanho exato necessário.
@@ -83,9 +83,9 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 
 
 
-## Experimento
+## 4. Experimento
 
-### Histórico/Cenário
+### 4.1 Histórico e Cenário
 
 <img width="1110" height="491" alt="Topologia do Experimento 03 no Packet Tracer" src="https://github.com/user-attachments/assets/63bd0377-8a2d-4ac2-9c25-cf18b4198c7a" />
 
@@ -108,9 +108,9 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-### Instruções
+### 4.2 Instruções
 
-#### Endereçamento IPv4
+#### 4.2.1 Endereçamento IPv4
 
 - Use **192.168.0.0/24** para criar sub-redes que atendem aos requisitos do host.
 
@@ -128,13 +128,13 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
   
 
-#### Configurações dos computadores
+#### 4.2.2 Configurações dos Computadores
 
 - Defina as configurações de endereço IPv4, máscara de sub-rede, gateway padrão e DNS server nos atribuídos dos PCs, usando seu esquema de endereçamento.
 
   
 
-#### Configurações de R1 e dos Switches
+#### 4.2.3 Configurações de R1 e dos Switches
 
 - Configure o nome do dispositivo conforme a Tabela de Endereçamento.
 
@@ -179,7 +179,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-### Tabela de Documentação das Redes
+### 4.3 Tabela de Documentação das Redes
 
 | **Nome da Rede** | **Endereço da Rede** | **Broadcast**   | **Máscara CIDR** | **Hosts Utilizáveis** | **Primeiro Host** | **Último Host** |
 | ---------------- | -------------------- | --------------- | ---------------- | --------------------- | ----------------- | --------------- |
@@ -191,7 +191,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-### Tabela de Endereçamento
+### 4.4 Tabela de Endereçamento
 
 | Dispositivo        | Interface | End. IP / Prefixo | Gateway   |
 | ------------------ | --------- | ----------------- | --------- |
@@ -212,7 +212,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
 
 
-#### Requisitos de conectividade
+#### 4.4.1 Requisitos de Conectividade
 
 - Usando navegadores Web nos computadores ADM, Vendas e TI, navegue para www.lab3.com.
 
@@ -220,7 +220,7 @@ Em seguida, você definirá a interface SVI e as configurações básicas de seg
 
   
 
-## Questões
+## 5. Questões
 
 1. **Teste de conexão SSH**   Realize um teste de conexão via SSH em um **switch** e em um **roteador**. Documente os **comandos utilizados** e as **saídas obtidas** (print da tela). Explique como o resultado confirma que o acesso remoto seguro foi configurado corretamente.
 

@@ -8,13 +8,13 @@
 - **Tema:** Segmentação de camada 2 com VLANs, troncos IEEE 802.1Q e roteamento inter-VLAN
 
 ---
-## Objetivo
+## 1. Objetivo
 
 Realizar o endereçamento de uma rede IP, configurar e verificar VLANs em switches Ethernet e implementar a interconexão entre VLANs por meio de roteamento estático em um roteador.
 
 ---
 
-## Introdução Teórica
+## 2. Introdução Teórica
 
 Este laboratório aborda conceitos fundamentais para o projeto e implementação de redes corporativas segmentadas, incluindo:
 
@@ -27,13 +27,13 @@ Este laboratório aborda conceitos fundamentais para o projeto e implementação
 
 ---
 
-## Descrição da Atividade
+## 3. Descrição da Atividade
 
 A atividade está dividida em quatro etapas principais.
 
 ---
 
-### Etapa 1 - Descrição do Caso
+### 3.1 Etapa 1 - Descrição do Caso
 
 Você foi designado para projetar e implementar a configuração dos equipamentos de uma rede corporativa destinada a interligar **50 dispositivos de rede**, incluindo:
 
@@ -49,7 +49,7 @@ O prédio da empresa possui **3 andares** e **4 departamentos**:
 
 A distribuição dos equipamentos por andar e departamento deve seguir a **Tabela 1 - Lista de Equipamentos**.
 
-### Tabela 1 - Lista de Equipamentos
+### 3.2 Tabela 1 - Lista de Equipamentos
 
 | Andar | Equipamento | Qtde | Departamento |
 |:----:|-------------|:----:|--------------|
@@ -92,7 +92,7 @@ Considere ainda que:
 
 ---
 
-### Etapa 2 - Projeto da Rede
+### 3.3 Etapa 2 - Projeto da Rede
 
 Uma possível solução de projeto considera:
 
@@ -103,7 +103,7 @@ Uma possível solução de projeto considera:
   - Quatro VLANs departamentais;
   - Uma VLAN de gerência.
 
-#### Plano de Endereçamento IP
+#### 3.3.1 Plano de Endereçamento IP
 
 | VLAN | Departamento     | Rede IP        | Gateway         | VLAN ID |
 |----:|------------------|----------------|-----------------|--------:|
@@ -115,7 +115,7 @@ Uma possível solução de projeto considera:
 
 ---
 
-### Etapa 3 - Configuração e Verificação de VLANs em Switches
+### 3.4 Etapa 3 - Configuração e Verificação de VLANs em Switches
 
 1. Inicie o **Cisco Packet Tracer**.
 2. Abra o arquivo de topologia fornecido: [Baixar arquivo do laboratório](./topologias/experimento_04_nao_configurado.pkt)
@@ -130,7 +130,7 @@ Também deve ser configurado o **endereço IP de gerência** em cada switch, uti
 <img width="766" height="567" alt="Topologia do Experimento 04 no Packet Tracer" src="https://github.com/user-attachments/assets/44657322-8eaa-4457-a598-d7e3bb2fe86d" />
 
 
-#### Configuração de VLANs no Sw1:
+#### 3.4.1 Configuração de VLANs no Sw1
 
 
 ```bash
@@ -181,10 +181,10 @@ act/unsup
 act/ un sup
 Swl#
 ```
-#### Configuração de VLANs no Sw2 :
-#### Configuração de VLANs no Sw3 :
+#### 3.4.2 Configuração de VLANs no Sw2
+#### 3.4.3 Configuração de VLANs no Sw3
 
-#### Configuração IP para gerência dos switches:
+#### 3.4.4 Configuração IP para Gerência dos Switches
 
 ```bash
 Sw1> enable
@@ -224,17 +224,17 @@ Caso executasse um comando ping de qualquer computador para outro em uma mesma V
   - Por que o ping não funcionou?
 ---
 
-### Etapa 4 - Interconexão de VLANs via Roteador
+### 3.5 Etapa 4 - Interconexão de VLANs via Roteador
 
 Nesta etapa, será implementado o **roteamento entre VLANs** utilizando subinterfaces no roteador.
 
-#### Configuração de Switches e Roteador para Roteamento entre VLANs
+#### 3.5.1 Configuração de Switches e Roteador para Roteamento entre VLANs
 
 O roteador deve ficar localizado no **primeiro andar**, conectado diretamente ao **switch Sw1** por meio de uma interface **Fast Ethernet**, uma vez que o equipamento não possui interface Gigabit Ethernet.
 
 Essa interface deve ser configurada com **cinco subinterfaces**, de forma a permitir o roteamento de tráfego entre as **cinco VLANs** existentes. Para cada subinterface, deve ser configurado um **endereço IP** correspondente ao *default gateway* da respectiva VLAN, com a devida especificação do **VLAN ID**, conforme apresentado na Tabela 3.
 
-#### Tabela 3 - Endereçamento das Subinterfaces do Roteador
+#### 3.5.2 Tabela 3 - Endereçamento das Subinterfaces do Roteador
 
 | Subinterface | Endereçamento IP | VLAN ID |
 |--------------|------------------|--------:|
@@ -244,7 +244,7 @@ Essa interface deve ser configurada com **cinco subinterfaces**, de forma a perm
 | E0/1.4 | 10.0.40.254/24 | 4 |
 | E0/1.5 | 10.0.50.254/24 | 5 |
 
-#### Configuração do Roteador 
+#### 3.5.3 Configuração do Roteador 
 
 ```bash
 Router> en
@@ -270,7 +270,7 @@ Após a configuração:
 
 ---
 
-## Questões para o Relatório
+## 4. Questões para o Relatório
 
 O relatório deve documentar detalhadamente:
 

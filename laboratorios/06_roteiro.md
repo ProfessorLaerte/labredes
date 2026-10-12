@@ -8,7 +8,7 @@
 - **Tema:** Metodologia sistemática de diagnóstico e resolução de problemas (troubleshooting) em redes locais
 
 ---
-## Objetivo
+## 1. Objetivo
 
 O estudante deve **diagnosticar e corrigir falhas de configuração** em uma rede previamente montada no Cisco Packet Tracer.
 O foco é desenvolver habilidades práticas de:
@@ -21,10 +21,10 @@ O foco é desenvolver habilidades práticas de:
   
 - Documentação clara do processo de troubleshooting.
 
-## Cenário
+## 2. Cenário
 <img width="1767" height="685" alt="Topologia do Experimento 06 no Packet Tracer" src="https://github.com/user-attachments/assets/3723416e-7a83-4e60-83c4-e18352e46fea" />
 
-## Descrição da Atividade
+## 3. Descrição da Atividade
 
 O arquivo `.pkt` fornecido ([Baixar arquivo do laboratório](./topologias/experimento_06_nao_resolvido.pkt)) contém uma rede dividida em três andares, com computadores, impressoras, switches e um roteador configurados.
 Apesar da configuração inicial, **existem falhas de acesso** que precisam ser analisadas e corrigidas.
@@ -44,9 +44,9 @@ O estudante deve:
 
 Para auxiliar no trabalho este roteiro possui uma breve documentação de como a rede deveria está configurada e uma lista dos problemas encontrados.
 
-## Documentação de Referência da Rede
+## 4. Documentação de Referência da Rede
 
-### VLANs e Sub-redes
+### 4.1 VLANs e Sub-redes
 
 - VLAN 10 - TI → 192.168.10.0/24
   
@@ -57,7 +57,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
 - VLAN 40 - IMP → 192.168.40.0/24
   
 
-### Switches
+### 4.2 Switches
 
 - **Switch0**
   
@@ -112,7 +112,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
     - VLAN 30 → fa0/16-20
     - VLAN 40 → fa0/21-24
 
-### Link Aggregation / EtherChannel
+### 4.3 Link Aggregation / EtherChannel
 
 - Channel 1 → sw0 fa0/1-2 ↔ sw1 fa0/1-2
   
@@ -121,7 +121,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
 - Channel 3 → sw0 fa0/6-7 ↔ sw3 fa0/6-7
   
 
-### DHCP
+### 4.4 DHCP
 
 - VLAN 10 - TI → Range: 192.168.10.10-254 | GW: 192.168.10.1
   
@@ -130,7 +130,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
 - VLAN 30 - ADM → Range: 192.168.30.10-254 | GW: 192.168.30.1
   
 
-### Sem DHCP
+### 4.5 Sem DHCP
 
 - VLAN 40 - IMP → GW: 192.168.40.1
   
@@ -141,7 +141,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
   - Impressora 2º Andar → 192.168.40.12
     
 
-### Router 0 (Router-on-a-Stick)
+### 4.6 Router 0 (Router-on-a-Stick)
 
 - fa0/0.10 → 192.168.10.1
   
@@ -152,14 +152,14 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
 - fa0/0.40 → 192.168.40.1
   
 
-### Acesso SSH aos switches
+### 4.7 Acesso SSH aos Switches
 
 - Usuário: admin
   
 - Senha: labredes
   
 
-## Problemas Identificados
+## 5. Problemas Identificados
 
 1. **Computadores da TI não navegam na rede**
   
@@ -174,7 +174,7 @@ Para auxiliar no trabalho este roteiro possui uma breve documentação de como a
   
   - Teste: ping para IP de gerência ou `ssh -l [usuário] [end. IP]`.
 
-## Relatório Final
+## 6. Relatório Final
 
 O estudante deve apresentar para cada problema:
 
@@ -191,7 +191,7 @@ O estudante deve apresentar para cada problema:
 - Enviar junto ao relatório o arquivo `.pkt` com o cenário corrigido e funcionando.
   
 
-## Comandos úteis
+## 7. Comandos Úteis
 
 - `show vlan brief` → Verificar VLANs criadas e portas associadas.
   

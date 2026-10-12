@@ -8,19 +8,19 @@
 - **Tema:** Configuração básica de switches, senhas criptografadas e acesso remoto seguro via SSH
 
 ---
-## Objetivo
+## 1. Objetivo
 
 O objetivo deste experimento é aplicar medidas básicas de segurança em dispositivos de rede Cisco, configurando senhas seguras e habilitando o acesso remoto via SSH. Dessa forma, busca-se garantir a proteção contra acessos não autorizados e preparar o ambiente para gerenciamento confiável e seguro.
 
-## Introdução Teórica
+## 2. Introdução Teórica
 
 A configuração de senhas fortes e o uso do protocolo SSH são práticas essenciais de segurança em redes. Enquanto as senhas protegem o acesso local e remoto ao equipamento, o SSH substitui o Telnet ao oferecer criptografia nas comunicações, evitando que credenciais e dados trafeguem em texto claro. Além disso, o uso de interfaces lógicas como a VLAN1 e SVIs permite o gerenciamento remoto dos switches, reforçando a importância de boas práticas na administração de redes corporativas.
 
 
 
-## Conceitos complementares
+## 3. Conceitos Complementares
 
-### Linhas de acesso ao Cisco IOS
+### 3.1 Linhas de Acesso ao Cisco IOS
 
 - **Console**
 
@@ -49,7 +49,7 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
 
 
-### Interface VLAN1
+### 3.2 Interface VLAN1
 
 - **VLAN1** é a VLAN padrão em switches Cisco.
 
@@ -59,7 +59,7 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
 
 
-### SVIs (Switch Virtual Interfaces)
+### 3.3 SVIs (Switch Virtual Interfaces)
 
 - **SVIs** são interfaces virtuais criadas em VLANs no switch.
 - Cada VLAN pode ter uma SVI associada, permitindo que o switch seja acessado via IP dentro daquela VLAN.
@@ -67,7 +67,7 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
 
 
-## Descrição da Atividade
+## 4. Descrição da Atividade
 
 
 
@@ -96,9 +96,9 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 
 O administrador de redes pediu que você prepare o RTA e SW1 para implantação. Antes de conectá-lo à rede, você deve ativar medidas de segurança.
 
-### Instruções
+### 4.1 Instruções
 
-#### Etapa 1: Implementar as Medidas Básicas de Segurança no Roteador
+#### 4.1.1 Etapa 1: Implementar as Medidas Básicas de Segurança no Roteador
 
 1. Configure o endereçamento IP em PCA de acordo com a Tabela de Endereçamento.
 
@@ -224,7 +224,7 @@ O administrador de redes pediu que você prepare o RTA e SW1 para implantação.
 
      
 
-#### Etapa 2: Implementar as Medidas Básicas de Segurança no Switch
+#### 4.1.2 Etapa 2: Implementar as Medidas Básicas de Segurança no Switch
 
 1. Clique em SW1 e selecione a guia CLI.
 
@@ -275,7 +275,7 @@ O administrador de redes pediu que você prepare o RTA e SW1 para implantação.
     
 
 
-## Questões
+## 5. Questões
 
 1. Mostre um print da configuração das senhas no roteador (VTY e enable secret). Explique como cada uma protege o acesso ao dispositivo.
 2. Apresente um print da configuração da interface VLAN1 no switch com IP e máscara. Explique a função dessa interface.

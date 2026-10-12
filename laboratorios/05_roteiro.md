@@ -8,11 +8,11 @@
 - **Tema:** Redundância de enlaces com EtherChannel, spanning-tree, roteamento inter-VLAN e hardening L2
 
 ---
-## Objetivo
+## 1. Objetivo
 
 Implementar uma topologia redundante em laboratório utilizando **VLANs**, **EtherChannel**, **roteamento inter-VLAN** e mecanismos de **segurança de camada 2**, de forma a garantir maior disponibilidade, desempenho e proteção da rede.
 
-## Conceitos complementares
+## 2. Conceitos Complementares
 
 - **Agregação de links  - EtherChannel**
 
@@ -87,7 +87,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 
 
-## Descrição da Atividade
+## 3. Descrição da Atividade
 
 1. Cenário:
    1. Switch0 Core - vlan100
@@ -113,9 +113,9 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 
 
-### Instruções
+### 3.1 Instruções
 
-#### Etapa 1: Configuração do Switch1 (VLAN 10, DHCP, SSH, EtherChannels, Snooping e DAI)
+#### 3.1.1 Etapa 1: Configuração do Switch1 (VLAN 10, DHCP, SSH, EtherChannels, Snooping e DAI)
 
 1. Nome do dispositivo
 
@@ -268,7 +268,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
    
 
-#### Etapa 2: Configuração do Router1 (Roteamento Inter-VLAN / Router-on-a-Stick)
+#### 3.1.2 Etapa 2: Configuração do Router1 (Roteamento Inter-VLAN / Router-on-a-Stick)
 
 1. Nome do dispositivo
 
@@ -314,7 +314,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    
 
 
-## Questões
+## 4. Questões
 
 1. **EtherChannel em funcionamento**   Configure o EtherChannel entre o Switch1 e o Switch0. Em seguida, execute o comando `show etherchannel summary`.
    - Pergunta: O Port-Channel aparece como ativo?

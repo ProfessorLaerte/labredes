@@ -8,16 +8,16 @@
 - **Tema:** Dispositivos de interconexão, arquitetura TCP/IP e modelos de rede
 
 ---
-## Objetivo
+## 1. Objetivo
 
 Conhecer os dispositivos básicos de rede. Realizar operações básicas em um roteador CISCO.
 
-## Introdução Teórica
+## 2. Introdução Teórica
 
 Switch. Roteador. Comparação entre os dispositivos de rede. Roteadores Cisco. Sistema
 Operacional Cisco IOS (Internetworking Operating System).
 
-## Descrição da Atividade
+## 3. Descrição da Atividade
 
 1. Crie um cenário no cisco Packet Tracer com os seguintes dispositivos:
    - 2 Roteadores (1841)
@@ -38,7 +38,7 @@ Operacional Cisco IOS (Internetworking Operating System).
 
 
 
-### Configuração
+### 3.1 Configuração
 
 - PCs e Laptops devem ser configurados utilizando a interface gráfica.
 
@@ -46,7 +46,7 @@ Operacional Cisco IOS (Internetworking Operating System).
 
   
 
-### Configuração dos Roteadores
+### 3.2 Configuração dos Roteadores
 
 1. Clique no roteador, na aba *"Physical"* acione o botão para ligar o dispositivo e acesse a aba CLI. Aguarde a inicialização do sistema.
 
@@ -98,7 +98,7 @@ Operacional Cisco IOS (Internetworking Operating System).
 
 
 
-### Coleta de informações
+### 3.3 Coleta de Informações
 
 
 
@@ -159,7 +159,7 @@ Operacional Cisco IOS (Internetworking Operating System).
 
   
 
-### Testes de conectividade
+### 3.4 Testes de Conectividade
 
 1. Realize testes de conectividade entre os dispositivos finais:
 
