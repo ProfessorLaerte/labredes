@@ -66,6 +66,14 @@ Cada laboratório possui um roteiro próprio contendo:
 | **07** | Configuração e Análise do Protocolo DHCP | [Acessar](./laboratorios/07_roteiro.md) | PNetLab (Linux) |
 | **08** | Configuração e Análise do Serviço DNS | [Acessar](./laboratorios/08_roteiro.md) | PNetLab (Linux) |
 
+### 4.3 Laboratórios Integradores com Equipamentos Físicos
+
+| Laboratório | Tema | Roteiro | Ambiente / Equipamentos |
+|:------------:|:------|:-------:|:-----------------------:|
+| **09** | Filial Isolada: VLANs, Roteamento Inter-VLAN, DHCP e Acesso Seguro | [Acessar](./laboratorios/09_roteiro.md) | Cisco 2960-24TT e 1921 |
+| **10** | A Filial Cresce: Expansão, DHCP Snooping, DAI e Diagnóstico de Falhas Provocadas | [Acessar](./laboratorios/10_roteiro.md) | Cisco 2960-24TT e 1921 |
+| **11** | Interligação de Filiais com Roteamento Estático | [Acessar](./laboratorios/11_roteiro.md) | Cisco 2960-24TT, 1921 e 1941 |
+
 ---
 
 ## 5. Metodologia
