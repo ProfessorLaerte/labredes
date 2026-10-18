@@ -183,7 +183,7 @@ Após a reinicialização, confirme que o equipamento está limpo antes de confi
 
 #### 4.3.5 Verificação da Versão do Software (IOS)
 
-Os comandos e recursos usados nos Experimentos 09 a 11 (SSH versão 2, DHCP Snooping, DAI e `monitor session`) dependem da imagem instalada. Antes de configurar, cada grupo deve determinar se o equipamento opera com a **versão mais recente disponível** do fabricante para o seu modelo.
+Os comandos e recursos usados nos Experimentos 09 a 11 (SSH versão 2, DHCP Snooping, *Dynamic ARP Inspection* - DAI - e espelhamento de porta com `monitor session`) dependem da imagem instalada. Antes de configurar, cada grupo deve determinar se o equipamento opera com a **versão mais recente disponível** do fabricante para o seu modelo.
 
 **Etapa 1: identificar a versão instalada.**
 
