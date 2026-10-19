@@ -11,6 +11,8 @@
 
 ---
 
+> **Recurso Didático:** os simuladores [Simul-Net: DHCP (DORA)](https://peotta.github.io/Simul-Net/#/sim/dhcp) e [Simul-Net: SSH](https://peotta.github.io/Simul-Net/#/sim/ssh) permitem revisar o processo DORA, os leases e a negociação do SSH antes da prática.
+
 ## 1. Objetivo
 
 Projetar, implantar e validar, em equipamentos físicos e sem acompanhamento passo a passo, a rede de uma filial composta por um switch, um roteador e três estações. A atividade é conduzida a partir de um **cenário** e de **requisitos**: o grupo decide como cumpri-los, consultando os experimentos anteriores.
@@ -37,7 +39,7 @@ Esta seção apenas organiza o que foi estudado. O aprofundamento está nos expe
 | :--- | :--- |
 | **Nome e Sigla** | IEEE 802.1Q - *Virtual Bridged Local Area Networks* (VLAN) |
 | **Camada de Referência** | Enlace (camada 2 do modelo OSI) |
-| **Mecanismo** | Inserção de um *tag* de 4 bytes no quadro Ethernet, contendo o identificador de VLAN (VID, 12 bits, valores de 1 a 4094) |
+| **Mecanismo** | Inserção de um *tag* de 4 bytes no quadro Ethernet, contendo o identificador de VLAN (*VLAN Identifier* - VID, 12 bits, valores de 1 a 4094) |
 | **Enlaces** | Acesso (quadros sem tag, uma VLAN) e tronco (quadros com tag, várias VLANs). Apenas a VLAN nativa trafega sem tag no tronco |
 | **Restrição do 2960-24TT** | Suporta somente o encapsulamento 802.1Q. O comando `switchport trunk encapsulation dot1q` **não existe** nesse modelo; basta `switchport mode trunk` |
 | **Norma** | IEEE 802.1Q-2018 |
@@ -102,6 +104,8 @@ flowchart LR
 As interfaces `Gi0/1` do switch e `Gi0/0` do roteador **não** recebem cabos de outros destinos neste experimento. A interface `Gi0/1` do roteador permanece sem uso.
 
 ### 4.3 Reset de Fábrica dos Equipamentos
+
+> **Convenção dos blocos `cisco`:** o texto após `!` é comentário explicativo e **não deve ser digitado** na CLI do IOS.
 
 Os equipamentos são reutilizados por várias turmas e chegam à bancada com configurações de uso anterior (VLANs, senhas, chaves SSH, pools DHCP). Antes de iniciar a Seção 5, cada equipe deve **restaurar o estado de fábrica** do switch e do roteador. Uma configuração residual é uma das causas mais frequentes de falhas inexplicáveis neste experimento.
 
@@ -183,7 +187,7 @@ Após a reinicialização, confirme que o equipamento está limpo antes de confi
 
 #### 4.3.5 Verificação da Versão do Software (IOS)
 
-Os comandos e recursos usados nos Experimentos 09 a 11 (SSH versão 2, DHCP Snooping, *Dynamic ARP Inspection* - DAI - e espelhamento de porta com `monitor session`) dependem da imagem instalada. Antes de configurar, cada grupo deve determinar se o equipamento opera com a **versão mais recente disponível** do fabricante para o seu modelo.
+Os comandos e recursos usados nos Experimentos 09 a 11 (SSH versão 2, DHCP Snooping, *Dynamic ARP Inspection* - DAI - e espelhamento de porta com `monitor session`) dependem da imagem do sistema operacional *Internetworking Operating System* (IOS) instalada. Antes de configurar, cada grupo deve determinar se o equipamento opera com a **versão mais recente disponível** do fabricante para o seu modelo.
 
 **Etapa 1: identificar a versão instalada.**
 

@@ -8,7 +8,7 @@
 - **Tema:** Configuração e análise do serviço de distribuição dinâmica de endereços (DHCP) em ambiente Linux
 
 ---
-> **Recurso Didático:** Para auxílio na compreensão dinâmica do protocolo, está disponível o [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html), que permite acompanhar passo a passo o processo DORA, a validação de endereços com ARP Probe e o tratamento de colisões de IP. Mais detalhes e recursos de prática estão descritos na [Seção 22](#22-recurso-complementar-simulador-visual-de-dhcp-dora).
+> **Recurso Didático:** Para auxílio na compreensão dinâmica do protocolo, está disponível o [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html), que permite acompanhar passo a passo o processo DORA, a validação de endereços com ARP Probe e o tratamento de colisões de IP. O mesmo simulador integra o hub [Simul-Net](https://peotta.github.io/Simul-Net/#/sim/dhcp), que reúne simuladores de ARP, ICMP, SSH, roteamento e outros protocolos. Mais detalhes e recursos de prática estão descritos na [Seção 21](#21-recurso-complementar-simulador-visual-de-dhcp-dora).
 
 ## 1. Objetivo
 
@@ -217,7 +217,7 @@ sudo nano /etc/dhcp/dhcpd.conf
 
 Adicione ao final do arquivo:
 
-```bash
+```text
 default-lease-time 600;
 max-lease-time 3600;
 
@@ -382,7 +382,7 @@ sudo journalctl -u isc-dhcp-server -f
 No servidor DHCP, execute:
 
 ```bash
-sudo tcpdump -i eth0 -n port 67 or port 68
+sudo tcpdump -i eth0 -n -v port 67 or port 68
 ```
 
 Em um dos clientes, libere o endereço atual:
@@ -397,16 +397,16 @@ Solicite novamente:
 sudo dhclient -v eth0
 ```
 
-No servidor, observe mensagens semelhantes a:
+No servidor, observe pacotes `BOOTP/DHCP, Request` (do cliente) e `BOOTP/DHCP, Reply` (do servidor). Com a opção `-v`, a linha `DHCP-Message Option 53` indica o tipo de cada mensagem:
 
 ```text
-DHCPDISCOVER
-DHCPOFFER
-DHCPREQUEST
-DHCPACK
+Discover
+Offer
+Request
+ACK
 ```
 
-Essas mensagens representam o processo DORA.
+Essas mensagens representam o processo DORA. Os nomes `DHCPDISCOVER`, `DHCPOFFER`, `DHCPREQUEST` e `DHCPACK` aparecem nos registros do serviço (`journalctl -u isc-dhcp-server`).
 
 ---
 
@@ -477,7 +477,7 @@ sudo nano /etc/dhcp/dhcpd.conf
 
 Adicione ao final, substituindo o MAC pelo endereço real do Cliente 1:
 
-```bash
+```text
 host cliente1 {
     hardware ethernet 08:00:27:aa:bb:cc;
     fixed-address 192.168.0.120;
@@ -593,14 +593,14 @@ Além da configuração, a análise com `tcpdump`, logs do sistema e arquivo de 
 
 Para consolidar os conceitos teóricos e visualizar a troca de mensagens do protocolo em tempo real antes ou após a prática no PNetLab, recomenda-se explorar o simulador interativo:
 
-> **Simulador Visual de DHCP (RFC 2131):**  
+> **Simulador Visual de DHCP ([**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131)):**  
 > Acompanhe passo a passo a máquina de estados do cliente DHCP, o fluxo das mensagens no domínio de broadcast e a formação da concessão (*lease*).  
 > Acesso à ferramenta: [Simulador Visual de DHCP (DORA)](https://peotta.github.io/simuladores/dhcp-simulator.html)
 
 ### Principais Recursos para Prática:
 - **Execução Passo a Passo do DORA:** Observação detalhada das fases *Discover*, *Offer*, *Request* e *Acknowledge*.
 - **Inspeção de Cabeçalhos e Opções:** Análise dos campos `xid`, `ciaddr`, `yiaddr`, `chaddr` e das opções DHCP essenciais (53, 54, 51, 1, 3 e 6).
-- **Validação de Endereço com ARP Probe:** Emissão de sondas ARP pelo cliente (RFC 5227 e RFC 2131) antes de fixar o endereço oferecido, prevenindo duplicidades na rede local.
+- **Validação de Endereço com ARP Probe:** Emissão de sondas ARP pelo cliente ([**RFC 5227**](https://datatracker.ietf.org/doc/html/rfc5227) e [**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131)) antes de fixar o endereço oferecido, prevenindo duplicidades na rede local.
 - **Simulação de Colisão de Endereço IP:** Cenário de teste onde um host preexistente responde ao ARP Probe, disparando o envio de uma mensagem *DHCPDECLINE* e a solicitação de um novo endereço.
 - **Ciclo de Vida e Renovação de Leases:** Testes de renovação no temporizador $T_1$ (50% da concessão) e liberação voluntária com *DHCPRELEASE*.
 - **Resiliência e Tolerância a Falhas:** Simulação com múltiplos servidores DHCP concorrentes, desconexão de enlaces e servidores inativos.

@@ -8,46 +8,68 @@
 - **Tema:** Segmentação de camada 2 com VLANs, troncos IEEE 802.1Q e roteamento inter-VLAN
 
 ---
+
 ## 1. Objetivo
 
-Realizar o endereçamento de uma rede IP, configurar e verificar VLANs em switches Ethernet e implementar a interconexão entre VLANs por meio de roteamento estático em um roteador.
+Realizar o endereçamento de uma rede IP, configurar e verificar VLANs em switches Ethernet e implementar a interconexão entre VLANs por meio de roteamento em um roteador (*router-on-a-stick*).
+
+Ao final da atividade, o estudante deverá ser capaz de:
+
+- projetar um plano de VLANs e de endereçamento IP a partir de uma lista de equipamentos;
+- criar VLANs, associar portas de acesso e configurar enlaces tronco IEEE 802.1Q;
+- configurar o endereço de gerência dos switches em uma VLAN dedicada;
+- configurar subinterfaces no roteador para o roteamento entre VLANs;
+- diagnosticar falhas de conectividade intra-VLAN e inter-VLAN.
 
 ---
 
-## 2. Introdução Teórica
+## 2. Fundamentação Teórica
 
-Este laboratório aborda conceitos fundamentais para o projeto e implementação de redes corporativas segmentadas, incluindo:
+Este laboratório aborda conceitos fundamentais para o projeto e a implementação de redes corporativas segmentadas:
 
-- Projeto de redes de computadores;
-- Endereçamento IP;
-- VLANs (*Virtual Local Area Networks*);
-- Sub-redes IP;
-- Roteamento estático;
-- Interconexão entre VLANs (*Inter-VLAN Routing*).
+- projeto de redes de computadores e endereçamento IP;
+- VLANs (*Virtual Local Area Networks*) e sub-redes IP;
+- roteamento estático e interconexão entre VLANs (*Inter-VLAN Routing*).
+
+### 2.1 VLANs
+
+Uma VLAN é um domínio de *broadcast* lógico definido no switch: quadros de uma VLAN não são encaminhados a portas de outra VLAN. Cada VLAN corresponde, em geral, a uma sub-rede IP distinta, e a comunicação entre VLANs exige um dispositivo de camada 3.
+
+### 2.2 Enlaces de Acesso e Tronco (IEEE 802.1Q)
+
+- **Porta de acesso:** pertence a uma única VLAN e envia/recebe quadros sem *tag* (`switchport mode access`).
+- **Porta tronco:** transporta várias VLANs entre switches ou até o roteador. O padrão IEEE 802.1Q insere um *tag* de 4 bytes no quadro Ethernet, com o identificador de VLAN (VID, 12 bits, valores de 1 a 4094). Apenas a VLAN nativa trafega sem *tag* (`switchport mode trunk`).
+
+### 2.3 Roteamento Inter-VLAN com Subinterfaces
+
+Um único enlace tronco liga o switch ao roteador. No roteador, a interface física é dividida em subinterfaces, cada uma associada a uma VLAN por `encapsulation dot1q <VID>` e configurada com o endereço do *gateway* da VLAN.
+
+### 2.4 Aspectos de Segurança
+
+- A VLAN 1 é o padrão de fábrica e transporta o tráfego de controle (CDP, STP) e a VLAN nativa. Por isso, a gerência deste experimento utiliza uma **VLAN dedicada (VLAN 99)** e as VLANs de usuário não utilizam a VLAN 1.
+- Portas de acesso não utilizadas devem ser desativadas, e as portas de acesso devem ter o modo fixado (`switchport mode access`) para evitar a negociação automática de tronco (*Dynamic Trunking Protocol* - DTP) por um dispositivo não autorizado.
 
 ---
 
-## 3. Descrição da Atividade
+## 3. Topologia e Cenário
 
-A atividade está dividida em quatro etapas principais.
-
----
-
-### 3.1 Etapa 1 - Descrição do Caso
+### 3.1 Descrição do Caso
 
 Você foi designado para projetar e implementar a configuração dos equipamentos de uma rede corporativa destinada a interligar **50 dispositivos de rede**, incluindo:
 
-- Estações de trabalho;
-- Servidores;
-- Impressoras de rede.
+- estações de trabalho;
+- servidores;
+- impressoras de rede.
 
-O prédio da empresa possui **3 andares** e **4 departamentos**:
-- Administrativo  
-- Diretoria  
-- Marketing  
-- Tecnologia  
+O prédio da empresa possui **3 andares** e **4 departamentos**: Administrativo, Diretoria, Marketing e Tecnologia. A distribuição dos equipamentos por andar e departamento segue a **Tabela 1**.
 
-A distribuição dos equipamentos por andar e departamento deve seguir a **Tabela 1 - Lista de Equipamentos**.
+Considere ainda que:
+
+- a maior parte do tráfego é **intradepartamental**;
+- VLANs devem ser utilizadas para separar os domínios de *broadcast*;
+- deve existir **uma VLAN exclusiva para gerência** dos dispositivos de rede;
+- não há restrições quanto à disposição física das portas dos switches;
+- existe uma sala de telecomunicações em cada andar.
 
 ### 3.2 Tabela 1 - Lista de Equipamentos
 
@@ -80,208 +102,191 @@ A distribuição dos equipamentos por andar e departamento deve seguir a **Tabel
 | 3º | Impressora | 1 | Tecnologia |
 | **3º** | **Total** | **18** | - |
 
-
-
-Considere ainda que:
-
-- A maior parte do tráfego é **intradepartamental**;
-- VLANs devem ser utilizadas para separar os domínios de broadcast;
-- Deve existir **uma VLAN exclusiva para gerência** dos dispositivos de rede;
-- Não há restrições quanto à disposição física das portas dos switches;
-- Existe uma sala de telecomunicações em cada andar.
-
----
-
-### 3.3 Etapa 2 - Projeto da Rede
+### 3.3 Projeto da Rede
 
 Uma possível solução de projeto considera:
 
-- Um **switch por andar**, visto que todos possuem menos de 24 dispositivos;
-- Interligação entre switches por meio de **uplinks Gigabit Ethernet em modo trunk (IEEE 802.1Q)**;
-- Um roteador com uma interface Ethernet;
-- Cinco VLANs:
-  - Quatro VLANs departamentais;
-  - Uma VLAN de gerência.
+- um **switch por andar**, visto que todos possuem menos de 24 dispositivos;
+- interligação entre switches por meio de **uplinks em modo tronco (IEEE 802.1Q)**;
+- um roteador com uma interface Fast Ethernet conectada ao Sw1;
+- cinco VLANs: quatro departamentais e uma de gerência.
 
 #### 3.3.1 Plano de Endereçamento IP
 
-| VLAN | Departamento     | Rede IP        | Gateway         | VLAN ID |
-|----:|------------------|----------------|-----------------|--------:|
-| 1   | Gerência         | 10.0.10.0/24   | 10.0.10.254     | 1 |
-| 2   | Administração    | 10.0.20.0/24   | 10.0.20.254     | 2 |
-| 3   | Diretoria        | 10.0.30.0/24   | 10.0.30.254     | 3 |
-| 4   | Marketing        | 10.0.40.0/24   | 10.0.40.254     | 4 |
-| 5   | Tecnologia       | 10.0.50.0/24   | 10.0.50.254     | 5 |
+| VLAN ID | Nome | Departamento | Rede IP | Gateway |
+|-------:|------|--------------|---------|---------|
+| 2 | ADMINISTRACAO | Administração | 10.0.20.0/24 | 10.0.20.254 |
+| 3 | DIRETORIA | Diretoria | 10.0.30.0/24 | 10.0.30.254 |
+| 4 | MARKETING | Marketing | 10.0.40.0/24 | 10.0.40.254 |
+| 5 | TECNOLOGIA | Tecnologia | 10.0.50.0/24 | 10.0.50.254 |
+| 99 | GERENCIA | Gerência | 10.0.10.0/24 | 10.0.10.254 |
 
----
+#### 3.3.2 Endereçamento das Subinterfaces do Roteador
 
-### 3.4 Etapa 3 - Configuração e Verificação de VLANs em Switches
-
-1. Inicie o **Cisco Packet Tracer**.
-2. Abra o arquivo de topologia fornecido: [Baixar arquivo do laboratório](./topologias/experimento_04_nao_configurado.pkt)
-
-3. Configure os switches para:
-   - Criar as VLANs;
-   - Associar as portas de acesso às VLANs corretas;
-   - Configurar enlaces trunk entre os switches.
-
-Também deve ser configurado o **endereço IP de gerência** em cada switch, utilizando a VLAN 1, bem como o *default gateway*.
+| Subinterface | Endereço IP | VLAN ID |
+|--------------|-------------|--------:|
+| Fa0/0.99 | 10.0.10.254/24 | 99 |
+| Fa0/0.2 | 10.0.20.254/24 | 2 |
+| Fa0/0.3 | 10.0.30.254/24 | 3 |
+| Fa0/0.4 | 10.0.40.254/24 | 4 |
+| Fa0/0.5 | 10.0.50.254/24 | 5 |
 
 <img width="766" height="567" alt="Topologia do Experimento 04 no Packet Tracer" src="https://github.com/user-attachments/assets/44657322-8eaa-4457-a598-d7e3bb2fe86d" />
 
+O roteador fica no **primeiro andar**, conectado diretamente ao **Sw1** por uma interface Fast Ethernet, pois o equipamento não possui interface Gigabit Ethernet.
 
-#### 3.4.1 Configuração de VLANs no Sw1
+---
 
+## 4. Roteiro Prático Passo a Passo
 
-```bash
+### 4.1 Preparação
+
+1. Inicie o **Cisco Packet Tracer**.
+2. Abra o arquivo de topologia fornecido: [Baixar arquivo do laboratório](./topologias/experimento_04_nao_configurado.pkt).
+
+### 4.2 Criação de VLANs e Portas de Acesso nos Switches
+
+Configure em cada switch: as VLANs, a associação das portas de acesso às VLANs corretas conforme a Tabela 1 e o modo de acesso das portas. O exemplo a seguir mostra o padrão para o Sw1; repita o procedimento no Sw2 e no Sw3, adaptando as portas.
+
+```cisco
 Sw1> enable
-Sw1# conf t
-Enter configuration commands, one per line. End with CNTL/Z. Sw1(config)# interface FastEthernet0/1
-Sw1(config-if)# switchport access vlan 2
-% Access VLAN does not exist. Creating vlan 2
-Sw1(config-if)# switchport mode access
+Sw1# configure terminal
+Sw1(config)# vlan 99                       ! cria a VLAN de gerência
+Sw1(config-vlan)# name GERENCIA            ! nome da VLAN
+Sw1(config-vlan)# exit
+Sw1(config)# interface FastEthernet0/1
+Sw1(config-if)# switchport mode access     ! fixa a porta como acesso
+Sw1(config-if)# switchport access vlan 2   ! associa à VLAN 2 (cria a VLAN se não existir)
 Sw1(config-if)# interface FastEthernet0/5
-Swl (config-if)# switchport access vlan 5
-% Access VLAN does not exist. Creating vlan 5
 Sw1(config-if)# switchport mode access
-Sw1(config-if)# interface FastEthernet0/24
-Sw1(config-if)# switchport access vlan 1
-Sw1(config-if)# switchport mode access
-Sw1# sh vlan brief
-VLAN Name  
- 
-Status 
- 
-Ports
-1 default  
- 
-active 
- 
-Fa0/2, Fa0/3 , Fa0/4, Fa0/6
-Fa0/7, Fa0/8, Fa0/9, Fa0/10 Fa0/1l, Fa0/12 , Fa0/13, Fa0/14 Fa0/15, Fa0/16, Fa0/17, Fa0/18 Fa0/19, Fa0/20, Fa0/21, Fa0/22 Fa0/23, Fa0/24, Gi0/l, Gi0/2
-2 VLAN0002  
- 
- 
-active 
-Fa0/1
-5 VLAN0005  
- 
- 
-active 
-Fa0/5
-1002 fddi-default 
- 
-act/unsup
-1003 token-ring-default 
-act/unsup
-1004 fddinet-default  
-act/unsup
-1005 trnet-default 
- 
-act/ un sup
-Swl#
-```
-#### 3.4.2 Configuração de VLANs no Sw2
-#### 3.4.3 Configuração de VLANs no Sw3
-
-#### 3.4.4 Configuração IP para Gerência dos Switches
-
-```bash
-Sw1> enable
-Sw1# conf t
-Enter configuration commands, one per line. End with CNTL/Z.
-Sw1(config)# interface vlan 1
-w1(config-if)# ip address 10.0.10.1 255.255.255.0
-Sw1(config-if)# no shutdown Sw1(config-if)#
-%LDXX - Interface vlan 1, changed state to up Sw1(config-if)#ex
-Sw1(config)#ip default-gateway 10.0.10.254
-Sw2> enable
-Sw2# conf t
-Enter configuration commands, one per line. End with CNTL/Z.
-Sw2(config)# interface vlan 1
-Sw2(config-if)# ip address 10.0.10.2 255.255.255.0
-Sw2(config-if)# no shutdown Sw2(config-if)#
-%LDXX - Interface vlan 1, changed state to up Sw2(config-if)#ex
-Sw2(config)#ip default-gateway 10.0.10.254
-Sw3> enable
-Sw3# conf t
-Enter configuration commands, one per line. End with CNTL/Z.
-Sw3(config)# interface vlan 1
-Sw3(config-if)# ip address 10.0.10.3 255.255.255.0
-Sw3(config-if)# no shutdown Sw3(config-if)#
-%LDXX - Interface vlan 1, changed state to up Sw3(config-if)#ex
-Sw3(config)#ip default-gateway 10.0.10.254
+Sw1(config-if)# switchport access vlan 5
+Sw1(config-if)# end
+Sw1# show vlan brief                       ! confere VLANs e portas
 ```
 
-Após a configuração:
+### 4.3 Configuração IP de Gerência dos Switches
 
-Caso executasse um comando ping de qualquer computador para outro em uma mesma VLAN, você obteria sucesso? Para responder a essa pergunta, vamos fazer o seguinte teste:
+O endereço de gerência fica na VLAN 99 (SVI, *Switch Virtual Interface*). Os IPs são `10.0.10.1`, `10.0.10.2` e `10.0.10.3` para Sw1, Sw2 e Sw3.
 
-- Execute o comando ping de Adm3 (IP: 10.0.20.9) para Adm2 (IP: 10.0.20.5), ambos da VLAN 2.
-  - Por que o ping não funcionou? Quais os comandos necessários nos 3 switches?
-- Caso você executasse um comando ping de qualquer computador para outro em outra VLAN, você obteria sucesso? Para responder a essa pergunta, vamos fazer o seguinte teste:
-  - Execute o comando ping de Adm3 (IP: 10.0.20.9) da VLAN2 para Dir3 (IP: 10.0.30.4) da VLAN3.
-  - Por que o ping não funcionou?
----
+```cisco
+Sw1(config)# interface vlan 99
+Sw1(config-if)# ip address 10.0.10.1 255.255.255.0   ! IP de gerência do Sw1
+Sw1(config-if)# no shutdown
+Sw1(config-if)# exit
+Sw1(config)# ip default-gateway 10.0.10.254          ! gateway para alcançar outras redes
+```
 
-### 3.5 Etapa 4 - Interconexão de VLANs via Roteador
+Repita no Sw2 (`10.0.10.2`) e no Sw3 (`10.0.10.3`).
 
-Nesta etapa, será implementado o **roteamento entre VLANs** utilizando subinterfaces no roteador.
+### 4.4 Teste Sem Enlaces Tronco
 
-#### 3.5.1 Configuração de Switches e Roteador para Roteamento entre VLANs
+Com as VLANs e os IPs configurados, mas sem os troncos:
 
-O roteador deve ficar localizado no **primeiro andar**, conectado diretamente ao **switch Sw1** por meio de uma interface **Fast Ethernet**, uma vez que o equipamento não possui interface Gigabit Ethernet.
+- Execute `ping` de Adm3 (`10.0.20.9`) para Adm2 (`10.0.20.5`), ambos da VLAN 2. Por que o `ping` não funcionou? Quais comandos são necessários nos 3 switches?
+- Execute `ping` de Adm3 (`10.0.20.9`, VLAN 2) para Dir3 (`10.0.30.4`, VLAN 3). Por que o `ping` não funcionou?
 
-Essa interface deve ser configurada com **cinco subinterfaces**, de forma a permitir o roteamento de tráfego entre as **cinco VLANs** existentes. Para cada subinterface, deve ser configurado um **endereço IP** correspondente ao *default gateway* da respectiva VLAN, com a devida especificação do **VLAN ID**, conforme apresentado na Tabela 3.
+Configure os troncos entre os switches e o tronco do Sw1 para o roteador (a VLAN 99 e as VLANs 2 a 5 devem ser permitidas) e repita o primeiro teste.
 
-#### 3.5.2 Tabela 3 - Endereçamento das Subinterfaces do Roteador
+### 4.5 Interconexão de VLANs via Roteador
 
-| Subinterface | Endereçamento IP | VLAN ID |
-|--------------|------------------|--------:|
-| E0/1.1 | 10.0.10.254/24 | 1 |
-| E0/1.2 | 10.0.20.254/24 | 2 |
-| E0/1.3 | 10.0.30.254/24 | 3 |
-| E0/1.4 | 10.0.40.254/24 | 4 |
-| E0/1.5 | 10.0.50.254/24 | 5 |
+Configure a interface Fast Ethernet do roteador com **cinco subinterfaces**, uma por VLAN, cada uma com o *gateway* da respectiva VLAN (Seção 3.3.2).
 
-#### 3.5.3 Configuração do Roteador 
-
-```bash
-Router> en
-Router# conf t
-Enter configuration commands, one per line. End with CNTL/Z.
-Router(config)# interface FastEthernet0/0.1
-Router(config-subif)# description VLAN1
-Router(config-subif)# encapsulation dot1q 1
+```cisco
+Router> enable
+Router# configure terminal
+Router(config)# interface FastEthernet0/0
+Router(config-if)# no shutdown                       ! ativa a interface física
+Router(config-if)# interface FastEthernet0/0.99
+Router(config-subif)# description GERENCIA
+Router(config-subif)# encapsulation dot1q 99         ! associa a subinterface à VLAN 99
 Router(config-subif)# ip address 10.0.10.254 255.255.255.0
-Router(config-subif)#
-%LDXX - Line protocol on Interface FastEthernet0/0, changed state to up
-%LDXX - Line protocol on Interface FastEthernet0/0.1, changed state to up
 Router(config-subif)# interface FastEthernet0/0.2
-Router(config-subif)# description VLAN2
+Router(config-subif)# description ADMINISTRACAO
 Router(config-subif)# encapsulation dot1q 2
+Router(config-subif)# ip address 10.0.20.254 255.255.255.0
 ```
 
-Após a configuração:
+Repita para as VLANs 3, 4 e 5. Em seguida:
 
-- É preciso fazer alguma configuração da porta do switch para o roteador? Qual?
-- Verifique a conectividade entre dispositivos de VLANs distintas;
-- Analise a necessidade de configuração da porta do switch conectada ao roteador.
+- Verifique se é necessária alguma configuração na porta do switch conectada ao roteador e qual.
+- Verifique a conectividade entre dispositivos de VLANs distintas.
 
 ---
 
-## 4. Questões para o Relatório
+## 5. Verificação e Testes
+
+| Comando / ação | Equipamento | O que observar |
+| :--- | :---: | :--- |
+| `show vlan brief` | Switches | VLANs 2, 3, 4, 5 e 99 `active`, com as portas de acesso corretas |
+| `show interfaces trunk` | Switches | Portas tronco em `trunking` e VLANs permitidas e ativas |
+| `show ip interface brief` | Switches e roteador | SVI `Vlan99` e subinterfaces em `up/up` com os IPs do plano |
+| `show ip route` | Roteador | Rotas `C` para as cinco redes |
+| `ping` entre hosts da mesma VLAN | Hosts | Resposta (depende dos troncos) |
+| `ping` entre hosts de VLANs distintas | Hosts | Resposta (depende das subinterfaces) |
+| `ping 10.0.10.1` a partir de uma VLAN de usuário | Hosts | Resposta (comprova `ip default-gateway`) |
+
+Exemplo ilustrativo de trecho do `show vlan brief`:
+
+```text
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/2, Fa0/3, Fa0/4, Fa0/6
+2    VLAN0002                         active    Fa0/1
+5    VLAN0005                         active    Fa0/5
+99   GERENCIA                         active
+```
+
+- **VLAN / Name:** identificador e nome (o nome padrão é `VLANnnnn` quando não foi definido).
+- **Status:** `active` indica VLAN criada e utilizável.
+- **Ports:** portas de **acesso** da VLAN. As portas de tronco não aparecem nessa coluna; portas não associadas permanecem na VLAN 1.
+
+---
+
+## 6. Questões para Análise
 
 O relatório deve documentar detalhadamente:
 
-a) As razões para falhas de conectividade observadas nas etapas iniciais;  
-b) As configurações necessárias nos switches para comunicação intra-VLAN;  
-c) As configurações necessárias para comunicação inter-VLAN;  
-d) A finalidade do protocolo **IEEE 802.1Q** e as vantagens de sua utilização.
+1. As razões para as falhas de conectividade observadas nas etapas iniciais (intra-VLAN e inter-VLAN).
+2. As configurações necessárias nos switches para a comunicação intra-VLAN.
+3. As configurações necessárias para a comunicação inter-VLAN.
+4. A finalidade do padrão **IEEE 802.1Q** e as vantagens de sua utilização.
+5. Por que a gerência dos equipamentos foi colocada em uma VLAN dedicada, e não na VLAN 1?
+6. O que ocorre com os quadros de uma VLAN que não esteja na lista de VLANs permitidas do tronco?
 
 Todos os comandos executados devem ser registrados e explicados.
 
 ---
 
-[← Anterior: Experimento 03](03_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 05 →](05_roteiro.md)
+## 7. Critérios de Avaliação
 
+A avaliação será realizada com base na seguinte rubrica, totalizando exatamente 10,0 pontos:
+
+| Critério de Avaliação | Pontuação Máxima |
+| :--- | :---: |
+| **Plano de VLANs e endereçamento:** Coerente com a Tabela 1 e sem sobreposição | 1,5 |
+| **VLANs e portas de acesso:** Criação e associação corretas nos três switches | 2,0 |
+| **Troncos e gerência:** Troncos 802.1Q, SVI da VLAN 99 e *default gateway* | 2,0 |
+| **Roteador:** Subinterfaces e roteamento inter-VLAN funcionando | 2,0 |
+| **Testes:** Evidências legíveis das verificações da Seção 5 | 1,0 |
+| **Respostas às questões:** Análise fundamentada das questões da Seção 6 | 1,5 |
+| **Total** | **10,0** |
+
+---
+
+## 8. Entregáveis
+
+1. Plano de VLANs e de endereçamento.
+2. Arquivo `.pkt` configurado.
+3. Saídas de `show vlan brief`, `show interfaces trunk` (switches) e `show ip interface brief` e `show ip route` (roteador).
+4. Capturas dos testes de `ping` intra-VLAN e inter-VLAN, antes e depois das correções.
+5. Respostas às 6 questões da Seção 6, com os comandos registrados e explicados.
+
+---
+
+## 9. Conclusão
+
+Neste experimento, a rede corporativa foi segmentada em VLANs, interligada por troncos IEEE 802.1Q e roteada por subinterfaces. As falhas observadas antes dos troncos e do roteador evidenciaram que VLANs isolam domínios de *broadcast* e que a comunicação entre elas depende de um dispositivo de camada 3. A adoção de uma VLAN de gerência dedicada aplica uma prática de endurecimento reaproveitada nos experimentos seguintes.
+
+---
+
+[← Anterior: Experimento 03](03_roteiro.md) | [Índice Geral (README)](../README.md) | [Próximo: Experimento 05 →](05_roteiro.md)

@@ -1,18 +1,21 @@
-# Roteiro do Experimento 05 - Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN e Hardening de Camada 2
+# Roteiro do Experimento 05 - Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN, DHCP Snooping e DAI
 
 - **Instituição:** Universidade de Brasília (UnB)
 - **Departamento:** Departamento de Engenharia Elétrica (ENE)
 - **Curso:** Engenharia de Redes de Comunicação
 - **Disciplina:** ENE0011 - Laboratório de Redes
 - **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
-- **Tema:** Redundância de enlaces com EtherChannel, spanning-tree, roteamento inter-VLAN e hardening L2
+- **Tema:** Agregação de enlaces com EtherChannel (LACP), roteamento inter-VLAN, DHCP em switch e proteção de camada 2 com DHCP Snooping e *Dynamic ARP Inspection* (DAI)
 
 ---
+
+> **Recurso Didático:** os simuladores [Simul-Net: DHCP (DORA)](https://peotta.github.io/Simul-Net/#/sim/dhcp) e [Simul-Net: ARP](https://peotta.github.io/Simul-Net/#/sim/arp) mostram o processo DORA e o envenenamento de cache ARP com as respectivas defesas, base conceitual do DHCP Snooping e do DAI praticados neste roteiro.
+
 ## 1. Objetivo
 
 Implementar uma topologia redundante em laboratório utilizando **VLANs**, **EtherChannel**, **roteamento inter-VLAN** e mecanismos de **segurança de camada 2**, de forma a garantir maior disponibilidade, desempenho e proteção da rede.
 
-## 2. Conceitos Complementares
+## 2. Fundamentação Teórica
 
 - **Agregação de links  - EtherChannel**
 
@@ -32,12 +35,12 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
     - **PAgP**: protocolo proprietário da Cisco para negociação automática.
 
-    - **LACP**: protocolo padrão IEEE 802.3ad, usado para interoperabilidade entre diferentes fabricantes.
+    - **LACP** (*Link Aggregation Control Protocol*): protocolo padrão IEEE 802.3ad (atualmente incorporado ao IEEE 802.1AX), usado para interoperabilidade entre diferentes fabricantes.
 
   - Benefícios
 
     - Melhor utilização dos recursos físicos.
-    - Redução de loops e simplificação da topologia.
+    - Simplificação da topologia: o *Spanning Tree Protocol* (STP) trata o *Port-Channel* como um único enlace e não bloqueia as portas-membro individualmente.
     - Maior resiliência e desempenho em redes corporativas.
 
 - **DHCP Snooping**
@@ -87,7 +90,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 
 
-## 3. Descrição da Atividade
+## 3. Topologia e Cenário
 
 1. Cenário:
    1. Switch0 Core - vlan100
@@ -113,13 +116,13 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 
 
-### 3.1 Instruções
+## 4. Roteiro Prático Passo a Passo
 
-#### 3.1.1 Etapa 1: Configuração do Switch1 (VLAN 10, DHCP, SSH, EtherChannels, Snooping e DAI)
+### 4.1 Etapa 1: Configuração do Switch1 (VLAN 10, DHCP, SSH, EtherChannels, Snooping e DAI)
 
 1. Nome do dispositivo
 
-   ```
+   ```cisco
    enable
    configure terminal
    hostname Switch1
@@ -127,7 +130,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 2. Configuração do Acesso SSH e Usuário e segurança
 
-   ```
+   ```cisco
    ip domain-name labredes.com
    service password-encryption
    enable secret sua_senha
@@ -142,14 +145,14 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    banner motd #
    ATENÇÃO: Acesso restrito!
    Somente usuários autorizados podem entrar.
-   Tentativas não autorizadas serao registradas.#
+   Tentativas não autorizadas serão registradas.#
    ```
 
    
 
 3. Configuração da VLAN e SVI de Gerenciamento
 
-   ```
+   ```cisco
    vlan 10
    name VLAN10
    vlan 20
@@ -158,7 +161,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    name VLAN100
    ```
 
-   ```
+   ```cisco
    interface vlan 10
    ip address x.x.x.x x.x.x.x
    no shutdown
@@ -166,9 +169,11 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    ip default-gateway x.x.x.x
    ```
 
+   > **Observação:** nos switches de acesso, a SVI está na própria VLAN de usuário (VLAN 10 no Switch1 e VLAN 20 no Switch2) porque o servidor DHCP do switch escolhe a pool pelo endereço da interface que recebe a requisição. A SVI faz, portanto, o papel de endereço de gerência e de interface do servidor DHCP. O Switch0 (núcleo) utiliza a SVI da VLAN 100 como gerência.
+
    Configuração das portas de acesso dos PCs (Fa0/3 a Fa0/13)
 
-   ```
+   ```cisco
    interface range FastEthernet0/x - x
    switchport mode access
    switchport access vlan 10
@@ -176,7 +181,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 4. Configuração do Servidor DHCP (Excluindo IPs .1 a .49)
 
-   ```
+   ```cisco
    ip dhcp excluded-address x.x.x.1 x.x.x.49
    ip dhcp pool POOL_VLAN10
    network x.x.x.x x.x.x.x
@@ -188,26 +193,26 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
    Desativa a Opção 82 (necessário no Packet Tracer para evitar rejeição de pacotes)
 
-   ```
+   ```cisco
    no ip dhcp snooping information option
    ```
 
    Ativa DHCP Snooping globalmente e nas VLANs
 
-   ```
+   ```cisco
    ip dhcp snooping
    ip dhcp snooping vlan 10,20,100
    ```
 
    Ativa Dynamic ARP Inspection (DAI) nas VLANs
 
-   ```
+   ```cisco
    ip arp inspection vlan 10,20,100
    ```
 
 6. Configuração EtherChannel 1 (com Switch1 Fa0/1 e Fa0/2 com Switch0: Fa0/1 e Fa0/2)
 
-   ```
+   ```cisco
    interface range FastEthernet0/1 - 2
    ip dhcp snooping trust
    ip arp inspection trust
@@ -215,8 +220,12 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    exit
    interface Port-channel 1
    switchport mode trunk
+   ip dhcp snooping trust
+   ip arp inspection trust
    exit
    ```
+
+   Em equipamentos reais, a confiança deve ser aplicada na interface `Port-channel`, que representa o enlace lógico. Nas portas-membro, o comando é mantido por compatibilidade com o Packet Tracer.
 
    O DAI utiliza a tabela do DHCP Snooping para validar pacotes ARP.
 
@@ -226,9 +235,9 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
    
 
-   Vericando configuração etherchannel
+   Verificando configuração etherchannel
 
-   ```
+   ```cisco
    show etherchannel summary
    !ou
    show etherchannel port-channel
@@ -238,8 +247,8 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 7. Desligando portas não utilizadas
 
-   ```
-   int range fa0/5-24, g0/1-2
+   ```cisco
+   int range fa0/14-24, g0/1-2
    shut
    ```
 
@@ -259,7 +268,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
    Conexão com o Switch0 (Trunk na porta g0/1) <---> Roteador 
 
-   ```
+   ```cisco
    interface g0/1
     switchport mode trunk
     ip dhcp snooping trust
@@ -268,11 +277,11 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
    
 
-#### 3.1.2 Etapa 2: Configuração do Router1 (Roteamento Inter-VLAN / Router-on-a-Stick)
+### 4.2 Etapa 2: Configuração do Router1 (Roteamento Inter-VLAN / Router-on-a-Stick)
 
 1. Nome do dispositivo
 
-   ```
+   ```cisco
    enable
    configure terminal
    hostname Router1
@@ -280,7 +289,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 2. Sub-interface VLAN 10
 
-   ```
+   ```cisco
    interface g0/0.10
    encapsulation dot1Q 10
    ip address x.x.x.x x.x.x.x
@@ -288,7 +297,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 3. Sub-interface VLAN 20
 
-   ```
+   ```cisco
    interface g0/0.20
    encapsulation dot1Q 20
    ip address x.x.x.x x.x.x.x
@@ -296,7 +305,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 4. Sub-interface VLAN 100
 
-   ```
+   ```cisco
    interface g0/0.100
    encapsulation dot1Q 100
    ip address x.x.x.x x.x.x.x
@@ -304,7 +313,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
 5. Ativação da interface física
 
-   ```
+   ```cisco
    interface g0/0
    no shutdown
    ```
@@ -314,7 +323,21 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
    
 
 
-## 4. Questões
+## 5. Verificação e Testes
+
+| Comando / ação | Equipamento | O que observar |
+| :--- | :---: | :--- |
+| `show etherchannel summary` | Todos os switches | Port-channel com flag `SU` (camada 2, em uso) e portas-membro com flag `P` (no canal) |
+| `show interfaces port-channel 1` | Switch1 | `BW` equivalente à soma dos enlaces-membro |
+| `show interfaces trunk` | Todos os switches | `Port-channel` e `Gi0/1` em `trunking` |
+| `show ip dhcp snooping` | Switches de acesso | Habilitado nas VLANs 10, 20 e 100; Port-channel e uplink como `trusted` |
+| `show ip dhcp snooping binding` | Switches de acesso | Uma entrada (MAC, IP, VLAN, porta) por cliente |
+| `show ip arp inspection vlan 10,20,100` | Switches | DAI habilitado e portas de uplink confiáveis |
+| `show ip dhcp binding` | Switches de acesso | Concessões fora do intervalo excluído (`.1` a `.49`) |
+| `ping` entre PCs de VLANs distintas | PCs | Resposta, via sub-interfaces do Router1 |
+| `ssh -l <usuario> <IP>` | PC | Acesso remoto seguro ao switch |
+
+## 6. Questões para Análise
 
 1. **EtherChannel em funcionamento**   Configure o EtherChannel entre o Switch1 e o Switch0. Em seguida, execute o comando `show etherchannel summary`.
    - Pergunta: O Port-Channel aparece como ativo?
@@ -324,6 +347,37 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 2. **DHCP Snooping aplicado**   Após a configuração do DHCP Snooping. Conecte um servidor DHCP falso em uma porta não confiável e observe o comportamento.
    - Pergunta: O switch bloqueou as mensagens DHCP vindas da porta não confiável?
    - Evidência: Capture a tela mostrando a tabela de bindings (`show ip dhcp snooping binding`) e o teste com o servidor falso.
+
+3. **Dynamic ARP Inspection:** Por que o DAI depende da tabela do DHCP Snooping? O que ocorre com um host de IP estático em uma VLAN inspecionada?
+4. **Confiança em portas:** Por que as portas de uplink e o Port-channel devem ser marcados como confiáveis (DHCP Snooping e DAI) e as portas de usuário não?
+5. **Segurança de acesso:** Que portas permanecem ativas após o passo "Desligando portas não utilizadas" e por que desativar as demais é uma prática de endurecimento?
+
+## 7. Critérios de Avaliação
+
+A avaliação será realizada com base na seguinte rubrica, totalizando exatamente 10,0 pontos:
+
+| Critério de Avaliação | Pontuação Máxima |
+| :--- | :---: |
+| **VLANs, SVIs e portas de acesso:** Criação e associação corretas | 1,5 |
+| **EtherChannel:** Port-channels ativos em todos os enlaces (`show etherchannel summary`) | 1,5 |
+| **Router-on-a-stick:** Sub-interfaces e roteamento inter-VLAN funcionando | 1,5 |
+| **DHCP:** Pools e exclusões corretas e concessões válidas | 1,5 |
+| **DHCP Snooping e DAI:** Habilitação nas VLANs corretas, portas confiáveis e teste com servidor falso | 1,5 |
+| **Hardening e SSH:** Portas não utilizadas desativadas e acesso por SSH | 1,0 |
+| **Respostas às questões:** Análise fundamentada das questões da Seção 6 | 1,5 |
+| **Total** | **10,0** |
+
+## 8. Entregáveis
+
+1. Arquivo `.pkt` configurado.
+2. Plano de endereçamento utilizado (blocos de rede por VLAN).
+3. Evidências dos comandos da Seção 5, com breve análise das saídas.
+4. Evidência do teste do servidor DHCP falso (Questão 2).
+5. Respostas às 5 questões da Seção 6.
+
+## 9. Conclusão
+
+Neste experimento, a topologia com núcleo e dois switches de acesso foi interligada por EtherChannel (LACP), com roteamento inter-VLAN por sub-interfaces, DHCP nos switches de acesso e proteção contra servidores DHCP não autorizados e *ARP spoofing* por DHCP Snooping e DAI. A prática evidencia que a segurança de camada 2 depende da correta definição de portas confiáveis e não confiáveis.
 
 ---
 

@@ -11,6 +11,8 @@
 
 ---
 
+> **Recurso Didático:** o simulador [Simul-Net: ICMP (ping e traceroute)](https://peotta.github.io/Simul-Net/#/sim/icmp) reproduz Echo, Time Exceeded e Destination Unreachable, úteis para interpretar o `tracert` dos testes T6 e T9.
+
 ## 1. Objetivo
 
 Interligar as filiais montadas separadamente pelos Grupos A e B por meio de um roteador central, de forma autônoma e cooperativa. A atividade é conduzida por **cenário** e **requisitos**: as duas equipes decidem em conjunto como cumpri-los, consultando os experimentos anteriores.
@@ -63,7 +65,7 @@ A resposta *Time Exceeded* de cada roteador **retorna à origem pela tabela de r
 
 ### 3.1 Cenário
 
-A empresa decide interligar as duas filiais por meio de um roteador central (`R-CORE`, o Cisco 1941), que também será a futura saída para a matriz. Nesta etapa, a interligação deve usar **somente rotas estáticas**. Cada filial mantém o endereçamento, o DHCP e o hardening dos experimentos anteriores, e a nova interligação não pode removê-los.
+A empresa decide interligar as duas filiais por meio de um roteador central (`R-CORE`, o Cisco 1941), que também será a futura saída para a matriz. Nesta etapa, a interligação deve usar **somente rotas estáticas**. Cada filial mantém o endereçamento, o DHCP (*Dynamic Host Configuration Protocol*) e o hardening dos experimentos anteriores, e a nova interligação não pode removê-los.
 
 Os dois grupos compartilham o `R-CORE`. Por isso, a configuração, o acesso administrativo e os testes exigem **acordo prévio entre as equipes**.
 
@@ -139,7 +141,7 @@ Os planos de endereçamento internos são os do Experimento 10 (VLANs 10, 20, 40
 | Identificação do roteador central | *Hostname* `R-CORE` e domínio `lab.local` |
 | Acesso administrativo ao `R-CORE` | SSH versão 2, `enable secret` e **um usuário local por grupo** (`grupoA` e `grupoB`), com Telnet desabilitado |
 | Rotas estáticas | **Uma rota por filial remota**, para o bloco `/24` inteiro, usando o **endereço do próximo salto**. Não é permitida rota padrão |
-| Filiais | Manter DHCP Snooping, DAI e portas desativadas do Experimento 10 |
+| Filiais | Manter DHCP Snooping, *Dynamic ARP Inspection* (DAI) e portas desativadas do Experimento 10 |
 
 ### 5.4 Tabela de Acordo
 

@@ -10,6 +10,7 @@
 > **Pré-requisito:** Este laboratório dá continuidade direta à infraestrutura implementada no **Experimento 07**.
 
 ---
+
 ## 1. Objetivo
 
 Este laboratório dá continuidade direta à infraestrutura implementada no **Experimento 07**, integrando o serviço **DNS (*Domain Name System*)** à rede local gerenciada por DHCP. O objetivo é configurar um servidor DNS autoritativo simples em ambiente Linux para resolução de nomes locais, atualizar o escopo DHCP para fornecer as configurações de DNS aos clientes e validar a resolução direta e de apelidos (*aliases*).
@@ -114,7 +115,7 @@ flowchart TB
 | **Cliente 3** | eth0 | 192.168.0.103 | 255.255.255.0 | 192.168.0.1 | Cliente DHCP / Host `pc3.lab.local` |
 | **Cliente 4** | eth0 | 192.168.0.104 | 255.255.255.0 | 192.168.0.1 | Cliente DHCP / Host `pc4.lab.local` |
 
-> *Nota:* Os endereços IP dos clientes listados acima correspondem às concessões típicas obtidas no Experimento 07.
+> *Nota:* Para que os registros `A` da zona permaneçam válidos, cada cliente recebe um endereço fixo por **reserva DHCP** associada ao endereço MAC (Seção 5.6), técnica apresentada no Experimento 07 (Seção 15). Sem a reserva, os endereços dinâmicos da faixa `192.168.0.100` a `192.168.0.150` poderiam diferir dos registrados.
 
 ### 4.2 Tabela de Registros DNS da Zona `lab.local`
 
@@ -216,6 +217,7 @@ Insira a declaração da zona mestre:
 zone "lab.local" {
     type master;
     file "/etc/bind/db.lab.local";
+    allow-transfer { none; };   // impede transferência de zona (AXFR) por terceiros
 };
 ```
 
@@ -295,8 +297,16 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 
     default-lease-time 600;
     max-lease-time 3600;
+
+    # Reservas por MAC (substitua pelos enderecos MAC reais de cada cliente)
+    host pc1 { hardware ethernet 08:00:27:aa:bb:01; fixed-address 192.168.0.101; }
+    host pc2 { hardware ethernet 08:00:27:aa:bb:02; fixed-address 192.168.0.102; }
+    host pc3 { hardware ethernet 08:00:27:aa:bb:03; fixed-address 192.168.0.103; }
+    host pc4 { hardware ethernet 08:00:27:aa:bb:04; fixed-address 192.168.0.104; }
 }
 ```
+
+Em cada cliente, obtenha o MAC real com `ip link show eth0` (campo `link/ether`) e substitua os valores de exemplo acima. Os endereços MAC de exemplo não existem na topologia.
 
 Reinicie o serviço DHCP para aplicar as alterações:
 
@@ -328,6 +338,10 @@ A saída deve conter as linhas:
 search lab.local
 nameserver 192.168.0.1
 ```
+
+Em distribuições com `systemd-resolved`, o arquivo pode exibir apenas `nameserver 127.0.0.53`. Nesse caso, confirme o servidor repassado com `resolvectl status eth0`.
+
+> **Limitação do sufixo `.local`:** o domínio `.local` é reservado ao DNS multicast ([**RFC 6762**](https://datatracker.ietf.org/doc/html/rfc6762)). Em clientes com `avahi` ou `nss-mdns`, a resolução de `pc2` ou `pc2.lab.local` por `ping` pode ser tentada via mDNS antes do DNS unicast. Se houver divergência entre `dig` e `ping`, atribua a causa a esse mecanismo e registre-a no relatório. Para redes de produção, recomenda-se um domínio sob o controle da organização ou `home.arpa` ([**RFC 8375**](https://datatracker.ietf.org/doc/html/rfc8375)).
 
 ---
 

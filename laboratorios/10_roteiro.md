@@ -11,6 +11,8 @@
 
 ---
 
+> **Recurso Didático:** os simuladores [Simul-Net: DHCP (DORA)](https://peotta.github.io/Simul-Net/#/sim/dhcp) e [Simul-Net: ARP](https://peotta.github.io/Simul-Net/#/sim/arp) permitem observar as mensagens DHCP e ARP (inclusive o envenenamento de cache e suas defesas) que o DHCP Snooping, o DAI e a captura com SPAN deste roteiro analisam.
+
 ## 1. Objetivo
 
 Ampliar a rede da filial implantada no Experimento 09, protegê-la contra ataques de falsificação de identidade na camada 2 e exercitar o diagnóstico sistemático de falhas. A atividade é conduzida por **cenário** e **requisitos**, sem passo a passo e sem acompanhamento do professor.
@@ -229,7 +231,7 @@ Esta atividade demonstra que um switch pode ser configurado para monitorar o tr�
 2. Verifique se o PC3 possui o **Wireshark** (com o Npcap, no Windows). O PC3 será o analisador e não precisa de endereço IP para a captura.
 3. Desconecte o PC3 de `Fa0/3` e conecte-o a `Fa0/5`.
 
-**Configuração da sessão no switch** (use `SW-A` ou `SW-B`):
+**Configuração da sessão no switch** (use `SW-A` ou `SW-B`; o texto após `!` é comentário e não deve ser digitado):
 
 ```cisco
 SW-A# configure terminal
