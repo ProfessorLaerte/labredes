@@ -88,7 +88,19 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
     - Trabalha em conjunto com o DHCP Snooping para formar uma camada de defesa contra ataques de falsificação de identidade na rede.
 
+### 2.1 Normas de Referência
 
+Os recursos de segurança deste experimento se apoiam nas RFCs abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| DHCP | [**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131), [**RFC 2132**](https://datatracker.ietf.org/doc/html/rfc2132) | Protocolo DHCP, processo DORA, concessão (*lease*) e opções entregues aos clientes |
+| Opção 82 e retransmissão | [**RFC 3046**](https://datatracker.ietf.org/doc/html/rfc3046) | *Relay Agent Information*: opção que o switch pode inserir nas mensagens DHCP e que o servidor do roteador pode rejeitar |
+| Validação da origem no DHCP | [**RFC 7513**](https://datatracker.ietf.org/doc/html/rfc7513) | *Source Address Validation Improvement* (SAVI) para DHCP: base conceitual da tabela de ligações IP-MAC-porta do DHCP Snooping |
+| ARP | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | Protocolo sem autenticação, o que viabiliza o *ARP spoofing* contido pelo DAI |
+| Detecção de conflito de endereço | [**RFC 5227**](https://datatracker.ietf.org/doc/html/rfc5227) | *ARP Probe* e *ARP Announcement*, tipos de mensagem ARP que o DAI precisa tratar |
+
+O EtherChannel com LACP é padronizado pelo IEEE 802.1AX (antigo 802.3ad), e o *Spanning Tree Protocol* (STP) pelo IEEE 802.1D e 802.1w. O DHCP Snooping e o DAI são recursos Cisco, sem RFC próprio.
 
 ## 3. Topologia e Cenário
 

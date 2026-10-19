@@ -80,7 +80,16 @@ Além disso, configurações de segurança como SSH e criptografia de senhas gar
 - **Flexibilidade**: cada sub-rede pode ter o tamanho exato necessário.
 - **Escalabilidade**: facilita o crescimento da rede sem precisar redesenhar tudo.
 
+### 2.4 Normas de Referência
 
+O endereçamento e o projeto de sub-redes se apoiam nas RFCs abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Sub-redes IPv4 | [**RFC 950**](https://datatracker.ietf.org/doc/html/rfc950) | Procedimento padrão de divisão de uma rede em sub-redes por máscara |
+| CIDR e agregação | [**RFC 4632**](https://datatracker.ietf.org/doc/html/rfc4632) | *Classless Inter-Domain Routing* (CIDR): notação de prefixo `/n` e agregação de rotas |
+| Tamanho variável de máscara | [**RFC 1878**](https://datatracker.ietf.org/doc/html/rfc1878) | Tabela de sub-redes de tamanho variável, com número de hosts por prefixo, base do dimensionamento com VLSM |
+| Enlaces ponto a ponto | [**RFC 3021**](https://datatracker.ietf.org/doc/html/rfc3021) | Uso de prefixos `/31` em enlaces ponto a ponto, sem endereços de rede e de *broadcast* |
 
 ## 3. Topologia e Cenário
 

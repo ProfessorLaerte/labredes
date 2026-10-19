@@ -49,6 +49,17 @@ Um único enlace tronco liga o switch ao roteador. No roteador, a interface fís
 - A VLAN 1 é o padrão de fábrica e transporta o tráfego de controle (CDP, STP) e a VLAN nativa. Por isso, a gerência deste experimento utiliza uma **VLAN dedicada (VLAN 99)** e as VLANs de usuário não utilizam a VLAN 1.
 - Portas de acesso não utilizadas devem ser desativadas, e as portas de acesso devem ter o modo fixado (`switchport mode access`) para evitar a negociação automática de tronco (*Dynamic Trunking Protocol* - DTP) por um dispositivo não autorizado.
 
+### 2.5 Normas de Referência
+
+As VLANs e os troncos são definidos pelo padrão IEEE 802.1Q (não há RFC equivalente), e o *Dynamic Trunking Protocol* (DTP) é proprietário da Cisco. O endereçamento e o roteamento entre as VLANs se apoiam nas RFCs abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Encaminhamento e roteamento estático | [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Requisitos de roteadores IPv4, inclusive escolha de rota e rota padrão, aplicados nas subinterfaces e rotas estáticas |
+| Protocolo IP | [**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791) | Endereçamento e encaminhamento dos datagramas entre as sub-redes de cada VLAN |
+| Resolução do *gateway* | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | ARP: o *host* resolve o MAC do *gateway* da VLAN antes de encaminhar o tráfego a outra sub-rede |
+| Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | Mensagens ICMP usadas por `ping` na validação entre VLANs |
+
 ---
 
 ## 3. Topologia e Cenário

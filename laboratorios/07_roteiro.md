@@ -39,6 +39,17 @@ O protocolo **DHCP** permite que os dispositivos recebam automaticamente informa
 
 O DHCP utiliza o protocolo UDP como transporte. As mensagens enviadas do cliente para o servidor usam a porta UDP 67, enquanto as mensagens enviadas do servidor para o cliente usam a porta UDP 68.
 
+O DHCP é especificado pelas RFCs abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Protocolo DHCP | [**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131) | Mensagens, estados do cliente, concessão (*lease*) e temporizadores de renovação |
+| Opções DHCP | [**RFC 2132**](https://datatracker.ietf.org/doc/html/rfc2132) | Máscara, *gateway* (opção 3), servidores DNS (opção 6), tempo de concessão (opção 51) e tipo de mensagem (opção 53) |
+| Transporte | [**RFC 768**](https://datatracker.ietf.org/doc/html/rfc768) | *User Datagram Protocol* (UDP), usado nas portas 67 e 68 |
+| Retransmissão | [**RFC 1542**](https://datatracker.ietf.org/doc/html/rfc1542) | Comportamento de agentes de retransmissão (*relay*) do BOOTP, base do DHCP |
+| Conflito de endereço | [**RFC 5227**](https://datatracker.ietf.org/doc/html/rfc5227) | *ARP Probe* antes de o cliente adotar o endereço |
+| Endereço *link-local* | [**RFC 3927**](https://datatracker.ietf.org/doc/html/rfc3927) | Endereço `169.254.x.x` adotado quando não há resposta do servidor |
+
 O processo básico de obtenção de endereço IP segue a sequência conhecida como **DORA**:
 
 ```text

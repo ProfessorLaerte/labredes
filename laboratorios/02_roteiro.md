@@ -67,7 +67,18 @@ A configuração de senhas fortes e o uso do protocolo SSH são práticas essenc
 - Cada VLAN pode ter uma SVI associada, permitindo que o switch seja acessado via IP dentro daquela VLAN.
 - Em switches camada 3, SVIs também podem ser usadas para **roteamento entre VLANs** (inter-VLAN routing).
 
+### 2.4 Normas de Referência
 
+O acesso remoto seguro e a gerência dos equipamentos são tratados nas RFCs abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Telnet (inseguro) | [**RFC 854**](https://datatracker.ietf.org/doc/html/rfc854) | Protocolo de terminal remoto que trafega credenciais e dados em texto claro; deve ser desabilitado |
+| Arquitetura do SSH | [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251) | Modelo geral do *Secure Shell* (SSH), seus serviços e considerações de segurança |
+| Autenticação no SSH | [**RFC 4252**](https://datatracker.ietf.org/doc/html/rfc4252) | Autenticação do usuário por senha e por chave pública (`login local` e usuário local) |
+| Transporte do SSH | [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) | Negociação de algoritmos, troca de chaves, criptografia e integridade da sessão (versão 2 do protocolo) |
+| Canais do SSH | [**RFC 4254**](https://datatracker.ietf.org/doc/html/rfc4254) | Multiplexação de canais sobre a conexão, como a sessão de terminal nas linhas VTY |
+| Gerência remota | [**RFC 3411**](https://datatracker.ietf.org/doc/html/rfc3411) | Arquitetura do *Simple Network Management Protocol* (SNMP), citado como serviço de gerência acessado pela interface VLAN1 |
 
 ## 3. Topologia e Cenário
 

@@ -46,6 +46,20 @@ Cada hipótese deve ser testada com um comando de verificação e registrada com
 | Roteamento | `encapsulation dot1Q` com VID divergente; subinterface desativada |
 | Serviços | Pool DHCP com `default-router` errado; SSH sem chave RSA, sem `login local` ou com `transport input` inadequado |
 
+### 2.3 Normas de Referência
+
+O diagnóstico por camadas se apoia nas especificações abaixo para definir o comportamento esperado em cada teste.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Endereçamento e encaminhamento | [**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791), [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Verificação de IP, máscara, *gateway* e rotas |
+| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | Tabela ARP como evidência de que o enlace e a VLAN estão corretos |
+| Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | `ping` e mensagens de erro ICMP, como destino inalcançável |
+| DHCP | [**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131) | Fluxo DORA; a falha do serviço costuma deixar o *host* sem endereço válido |
+| Endereço *link-local* | [**RFC 3927**](https://datatracker.ietf.org/doc/html/rfc3927) | Endereços `169.254.x.x` que o cliente adota quando não obtém concessão DHCP |
+| SSH | [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251), [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) | Requisitos do acesso remoto seguro e negociação da sessão |
+| DNS | [**RFC 1034**](https://datatracker.ietf.org/doc/html/rfc1034), [**RFC 1035**](https://datatracker.ietf.org/doc/html/rfc1035) | Resolução de nomes, para falhas de serviço em que o IP responde e o nome não |
+
 ---
 
 ## 3. Topologia e Cenário

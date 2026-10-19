@@ -54,6 +54,20 @@ Uma rota pode ser **diretamente conectada** (código `C`, criada quando a interf
 
 O CDP é um protocolo proprietário da Cisco, de camada 2, que anuncia identificação, plataforma, interfaces e capacidades aos vizinhos diretamente conectados. Do ponto de vista de segurança, esse anúncio revela informações do equipamento e deve ser desabilitado em interfaces voltadas a redes não confiáveis (`no cdp enable`).
 
+### 2.5 Normas de Referência
+
+Os temas desta fundamentação são regidos pelas seguintes RFCs (*Request for Comments*) da *Internet Engineering Task Force* (IETF).
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Arquitetura TCP/IP | [**RFC 1122**](https://datatracker.ietf.org/doc/html/rfc1122) | Define as camadas de enlace, internet, transporte e aplicação, e os requisitos de comunicação dos *hosts* |
+| Protocolo IP | [**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791) | Formato do datagrama IPv4, endereçamento e campo TTL (*Time to Live*) |
+| Encaminhamento e rota padrão | [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Requisitos dos roteadores IPv4: escolha da rota de maior prefixo, rota padrão e tabela de roteamento |
+| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | *Address Resolution Protocol* (ARP): associa endereço IP a endereço MAC na rede local |
+| Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | *Internet Control Message Protocol* (ICMP): mensagens *Echo Request* e *Echo Reply* do `ping` |
+
+O *Cisco Discovery Protocol* (CDP) é proprietário e não possui RFC; o protocolo padronizado equivalente é o *Link Layer Discovery Protocol* (LLDP), definido no IEEE 802.1AB. Hubs e switches Ethernet são regidos pelo IEEE 802.3, e não por RFCs.
+
 ## 3. Topologia e Cenário
 
 1. Crie um cenário no Cisco Packet Tracer com os seguintes dispositivos:

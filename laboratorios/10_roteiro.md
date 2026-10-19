@@ -43,7 +43,7 @@ As Seções 2.1 a 2.3 organizam o que foi estudado, com aprofundamento nos Exper
 | **Problema tratado** | *DHCP spoofing*: um dispositivo malicioso responde às requisições dos clientes com configurações falsas (*gateway* e servidor de nomes, *Domain Name System* - DNS, controlados pelo atacante) |
 | **Funcionamento** | Portas **confiáveis** (*trusted*) podem receber respostas do servidor (OFFER e ACK). Portas **não confiáveis** (*untrusted*) descartam essas respostas. O switch constrói uma **tabela de ligações** (*binding*) com endereço MAC (*Media Access Control*), IP, VLAN, porta e tempo de concessão |
 | **Option 82** | O switch pode inserir a opção 82 (*Relay Agent Information*, [**RFC 3046**](https://datatracker.ietf.org/doc/html/rfc3046)) nas mensagens DHCP. Alguns servidores, como o do roteador Cisco, rejeitam essas mensagens quando não há agente de retransmissão |
-| **Normas de referência** | [**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131) (DHCP) e [**RFC 3046**](https://datatracker.ietf.org/doc/html/rfc3046) (opção 82) |
+| **Normas de referência** | [**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131) (DHCP), [**RFC 2132**](https://datatracker.ietf.org/doc/html/rfc2132) (opções), [**RFC 3046**](https://datatracker.ietf.org/doc/html/rfc3046) (opção 82) e [**RFC 7513**](https://datatracker.ietf.org/doc/html/rfc7513) (validação de endereço de origem com base no DHCP, conceito da tabela de ligações) |
 
 ### 2.2 Ficha Técnica: *Dynamic ARP Inspection* (DAI)
 
@@ -54,7 +54,7 @@ As Seções 2.1 a 2.3 organizam o que foi estudado, com aprofundamento nos Exper
 | **Problema tratado** | *ARP spoofing* (envenenamento de cache ARP), em que o atacante associa o próprio MAC ao IP de outro dispositivo |
 | **Funcionamento** | Valida cada mensagem ARP recebida em portas não confiáveis comparando o par IP-MAC com a **tabela de ligações do DHCP Snooping**. Mensagens inválidas são descartadas e registradas |
 | **Dependência** | Sem o DHCP Snooping não há tabela de ligações; hosts com IP estático não constam nela e têm o ARP descartado, a menos que a VLAN fique fora da inspeção |
-| **Norma de referência** | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) (*Address Resolution Protocol*) |
+| **Normas de referência** | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) (*Address Resolution Protocol*) e [**RFC 5227**](https://datatracker.ietf.org/doc/html/rfc5227) (*ARP Probe* e *ARP Announcement*, tipos de mensagem que a inspeção precisa tratar) |
 
 ### 2.3 Metodologia de Diagnóstico
 

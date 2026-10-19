@@ -58,6 +58,19 @@ Esta seção apenas organiza o que foi estudado. O aprofundamento está nos expe
 
 O 2960 é um switch de camada 2 e não encaminha pacotes entre VLANs distintas. O roteamento é feito por um roteador conectado ao switch por **um único enlace tronco**. No roteador, a interface física é dividida em **subinterfaces**, cada uma associada a uma VLAN por meio de `encapsulation dot1Q <VID>` e configurada com o endereço do *gateway* padrão daquela VLAN.
 
+### 2.4 Normas de Referência
+
+Além do IEEE 802.1Q, do DHCP ([**RFC 2131**](https://datatracker.ietf.org/doc/html/rfc2131) e [**RFC 2132**](https://datatracker.ietf.org/doc/html/rfc2132)) e das fichas anteriores, o experimento depende das normas abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Endereçamento privado | [**RFC 1918**](https://datatracker.ietf.org/doc/html/rfc1918) | Faixas `10.10.0.0/24` (Grupo A) e `10.20.0.0/24` (Grupo B) do projeto |
+| IP e encaminhamento | [**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791), [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Roteamento entre as VLANs pelas subinterfaces do roteador |
+| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | Resolução do MAC do *gateway* e interpretação da tabela ARP |
+| Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | Testes de aceite com `ping` |
+| Endereço *link-local* | [**RFC 3927**](https://datatracker.ietf.org/doc/html/rfc3927) | Estação que recebe `169.254.x.x` quando o DHCP não é alcançado |
+| Acesso remoto seguro | [**RFC 854**](https://datatracker.ietf.org/doc/html/rfc854), [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251), [**RFC 4252**](https://datatracker.ietf.org/doc/html/rfc4252), [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) | Comparação entre Telnet (texto claro) e SSH versão 2 (criptografado e autenticado) |
+
 ---
 
 ## 3. Cenário e Regras da Atividade

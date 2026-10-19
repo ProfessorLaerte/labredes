@@ -59,6 +59,17 @@ A **agregação** (ou sumarização) substitui várias rotas de redes contíguas
 
 A resposta *Time Exceeded* de cada roteador **retorna à origem pela tabela de roteamento do próprio roteador**. Se ele não tem rota para a rede de origem, o salto aparece como `*` no resultado. Essa característica é usada no teste T9.
 
+### 2.4 Normas de Referência
+
+Complementam as normas já citadas nesta seção ([**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791), [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792), [**RFC 1918**](https://datatracker.ietf.org/doc/html/rfc1918) e [**RFC 4632**](https://datatracker.ietf.org/doc/html/rfc4632)) as RFCs abaixo.
+
+| Assunto | Norma | Aplicação neste experimento |
+| :--- | :--- | :--- |
+| Encaminhamento e rotas estáticas | [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Requisitos de roteadores IPv4, inclusive rota mais específica e rota padrão |
+| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | ARP nas interfaces dos enlaces de trânsito `/30` |
+| Enlaces ponto a ponto | [**RFC 3021**](https://datatracker.ietf.org/doc/html/rfc3021) | Uso de `/31` em enlaces ponto a ponto, alternativa ao `/30` adotado neste experimento |
+| Acesso remoto seguro | [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251), [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) | SSH versão 2 no `R-CORE`, com Telnet desabilitado |
+
 ---
 
 ## 3. Cenário e Regras da Atividade

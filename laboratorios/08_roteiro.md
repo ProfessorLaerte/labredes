@@ -42,6 +42,12 @@ O funcionamento, formatação de mensagens e interação do DNS com serviços de
 | [**RFC 1035**](https://datatracker.ietf.org/doc/html/rfc1035) | *Domain Names - Implementation and Specification*: define a sintaxe das mensagens, o formato binário dos cabeçalhos, os tipos de registros de recursos (RR) e a operação sobre UDP e TCP. |
 | [**RFC 2132**](https://datatracker.ietf.org/doc/html/rfc2132) | *DHCP Options and BOOTP Vendor Extensions*: especifica as opções 6 (*Domain Name Server Option*) e 15 (*Domain Name Option*), que permitem ao DHCP entregar automaticamente o DNS e o sufixo aos clientes. |
 | [**RFC 2181**](https://datatracker.ietf.org/doc/html/rfc2181) | *Clarifications to the DNS Specification*: esclarece o tratamento de registros, semântica de autoridade e tempos de vida em cache (*Time to Live* - TTL). |
+| [**RFC 1123**](https://datatracker.ietf.org/doc/html/rfc1123) | *Requirements for Internet Hosts - Application and Support*: requisitos de implementação do DNS em *hosts* e resolvedores. |
+| [**RFC 1912**](https://datatracker.ietf.org/doc/html/rfc1912) | *Common DNS Operational and Configuration Errors*: erros comuns de zonas e servidores, útil para a verificação dos arquivos de zona. |
+| [**RFC 2308**](https://datatracker.ietf.org/doc/html/rfc2308) | *Negative Caching of DNS Queries*: uso do último campo do SOA como TTL de respostas negativas (`NXDOMAIN`). |
+| [**RFC 5936**](https://datatracker.ietf.org/doc/html/rfc5936) | *DNS Zone Transfer Protocol (AXFR)*: fundamenta a restrição `allow-transfer { none; }`. |
+| [**RFC 7766**](https://datatracker.ietf.org/doc/html/rfc7766) | *DNS Transport over TCP - Implementation Requirements*: justifica o uso do TCP porta 53 para respostas extensas e transferências. |
+| [**RFC 4033**](https://datatracker.ietf.org/doc/html/rfc4033) | *DNS Security Introduction and Requirements*: extensões de segurança (DNSSEC) que protegem a autenticidade das respostas, não abordadas neste experimento. |
 
 A síntese operacional do protocolo para esta prática é consolidada na tabela a seguir:
 
