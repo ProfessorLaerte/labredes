@@ -7,7 +7,7 @@
 - **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
 - **Tema:** Integração de duas redes de filial por um roteador central Cisco 1941, com rotas estáticas, testes fim a fim e análise de falhas de roteamento
 
-> **Pré-requisito:** Este laboratório integra as redes implantadas nos **Experimentos 09 e 10** pelas duas equipes. Utiliza o roteamento estático do **Experimento 04** e a metodologia de diagnóstico do **Experimento 06**.
+> **Pré-requisito:** Este laboratório integra as redes implantadas nos **Experimentos [09](09_roteiro.md) e [10](10_roteiro.md)** pelas duas equipes. Utiliza o roteamento estático do [**Experimento 04**](04_roteiro.md) e a metodologia de diagnóstico do [**Experimento 06**](06_roteiro.md).
 
 ---
 
@@ -20,8 +20,8 @@ Interligar as filiais montadas separadamente pelos Grupos A e B por meio de um r
 Ao final da atividade, os grupos deverão ser capazes de:
 
 - projetar o endereçamento dos enlaces ponto a ponto entre roteadores com máscara `/30`;
-- preparar e proteger um roteador compartilhado por duas equipes (acesso por SSH com usuários distintos);
-- configurar rotas estáticas que alcancem todas as VLANs de uma filial por uma única entrada (agregação do bloco `/24`);
+- preparar e proteger um roteador compartilhado por duas equipes (acesso por SSH (*Secure Shell*) com usuários distintos);
+- configurar rotas estáticas que alcancem todas as VLANs (*Virtual Local Area Networks*) de uma filial por uma única entrada (agregação do bloco `/24`);
 - validar a conectividade fim a fim com `ping`, `tracert` e SSH entre filiais;
 - interpretar a tabela de roteamento (`show ip route`) e o comportamento das rotas estáticas quando o enlace falha;
 - diagnosticar a falta de rota de retorno, uma das falhas mais comuns em roteamento estático;
@@ -31,7 +31,7 @@ Ao final da atividade, os grupos deverão ser capazes de:
 
 ## 2. Fundamentação Teórica
 
-Esta seção apenas organiza o que foi estudado. O aprofundamento está nos Experimentos 03, 04 e 06.
+Esta seção apenas organiza o que foi estudado. O aprofundamento está nos Experimentos [03](03_roteiro.md), [04](04_roteiro.md) e [06](06_roteiro.md).
 
 ### 2.1 Ficha Técnica: Roteamento Estático
 
@@ -47,7 +47,7 @@ Esta seção apenas organiza o que foi estudado. O aprofundamento está nos Expe
 
 ### 2.2 Agregação de Rotas
 
-A **agregação** (ou sumarização) substitui várias rotas de redes contíguas por uma única entrada de máscara menor, prática associada ao CIDR (*Classless Inter-Domain Routing*, [**RFC 4632**](https://datatracker.ietf.org/doc/html/rfc4632)). Neste experimento, cada filial usa todas as suas sub-redes (VLANs 10, 20, 40 e 99) dentro de um mesmo bloco `/24`. Os roteadores remotos precisam, portanto, de **uma só rota** por filial, e não de uma rota por VLAN. Esse resultado decorre do planejamento do endereçamento feito nos Experimentos 09 e 10.
+A **agregação** (ou sumarização) substitui várias rotas de redes contíguas por uma única entrada de máscara menor, prática associada ao CIDR (*Classless Inter-Domain Routing*, [**RFC 4632**](https://datatracker.ietf.org/doc/html/rfc4632)). Neste experimento, cada filial usa todas as suas sub-redes (VLANs 10, 20, 40 e 99) dentro de um mesmo bloco `/24`. Os roteadores remotos precisam, portanto, de **uma só rota** por filial, e não de uma rota por VLAN. Esse resultado decorre do planejamento do endereçamento feito nos Experimentos [09](09_roteiro.md) e [10](10_roteiro.md).
 
 ### 2.3 Diagnóstico de Caminho: `ping` e `tracert`
 
@@ -66,7 +66,7 @@ Complementam as normas já citadas nesta seção ([**RFC 791**](https://datatrac
 | Assunto | Norma | Aplicação neste experimento |
 | :--- | :--- | :--- |
 | Encaminhamento e rotas estáticas | [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Requisitos de roteadores IPv4, inclusive rota mais específica e rota padrão |
-| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | ARP nas interfaces dos enlaces de trânsito `/30` |
+| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | ARP (*Address Resolution Protocol*) nas interfaces dos enlaces de trânsito `/30` |
 | Enlaces ponto a ponto | [**RFC 3021**](https://datatracker.ietf.org/doc/html/rfc3021) | Uso de `/31` em enlaces ponto a ponto, alternativa ao `/30` adotado neste experimento |
 | Acesso remoto seguro | [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251), [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) | SSH versão 2 no `R-CORE`, com Telnet desabilitado |
 
@@ -116,13 +116,13 @@ flowchart LR
 | `R-B Gi0/1` | `R-CORE Gi0/1` | Direto | Enlace 2 (Filial B e núcleo) |
 | Console de `R-CORE` | Estação de configuração | Console (azul ou USB) | Configuração conjunta |
 
-As interfaces Gigabit dos roteadores possuem auto-MDIX, e o cabo direto é suficiente. Cabos de comprimento adequado devem ligar as duas bancadas ao `R-CORE`, que fica em posição acessível aos dois grupos. As demais ligações (estações e switch) permanecem como no Experimento 10.
+As interfaces Gigabit dos roteadores possuem auto-MDIX, e o cabo direto é suficiente. Cabos de comprimento adequado devem ligar as duas bancadas ao `R-CORE`, que fica em posição acessível aos dois grupos. As demais ligações (estações e switch) permanecem como no [Experimento 10](10_roteiro.md).
 
 ### 4.3 Preparação
 
-1. **Revalidar as filiais.** Cada grupo verifica o estado de seus equipamentos e repete os testes T1 a T9 do [Experimento 10](10_roteiro.md). Se a configuração não estiver presente, restaure-a a partir do relatório do Experimento 10. O cabo para o `R-CORE` só é conectado após a aprovação.
+1. **Revalidar as filiais.** Cada grupo verifica o estado de seus equipamentos e repete os testes T1 a T9 do [Experimento 10](10_roteiro.md). Se a configuração não estiver presente, restaure-a a partir do relatório do [Experimento 10](10_roteiro.md). O cabo para o `R-CORE` só é conectado após a aprovação.
 2. **Reset de fábrica do `R-CORE`.** Realizado pelos representantes dos dois grupos, seguindo as Seções 4.3.1, 4.3.3 e 4.3.4 do [Experimento 09](09_roteiro.md) (acesso à console, reset do roteador e verificação do estado de fábrica).
-3. **Estações de teste.** Além das orientações do Experimento 09 (Wi-Fi desativado e rede única), o *firewall* do Windows deve permitir o ICMPv4 de entrada **a partir de qualquer endereço remoto**. A regra padrão de compartilhamento de arquivos e impressoras costuma restringir o escopo à sub-rede local, o que bloqueia pings vindos da outra filial mesmo com a regra habilitada.
+3. **Estações de teste.** Além das orientações do [Experimento 09](09_roteiro.md) (Wi-Fi desativado e rede única), o *firewall* do Windows deve permitir o ICMPv4 de entrada **a partir de qualquer endereço remoto**. A regra padrão de compartilhamento de arquivos e impressoras costuma restringir o escopo à sub-rede local, o que bloqueia pings vindos da outra filial mesmo com a regra habilitada.
 
 ---
 
@@ -135,7 +135,7 @@ As interfaces Gigabit dos roteadores possuem auto-MDIX, e o cabo direto é sufic
 | **A** | `10.10.0.0/24` | `SW-A` e `R-A` |
 | **B** | `10.20.0.0/24` | `SW-B` e `R-B` |
 
-Os planos de endereçamento internos são os do Experimento 10 (VLANs 10, 20, 40 e 99) e **não são alterados**.
+Os planos de endereçamento internos são os do [Experimento 10](10_roteiro.md) (VLANs 10, 20, 40 e 99) e **não são alterados**.
 
 ### 5.2 Bloco dos Enlaces de Interligação
 
@@ -152,7 +152,7 @@ Os planos de endereçamento internos são os do Experimento 10 (VLANs 10, 20, 40
 | Identificação do roteador central | *Hostname* `R-CORE` e domínio `lab.local` |
 | Acesso administrativo ao `R-CORE` | SSH versão 2, `enable secret` e **um usuário local por grupo** (`grupoA` e `grupoB`), com Telnet desabilitado |
 | Rotas estáticas | **Uma rota por filial remota**, para o bloco `/24` inteiro, usando o **endereço do próximo salto**. Não é permitida rota padrão |
-| Filiais | Manter DHCP Snooping, *Dynamic ARP Inspection* (DAI) e portas desativadas do Experimento 10 |
+| Filiais | Manter DHCP Snooping, *Dynamic ARP Inspection* (DAI) e portas desativadas do [Experimento 10](10_roteiro.md) |
 
 ### 5.4 Tabela de Acordo
 
@@ -171,15 +171,15 @@ Os dois grupos preenchem **separadamente** a tabela abaixo e depois a comparam. 
 
 | ID | Requisito | Consultar |
 | :---: | :--- | :--- |
-| **R1** | Revalidar a filial (testes T1 a T9 do Experimento 10) antes da conexão | Exp. 10 |
-| **R2** | Preencher e comparar a Tabela de Acordo (Seção 5.4), calculando as duas sub-redes `/30` | Exp. 03 |
-| **R3** | Reset de fábrica do `R-CORE` e configuração de identificação e acesso seguro (Seção 5.3) | Exp. 02 e 09 |
-| **R4** | Configurar as interfaces de interligação dos três roteadores, conforme a Tabela de Acordo | Exp. 04 |
-| **R5** | Configurar a rota estática de cada filial para o bloco da outra filial, usando o `R-CORE` como próximo salto | Exp. 04 |
-| **R6** | Configurar no `R-CORE` as rotas estáticas para os blocos das duas filiais | Exp. 04 |
-| **R7** | Executar os testes fim a fim T4 a T7 | Exp. 06 |
-| **R8** | Executar os testes de falha T8 e T9 e registrar o comportamento observado | Exp. 06 |
-| **R9** | Salvar as configurações finais com `copy running-config startup-config` | Exp. 02 |
+| **R1** | Revalidar a filial (testes T1 a T9 do [Experimento 10](10_roteiro.md)) antes da conexão | Exp. [10](10_roteiro.md) |
+| **R2** | Preencher e comparar a Tabela de Acordo (Seção 5.4), calculando as duas sub-redes `/30` | Exp. [03](03_roteiro.md) |
+| **R3** | Reset de fábrica do `R-CORE` e configuração de identificação e acesso seguro (Seção 5.3) | Exp. [02](02_roteiro.md) e [09](09_roteiro.md) |
+| **R4** | Configurar as interfaces de interligação dos três roteadores, conforme a Tabela de Acordo | Exp. [04](04_roteiro.md) |
+| **R5** | Configurar a rota estática de cada filial para o bloco da outra filial, usando o `R-CORE` como próximo salto | Exp. [04](04_roteiro.md) |
+| **R6** | Configurar no `R-CORE` as rotas estáticas para os blocos das duas filiais | Exp. [04](04_roteiro.md) |
+| **R7** | Executar os testes fim a fim T4 a T7 | Exp. [06](06_roteiro.md) |
+| **R8** | Executar os testes de falha T8 e T9 e registrar o comportamento observado | Exp. [06](06_roteiro.md) |
+| **R9** | Salvar as configurações finais com `copy running-config startup-config` | Exp. [02](02_roteiro.md) |
 
 ---
 
@@ -189,7 +189,7 @@ Os dois grupos preenchem **separadamente** a tabela abaixo e depois a comparam. 
 
 | ID | Teste | Onde executar | Resultado esperado |
 | :---: | :--- | :--- | :--- |
-| **T1** | Testes T1 a T9 do Experimento 10 | Filial de cada grupo | Todos aprovados antes da interligação (R1) |
+| **T1** | Testes T1 a T9 do [Experimento 10](10_roteiro.md) | Filial de cada grupo | Todos aprovados antes da interligação (R1) |
 | **T2** | `show ip interface brief` | R-A, R-B e R-CORE | Interfaces de interligação em `up/up`, com os endereços da Tabela de Acordo |
 | **T3** | `ping` aos endereços do vizinho de enlace | R-A, R-B e R-CORE | Resposta nos dois sentidos de cada enlace |
 | **T4** | `show ip route` | R-A, R-B e R-CORE | Uma rota estática (código `S`) para o bloco da filial remota em R-A e R-B; duas rotas `S` (blocos A e B) no R-CORE |
@@ -226,13 +226,13 @@ Utilize a metodologia em camadas: **física e enlace → endereçamento → VLAN
 | `tracert` mostra `*` a partir de um salto | O roteador desse salto não tem rota para a origem | Incluir a rota para o bloco de origem no roteador identificado |
 | Estação não responde a `ping` da outra filial, mas responde dentro da própria filial | *Firewall* do host com escopo de ICMP restrito à sub-rede local | Ajustar o escopo remoto da regra ICMPv4 de entrada (Seção 4.3) |
 | SSH funciona ao roteador remoto, mas não ao switch remoto | Falta de `ip default-gateway` no switch remoto | `show running-config \| include default-gateway` no switch |
-| Rotas funcionam, mas as estações da filial perderam DHCP | Alteração indevida nas VLANs ou no tronco da filial durante a integração | Repetir T1 (Experimento 10) e comparar com a configuração salva |
+| Rotas funcionam, mas as estações da filial perderam DHCP | Alteração indevida nas VLANs ou no tronco da filial durante a integração | Repetir T1 ([Experimento 10](10_roteiro.md)) e comparar com a configuração salva |
 
 ---
 
 ## 9. Organização da Equipe
 
-Os papéis **giram** em relação ao Experimento 10: cada estudante assume o papel seguinte (o Papel 5 do Experimento 10 passa a ser o Papel 1 neste).
+Os papéis **giram** em relação ao [Experimento 10](10_roteiro.md): cada estudante assume o papel seguinte (o Papel 5 do [Experimento 10](10_roteiro.md) passa a ser o Papel 1 neste).
 
 | Papel | Responsabilidade |
 | :---: | :--- |
@@ -246,11 +246,11 @@ Os papéis **giram** em relação ao Experimento 10: cada estudante assume o pap
 
 ## 10. Questões para Análise
 
-1. Quantas rotas estáticas cada roteador possui e por que uma única rota `/24` cobre as quatro VLANs de uma filial? Relacione a resposta com a alocação feita nos Experimentos 09 e 10.
+1. Quantas rotas estáticas cada roteador possui e por que uma única rota `/24` cobre as quatro VLANs de uma filial? Relacione a resposta com a alocação feita nos Experimentos [09](09_roteiro.md) e [10](10_roteiro.md).
 2. Por que a falta de rota de retorno impede a comunicação mesmo quando a rota de ida está correta? Use o resultado do `tracert` do teste T9.
 3. Interprete os campos de uma entrada `S` de `show ip route` obtida na atividade e explique o que ocorreu com essa entrada no teste T8. Qual limitação do roteamento estático isso evidencia?
 4. Descreva os quatro saltos do `tracert` do teste T6, explicando como o TTL e a mensagem ICMP *Time Exceeded* permitem identificar cada roteador.
-5. Por que o DHCP Snooping e o DAI configurados no Experimento 10 não interferem no tráfego roteado entre as filiais?
+5. Por que o DHCP Snooping e o DAI configurados no [Experimento 10](10_roteiro.md) não interferem no tráfego roteado entre as filiais?
 6. Que riscos de segurança surgem do compartilhamento do `R-CORE` entre dois grupos? Cite duas medidas de mitigação.
 
 ---
@@ -278,7 +278,7 @@ Cada grupo submete **um único relatório técnico**, contendo:
 
 1. Identificação do grupo (A ou B), dos integrantes e dos papéis assumidos.
 2. Tabela de Acordo preenchida (Seção 5.4), com os cálculos das sub-redes `/30`.
-3. Evidências do reset de fábrica e da configuração do `R-CORE` (saídas da Seção 4.3.4 do Experimento 09 e `show running-config` do `R-CORE`).
+3. Evidências do reset de fábrica e da configuração do `R-CORE` (saídas da Seção 4.3.4 do [Experimento 09](09_roteiro.md) e `show running-config` do `R-CORE`).
 4. Saída de `show running-config` do roteador e do switch da própria filial, após `copy running-config startup-config`.
 5. Saída de `show ip route` e `show ip interface brief` dos três roteadores.
 6. Evidências dos testes T4 a T10, produzidas pelos próprios estudantes, com breve análise das saídas.

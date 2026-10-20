@@ -7,7 +7,7 @@
 - **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
 - **Tema:** Expansão de uma rede de filial, proteção contra *DHCP spoofing* e *ARP spoofing* e troubleshooting autônomo em equipamentos físicos
 
-> **Pré-requisito:** Este laboratório dá continuidade direta à rede implantada no **Experimento 09**, cuja configuração deve estar salva no relatório do grupo. Utiliza os recursos de segurança do **Experimento 05** (DHCP Snooping e DAI) e a metodologia de diagnóstico do **Experimento 06**.
+> **Pré-requisito:** Este laboratório dá continuidade direta à rede implantada no [**Experimento 09**](09_roteiro.md), cuja configuração deve estar salva no relatório do grupo. Utiliza os recursos de segurança do [**Experimento 05**](05_roteiro.md) (DHCP Snooping e DAI) e a metodologia de diagnóstico do [**Experimento 06**](06_roteiro.md).
 
 ---
 
@@ -15,24 +15,24 @@
 
 ## 1. Objetivo
 
-Ampliar a rede da filial implantada no Experimento 09, protegê-la contra ataques de falsificação de identidade na camada 2 e exercitar o diagnóstico sistemático de falhas. A atividade é conduzida por **cenário** e **requisitos**, sem passo a passo e sem acompanhamento do professor.
+Ampliar a rede da filial implantada no [Experimento 09](09_roteiro.md), protegê-la contra ataques de falsificação de identidade na camada 2 e exercitar o diagnóstico sistemático de falhas. A atividade é conduzida por **cenário** e **requisitos**, sem passo a passo e sem acompanhamento do professor.
 
 Ao final da atividade, o grupo deverá ser capaz de:
 
 - restaurar e revalidar uma configuração a partir da documentação produzida pela própria equipe;
-- ampliar um plano de endereçamento VLSM utilizando o espaço previamente reservado;
-- criar uma nova VLAN, com subinterface, pool DHCP e porta de acesso no switch;
+- ampliar um plano de endereçamento VLSM (*Variable Length Subnet Mask*) utilizando o espaço previamente reservado;
+- criar uma nova VLAN (*Virtual Local Area Network*), com subinterface, pool DHCP e porta de acesso no switch;
 - habilitar o DHCP Snooping e o *Dynamic ARP Inspection* (DAI) em um switch Cisco 2960 e verificar seu funcionamento;
 - desativar portas não utilizadas como medida de endurecimento (*hardening*);
 - compreender a importância do monitoramento de redes e configurar o espelhamento de porta (SPAN) para capturar e analisar tráfego;
 - elaborar um plano de testes antes de executá-lo;
-- provocar, diagnosticar e corrigir falhas em camadas distintas, aplicando a metodologia do Experimento 06.
+- provocar, diagnosticar e corrigir falhas em camadas distintas, aplicando a metodologia do [Experimento 06](06_roteiro.md).
 
 ---
 
 ## 2. Fundamentação Teórica
 
-As Seções 2.1 a 2.3 organizam o que foi estudado, com aprofundamento nos Experimentos 05 (segurança) e 06 (diagnóstico). A Seção 2.4 introduz o monitoramento de redes e o espelhamento de porta.
+As Seções 2.1 a 2.3 organizam o que foi estudado, com aprofundamento nos Experimentos [05](05_roteiro.md) (segurança) e [06](06_roteiro.md) (diagnóstico). A Seção 2.4 introduz o monitoramento de redes e o espelhamento de porta.
 
 ### 2.1 Ficha Técnica: DHCP Snooping
 
@@ -58,7 +58,7 @@ As Seções 2.1 a 2.3 organizam o que foi estudado, com aprofundamento nos Exper
 
 ### 2.3 Metodologia de Diagnóstico
 
-O diagnóstico segue a ordem de camadas apresentada no Experimento 06: **física e enlace → endereçamento → VLANs e troncos → roteamento → serviços**. O recurso de segurança é tratado como *serviço* aplicado sobre o enlace, e suas falhas costumam se manifestar como falta de DHCP ou de ARP, aparentando defeito em camadas inferiores.
+O diagnóstico segue a ordem de camadas apresentada no [Experimento 06](06_roteiro.md): **física e enlace → endereçamento → VLANs e troncos → roteamento → serviços**. O recurso de segurança é tratado como *serviço* aplicado sobre o enlace, e suas falhas costumam se manifestar como falta de DHCP ou de ARP, aparentando defeito em camadas inferiores.
 
 ### 2.4 Monitoramento de Rede e Espelhamento de Porta (SPAN)
 
@@ -105,7 +105,7 @@ Por fim, a equipe deve demonstrar domínio do diagnóstico: o grupo provoca falh
 1. O professor não conduz a configuração e atua somente em falhas de hardware.
 2. Nenhum comando é digitado antes de o plano de endereçamento ampliado e o **plano de testes** (Seção 8) estarem escritos.
 3. O grupo configura apenas os equipamentos da própria bancada.
-4. Use as mesmas credenciais de laboratório do Experimento 09, que **não** devem ser reutilizadas em outros serviços.
+4. Use as mesmas credenciais de laboratório do [Experimento 09](09_roteiro.md), que **não** devem ser reutilizadas em outros serviços.
 
 ---
 
@@ -113,7 +113,7 @@ Por fim, a equipe deve demonstrar domínio do diagnóstico: o grupo provoca falh
 
 ### 4.1 Topologia Lógica
 
-A topologia física é a mesma do Experimento 09. Acrescenta-se a porta `Fa0/4`, destinada à nova VLAN. Para testar a VLAN 40, a estação PC2 é movida temporariamente de `Fa0/2` para `Fa0/4`.
+A topologia física é a mesma do [Experimento 09](09_roteiro.md). Acrescenta-se a porta `Fa0/4`, destinada à nova VLAN. Para testar a VLAN 40, a estação PC2 é movida temporariamente de `Fa0/2` para `Fa0/4`.
 
 ```mermaid
 flowchart LR
@@ -127,13 +127,13 @@ flowchart LR
 
 ### 4.2 Restauração da Configuração do Experimento 09
 
-Os equipamentos podem ter sido usados por outras turmas após o Experimento 09. A equipe deve:
+Os equipamentos podem ter sido usados por outras turmas após o [Experimento 09](09_roteiro.md). A equipe deve:
 
 1. Verificar o estado dos equipamentos (`show running-config`).
-2. Se a configuração do Experimento 09 não estiver presente, **reaplicá-la a partir do `show running-config` entregue no relatório do Experimento 09**. Caso seja necessário o reset de fábrica, consulte a Seção 4.3 do Experimento 09.
-3. Repetir os testes T1 a T12 do Experimento 09 e só prosseguir com todos aprovados.
+2. Se a configuração do [Experimento 09](09_roteiro.md) não estiver presente, **reaplicá-la a partir do `show running-config` entregue no relatório do [Experimento 09](09_roteiro.md)**. Caso seja necessário o reset de fábrica, consulte a Seção 4.3 do [Experimento 09](09_roteiro.md).
+3. Repetir os testes T1 a T12 do [Experimento 09](09_roteiro.md) e só prosseguir com todos aprovados.
 
-> O relatório do Experimento 09 é a única fonte da configuração. Um grupo sem esse registro parte do reset de fábrica e refaz o Experimento 09.
+> O relatório do [Experimento 09](09_roteiro.md) é a única fonte da configuração. Um grupo sem esse registro parte do reset de fábrica e refaz o [Experimento 09](09_roteiro.md).
 
 ---
 
@@ -175,17 +175,17 @@ A coluna "Consultar" indica onde o assunto foi estudado.
 
 | ID | Requisito | Consultar |
 | :---: | :--- | :--- |
-| **R1** | Restaurar e revalidar a configuração do Experimento 09 (Seção 4.2) | Exp. 09 |
-| **R2** | Atualizar o plano de endereçamento com a VLAN 40, conforme a Seção 5.3 | Exp. 03 |
-| **R3** | Criar a VLAN 40 `VISITANTES` e associar a porta `Fa0/4` | Exp. 04 e 05 |
-| **R4** | Configurar a subinterface do roteador para a VLAN 40 e a pool DHCP correspondente | Exp. 04, 05 e 09 |
-| **R5** | Habilitar o DHCP Snooping nas VLANs 10, 20 e 40, com `Gi0/1` como porta confiável | Exp. 05 |
-| **R6** | Habilitar o DAI nas VLANs 10, 20 e 40, com `Gi0/1` como porta confiável | Exp. 05 |
-| **R7** | Desativar as portas não utilizadas (Seção 5.3) | Exp. 04 e 05 |
-| **R8** | Elaborar o plano de testes (Seção 8.1) antes da execução | Exp. 06 |
-| **R9** | Provocar, diagnosticar e corrigir 3 falhas, conforme a Seção 8 | Exp. 06 |
+| **R1** | Restaurar e revalidar a configuração do [Experimento 09](09_roteiro.md) (Seção 4.2) | Exp. [09](09_roteiro.md) |
+| **R2** | Atualizar o plano de endereçamento com a VLAN 40, conforme a Seção 5.3 | Exp. [03](03_roteiro.md) |
+| **R3** | Criar a VLAN 40 `VISITANTES` e associar a porta `Fa0/4` | Exp. [04](04_roteiro.md) e [05](05_roteiro.md) |
+| **R4** | Configurar a subinterface do roteador para a VLAN 40 e a pool DHCP correspondente | Exp. [04](04_roteiro.md), [05](05_roteiro.md) e [09](09_roteiro.md) |
+| **R5** | Habilitar o DHCP Snooping nas VLANs 10, 20 e 40, com `Gi0/1` como porta confiável | Exp. [05](05_roteiro.md) |
+| **R6** | Habilitar o DAI nas VLANs 10, 20 e 40, com `Gi0/1` como porta confiável | Exp. [05](05_roteiro.md) |
+| **R7** | Desativar as portas não utilizadas (Seção 5.3) | Exp. [04](04_roteiro.md) e [05](05_roteiro.md) |
+| **R8** | Elaborar o plano de testes (Seção 8.1) antes da execução | Exp. [06](06_roteiro.md) |
+| **R9** | Provocar, diagnosticar e corrigir 3 falhas, conforme a Seção 8 | Exp. [06](06_roteiro.md) |
 | **R10** | Configurar uma sessão SPAN local e capturar o tráfego de uma estação, conforme a Seção 7.3 | Seção 7.3 |
-| **R11** | Salvar as configurações finais com `copy running-config startup-config` | Exp. 02 |
+| **R11** | Salvar as configurações finais com `copy running-config startup-config` | Exp. [02](02_roteiro.md) |
 
 ---
 
@@ -195,7 +195,7 @@ A coluna "Consultar" indica onde o assunto foi estudado.
 
 | ID | Teste | Onde executar | Resultado esperado |
 | :---: | :--- | :--- | :--- |
-| **T1** | Testes T1 a T12 do Experimento 09 | Equipamentos e estações | Todos aprovados antes das alterações |
+| **T1** | Testes T1 a T12 do [Experimento 09](09_roteiro.md) | Equipamentos e estações | Todos aprovados antes das alterações |
 | **T2** | `show vlan brief` e `show ip interface brief` | SW e R | VLAN 40 `VISITANTES` com `Fa0/4`; `Gi0/0.40` em `up/up` com o *gateway* do plano |
 | **T3** | Conectar PC2 em `Fa0/4` e renovar a concessão | PC2 | Endereço dentro da sub-rede da VLAN 40, com máscara e *gateway* corretos |
 | **T4** | `ping` da estação na VLAN 40 ao *gateway* e às demais VLANs | Estação | Resposta em todos os destinos |
@@ -204,7 +204,7 @@ A coluna "Consultar" indica onde o assunto foi estudado.
 | **T7** | `show ip arp inspection vlan 10,20,40` e `show ip arp inspection interfaces` | SW | DAI habilitado nas três VLANs e `Gi0/1` confiável |
 | **T8** | Configurar em PC1 um endereço **estático** da sub-rede da VLAN 10, diferente do concedido pelo DHCP, e tentar `ping` ao *gateway* | PC1 e SW | O `ping` falha; `show ip arp inspection statistics` mostra pacotes descartados (*Dropped*). Em seguida, devolver PC1 ao DHCP |
 | **T9** | `show interfaces status` | SW | `Fa0/5` a `Fa0/24` e `Gi0/2` com o estado `disabled` (verificado antes da sessão SPAN) |
-| **T10** | Sessão SPAN e captura de tráfego (Seção 7.3) | SW e PC3 | `show monitor session 1` com origem `Fa0/1` (*both*) e destino `Fa0/5`; captura com as quatro mensagens DHCP, ARP e ICMP identificadas |
+| **T10** | Sessão SPAN e captura de tráfego (Seção 7.3) | SW e PC3 | `show monitor session 1` com origem `Fa0/1` (*both*) e destino `Fa0/5`; captura com as quatro mensagens DHCP, ARP e ICMP (*Internet Control Message Protocol*) identificadas |
 | **T11** | *(Opcional)* Servidor DHCP falso em estação ligada a porta não confiável | SW | As ofertas do servidor falso não chegam aos clientes; `show ip dhcp snooping statistics` indica pacotes descartados |
 
 No teste T8, o endereço estático precisa ser **diferente** do que o DHCP concedeu, porque a tabela de ligações mantém a concessão anterior até a expiração e um endereço igual ao concedido seria aceito pelo DAI.
@@ -313,11 +313,11 @@ Com a rede aprovada nos testes, o grupo provoca e resolve **três falhas**, segu
 
 ## 9. Diagnóstico de Falhas
 
-Falhas típicas nos novos recursos. Valem as demais da Seção 8 do Experimento 09.
+Falhas típicas nos novos recursos. Valem as demais da Seção 8 do [Experimento 09](09_roteiro.md).
 
 | Sintoma | Causa provável | Como verificar e corrigir |
 | :--- | :--- | :--- |
-| Estações deixam de receber IP após habilitar o DHCP Snooping | `Gi0/1` não confiável, ou opção 82 inserida pelo switch e rejeitada pelo servidor DHCP do roteador | `show ip dhcp snooping`. Consulte o Experimento 05 quanto à opção 82 |
+| Estações deixam de receber IP após habilitar o DHCP Snooping | `Gi0/1` não confiável, ou opção 82 inserida pelo switch e rejeitada pelo servidor DHCP do roteador | `show ip dhcp snooping`. Consulte o [Experimento 05](05_roteiro.md) quanto à opção 82 |
 | Estações com IP, mas sem `ping` ao *gateway*, após habilitar o DAI | `Gi0/1` sem confiança no DAI, ou estação com IP estático em VLAN inspecionada | `show ip arp inspection interfaces` e `show ip arp inspection statistics` |
 | PC3 (VLAN 99) perde conectividade após o DAI | A VLAN 99 foi incluída na inspeção, mas PC3 usa IP estático e não está na tabela de ligações | Remover a VLAN 99 da lista do DAI (Seção 5.3) |
 | Tabela de ligações vazia | Snooping não habilitado na VLAN, ou a estação ainda não renovou a concessão | `show ip dhcp snooping` e `ipconfig /release` seguido de `ipconfig /renew` |
@@ -325,14 +325,14 @@ Falhas típicas nos novos recursos. Valem as demais da Seção 8 do Experimento 
 | Estação na VLAN 40 sem IP | Pool ausente, subinterface com `encapsulation dot1Q` divergente, VLAN 40 fora do tronco | `show ip dhcp pool`, `show ip interface brief` e `show interfaces trunk` |
 | O analisador não recebe tráfego | Porta de destino desativada, sessão sem origem, ou captura iniciada na placa de rede errada | `show monitor session 1`, `show interfaces status` (`Fa0/5` deve estar `connected`) e seleção da placa no Wireshark |
 | O Wireshark não lista quadros do PC1 | Sessão SPAN ausente ou a origem não é a porta do PC1 | Conferir a origem e a direção em `show monitor session 1` |
-| Comando `monitor session` não reconhecido | Imagem do IOS sem suporte ao recurso | Registrar a limitação no relatório |
+| Comando `monitor session` não reconhecido | Imagem do IOS (*Internetworking Operating System*) sem suporte ao recurso | Registrar a limitação no relatório |
 | Comandos de DAI ou de Snooping não reconhecidos | Imagem do IOS sem suporte ao recurso | Registrar a limitação no relatório |
 
 ---
 
 ## 10. Organização da Equipe
 
-Os papéis **giram** em relação ao Experimento 09: cada estudante assume o papel seguinte (o Papel 5 do Experimento 09 passa a ser o Papel 1 neste).
+Os papéis **giram** em relação ao [Experimento 09](09_roteiro.md): cada estudante assume o papel seguinte (o Papel 5 do [Experimento 09](09_roteiro.md) passa a ser o Papel 1 neste).
 
 | Papel | Responsabilidade |
 | :---: | :--- |
@@ -390,7 +390,7 @@ Cada grupo submete **um único relatório técnico**, contendo:
 
 ## 14. Conclusão
 
-Neste experimento, a equipe ampliou a rede da filial com uma nova VLAN, reutilizando o espaço reservado no plano de endereçamento, e aplicou o DHCP Snooping e o DAI para impedir a falsificação de servidores DHCP e de mensagens ARP. O diagnóstico de falhas provocadas, conduzido em camadas e com registro formal, consolida a postura investigativa necessária ao trabalho em redes. O espelhamento de porta mostrou como observar o tráfego real da rede, base do monitoramento e da análise de segurança. A rede protegida e documentada é a base do Experimento 11, no qual as duas filiais serão interligadas.
+Neste experimento, a equipe ampliou a rede da filial com uma nova VLAN, reutilizando o espaço reservado no plano de endereçamento, e aplicou o DHCP Snooping e o DAI para impedir a falsificação de servidores DHCP e de mensagens ARP. O diagnóstico de falhas provocadas, conduzido em camadas e com registro formal, consolida a postura investigativa necessária ao trabalho em redes. O espelhamento de porta mostrou como observar o tráfego real da rede, base do monitoramento e da análise de segurança. A rede protegida e documentada é a base do [Experimento 11](11_roteiro.md), no qual as duas filiais serão interligadas.
 
 ---
 

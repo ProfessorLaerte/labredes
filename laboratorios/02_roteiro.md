@@ -17,57 +17,103 @@ O objetivo deste experimento é aplicar medidas básicas de segurança em dispos
 
 ## 2. Fundamentação Teórica
 
-A configuração de senhas fortes e o uso do protocolo SSH são práticas essenciais de segurança em redes. Enquanto as senhas protegem o acesso local e remoto ao equipamento, o SSH substitui o Telnet ao oferecer criptografia nas comunicações, evitando que credenciais e dados trafeguem em texto claro. Além disso, o uso de interfaces lógicas como a VLAN1 e SVIs permite o gerenciamento remoto dos switches, reforçando a importância de boas práticas na administração de redes corporativas.
-
-
+Por padrão, um equipamento Cisco novo aceita acesso administrativo sem senha ou com credenciais fracas, e quem controla o equipamento controla a rede. Esta seção apresenta, em ordem: as linhas pelas quais o acesso ocorre, os mecanismos de proteção por senha, o protocolo SSH (*Secure Shell*) que substitui o Telnet, o procedimento para habilitá-lo no IOS (*Internetworking Operating System*) e as interfaces lógicas que dão ao switch um endereço de gerência.
 
 ### 2.1 Linhas de Acesso ao Cisco IOS
 
-- **Console**
+O acesso à CLI (*Command Line Interface*) ocorre por **linhas**. Cada tipo de linha é configurado no seu próprio modo (`Router(config-line)#`).
 
-  - Linha física usada para acesso direto ao equipamento.
-  - Configuração: `line console 0`.
+| Linha | Tipo | Meio de acesso | Configuração | Uso neste experimento |
+| :--- | :--- | :--- | :--- | :--- |
+| **Console** | Física | Cabo conectado diretamente à porta de console | `line console 0` | Acesso inicial, antes de haver rede |
+| **VTY** (*Virtual Teletype*) | Virtual | Rede IP, por Telnet ou SSH | `line vty 0 4` (5 sessões simultâneas) ou `line vty 0 15` (16 sessões) | Acesso remoto por SSH |
+| **Auxiliar** | Física | Porta auxiliar, geralmente com modem | `line aux 0` | Não utilizada |
+| **TTY** | Física | Terminal assíncrono em conexões seriais antigas | `line tty 0` | Não utilizada |
 
-- **VTY**
-
-  - Linhas virtuais usadas para acesso remoto (Telnet/SSH).
-  - Configuração: `line vty 0 4` (pode variar em quantidade, ex: 0 15).
-
-- **Auxiliar**
-
-  - Linha usada para acesso via porta auxiliar (geralmente com modem).
-  - Configuração: `line aux 0`.
-
-- **TTY**
-
-  - Linhas de terminal assíncrono, usadas em conexões seriais mais antigas.
-  - Configuração: `line tty 0`.
-
-  
+Cada linha deve ter dois elementos de proteção: um método de autenticação (`login local`, por exemplo) e um limite de inatividade (`exec-timeout`). Linhas não utilizadas ou sem proteção são pontos de entrada para acesso não autorizado.
 
 <img width="1279" height="213" alt="Linhas de acesso do Cisco IOS" src="https://github.com/user-attachments/assets/adac3eaf-4dc7-4475-8684-86dd5bd1d366" />
 
+### 2.2 Proteção de Senhas e do Acesso Administrativo
 
+O IOS oferece mecanismos distintos, e a diferença entre eles determina o nível de proteção real:
 
+| Mecanismo | Comando | Proteção | Observação |
+| :--- | :--- | :--- | :--- |
+| Senha do modo privilegiado (fraca) | `enable password` | Texto legível na configuração, a menos que `service password-encryption` esteja ativo | Não deve ser usada; ignorada quando existe `enable secret` |
+| Senha do modo privilegiado (forte) | `enable secret` | Armazenada como *hash* unidirecional (tipo 5 com `$1$`; tipos 8 e 9 em versões recentes) | Padrão recomendado |
+| Criptografia de senhas em texto | `service password-encryption` | Tipo 7, reversível | Apenas **ofuscação**: impede a leitura casual, mas qualquer ferramenta de decodificação recupera a senha |
+| Usuário local | `username <nome> secret <senha>` | *Hash* unidirecional | Preferir `secret` a `password` |
+| Tamanho mínimo | `security passwords min-length 10` | Rejeita senhas curtas ao configurá-las | Não altera senhas já existentes |
+| Bloqueio por tentativas | `login block-for 180 attempts 4 within 120` | Bloqueia novos *logins* por 180 s após 4 falhas em 120 s | Mitiga ataques de força bruta e de dicionário |
+| Tempo de inatividade | `exec-timeout 6` | Encerra sessão ociosa após 6 minutos | Reduz o risco de sessões abandonadas |
 
-### 2.2 Interface VLAN1
+**Hash e criptografia:** um *hash* não pode ser revertido; o equipamento compara o hash da senha digitada com o armazenado. A criptografia reversível (tipo 7) permite recuperar a senha original, e por isso não substitui o `secret`.
 
-- **VLAN1** é a VLAN padrão em switches Cisco.
+### 2.3 Ficha Técnica: SSH
 
-- A interface VLAN1 é uma **interface lógica** usada para dar ao switch um endereço IP.
+| Campo | Descrição Técnica |
+| :--- | :--- |
+| **Nome e Sigla** | *Secure Shell* (SSH), versão 2 |
+| **Camada de Referência** | Aplicação (modelos OSI e TCP/IP) |
+| **Transporte e Porta** | TCP, porta 22 (o Telnet usa TCP, porta 23) |
+| **Camadas internas** | Transporte (algoritmos, troca de chaves, integridade), autenticação do usuário e conexão (canais) |
+| **Segurança oferecida** | Confidencialidade, integridade e autenticação do servidor e do usuário |
+| **Normas** | [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251), [**RFC 4252**](https://datatracker.ietf.org/doc/html/rfc4252), [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) e [**RFC 4254**](https://datatracker.ietf.org/doc/html/rfc4254) |
 
-- Esse IP não é para encaminhar pacotes entre redes, mas sim para **gerenciamento remoto** (Telnet, SSH, SNMP).
-- **Aspecto de segurança:** a VLAN 1 é o padrão de fábrica e transporta o tráfego de controle (CDP, STP). Em redes de produção, recomenda-se uma VLAN de gerência dedicada, como feito no Experimento 09.
+| Característica | Telnet | SSH |
+| :--- | :--- | :--- |
+| Criptografia da sessão | Não: usuário, senha e comandos trafegam em texto claro | Sim: toda a sessão é criptografada |
+| Autenticação do servidor | Não | Sim, por chave pública do servidor |
+| Integridade dos dados | Não | Sim |
+| Risco de captura de credenciais | Alto, bastando um analisador de pacotes no caminho | Baixo |
+| Situação recomendada | Desabilitar (`transport input ssh`) | Usar a versão 2 |
 
+### 2.4 Estabelecimento da Sessão SSH e Requisitos no IOS
 
+Ao se conectar, cliente e servidor percorrem as etapas abaixo antes de qualquer comando ser executado:
 
-### 2.3 SVIs (Switch Virtual Interfaces)
+```mermaid
+sequenceDiagram
+    participant C as Cliente (PC-A)
+    participant S as Servidor SSH (RTA)
+    C->>S: Conexão TCP na porta 22
+    C->>S: Troca de versões do protocolo
+    C->>S: Negociação de algoritmos
+    S->>C: Troca de chaves e chave pública do servidor
+    Note over C,S: Canal criptografado estabelecido
+    C->>S: Autenticação do usuário (usuário e senha)
+    S->>C: Sessão EXEC liberada
+```
 
-- **SVIs** são interfaces virtuais criadas em VLANs no switch.
-- Cada VLAN pode ter uma SVI associada, permitindo que o switch seja acessado via IP dentro daquela VLAN.
-- Em switches camada 3, SVIs também podem ser usadas para **roteamento entre VLANs** (inter-VLAN routing).
+O servidor SSH do IOS usa uma chave RSA (*Rivest-Shamir-Adleman*) gerada no próprio equipamento. Essa chave é nomeada a partir do *hostname* e do domínio, o que explica a ordem dos passos da Seção 4:
 
-### 2.4 Normas de Referência
+| Requisito | Comando | Motivo |
+| :--- | :--- | :--- |
+| Nome do equipamento | `hostname RTA` | Compõe o nome da chave |
+| Nome de domínio | `ip domain-name labredes.com` | Compõe o nome da chave; sem ele a geração é recusada |
+| Chave RSA | `crypto key generate rsa` | Identifica o servidor perante o cliente. O SSH versão 2 exige chaves de pelo menos 768 bits; o roteiro usa 1024 |
+| Usuário local | `username <nome> secret <senha>` | Credencial de autenticação do usuário |
+| SSH versão 2 | `ip ssh version 2` | Evita a versão 1, considerada obsoleta e vulnerável |
+| Linhas VTY | `transport input ssh` e `login local` | Aceita somente SSH e autentica no banco de usuários local |
+
+### 2.5 Interface VLAN1
+
+- A **VLAN 1** (*Virtual Local Area Network*) é a VLAN padrão dos switches Cisco; todas as portas pertencem a ela inicialmente.
+- A interface VLAN1 é uma **interface lógica** que dá ao switch um endereço IP.
+- Esse endereço não serve para encaminhar pacotes entre redes, e sim para a **gerência remota** do switch (Telnet, SSH e SNMP, o *Simple Network Management Protocol*).
+- Um switch de camada 2 não roteia. Por isso, para responder a estações de outras sub-redes, ele precisa de um *gateway* padrão (`ip default-gateway`), usado apenas pelo tráfego do próprio switch.
+- A interface só fica `up/up` se a VLAN existir e houver ao menos uma porta ativa nela.
+
+**Aspecto de segurança:** a VLAN 1 é o padrão de fábrica e transporta o tráfego de controle (CDP e STP). Em redes de produção, recomenda-se uma VLAN de gerência dedicada, como no [Experimento 09](09_roteiro.md).
+
+### 2.6 SVIs (Switch Virtual Interfaces)
+
+- As SVIs (*Switch Virtual Interfaces*) são interfaces virtuais criadas em VLANs no switch; a interface VLAN1 é uma SVI.
+- Cada VLAN pode ter uma SVI, permitindo que o switch seja acessado por IP dentro daquela VLAN.
+- Em switches de camada 3, as SVIs também podem ser usadas para o **roteamento entre VLANs** (*inter-VLAN routing*), o que não se aplica ao 2960 usado neste experimento.
+
+### 2.7 Normas de Referência
 
 O acesso remoto seguro e a gerência dos equipamentos são tratados nas RFCs abaixo.
 
@@ -157,7 +203,7 @@ O administrador de redes pediu que você prepare o RTA e SW1 para implantação.
    RTA(config)#enable secret sua_senha
    ```
 
-8. Desative a pesquisa de DNS. Para evitar que o sistema tente traduzir entradas erradas.
+8. Desative a pesquisa de DNS (*Domain Name System*). Para evitar que o sistema tente traduzir entradas erradas.
 
    ```cisco
    RTA(config)#no ip domain-lookup

@@ -13,7 +13,7 @@
 
 ## 1. Objetivo
 
-Implementar uma topologia redundante em laboratório utilizando **VLANs**, **EtherChannel**, **roteamento inter-VLAN** e mecanismos de **segurança de camada 2**, de forma a garantir maior disponibilidade, desempenho e proteção da rede.
+Implementar uma topologia redundante em laboratório utilizando **VLANs** (*Virtual Local Area Networks*), **EtherChannel**, **roteamento inter-VLAN** e mecanismos de **segurança de camada 2**, de forma a garantir maior disponibilidade, desempenho e proteção da rede.
 
 ## 2. Fundamentação Teórica
 
@@ -33,7 +33,7 @@ Implementar uma topologia redundante em laboratório utilizando **VLANs**, **Eth
 
     - **On**: configuração estática, sem protocolo de negociação.
 
-    - **PAgP**: protocolo proprietário da Cisco para negociação automática.
+    - **PAgP** (*Port Aggregation Protocol*): protocolo proprietário da Cisco para negociação automática.
 
     - **LACP** (*Link Aggregation Control Protocol*): protocolo padrão IEEE 802.3ad (atualmente incorporado ao IEEE 802.1AX), usado para interoperabilidade entre diferentes fabricantes.
 
@@ -104,29 +104,81 @@ O EtherChannel com LACP é padronizado pelo IEEE 802.1AX (antigo 802.3ad), e o *
 
 ## 3. Topologia e Cenário
 
-1. Cenário:
-   1. Switch0 Core - vlan100
-   2. Switch1 Acesso - Vlan10
-   3. Switch2 Acesso - Vlan20
-   4. Roteador Router1 - GW das vlans
-   5. Dispositivos finais as vlans 10 e 20
-2. Escolher os blocos de redes que serão utilizados
-3. Configurar agregação de links (EtherChannels) entre os switches de acesso e o core
-4. Configurar sub-interfaces do roteador para servirem de gateway para as vlans
-5. Configurar DHCP server nos switches de acesso excluindo os endereços do 1 ao 49
-6. Implementar DHCP snooping e ARP inspection
-7. Configurar SVI para gerenciamento das vlans
-8. Desligar portas não ativas
-9. Configurar SSH.
+### 3.1 Cenário
+
+A rede é composta por um switch de núcleo, dois switches de acesso e um roteador que atua como *gateway* das VLANs. Cada switch de acesso atende uma VLAN de usuários e funciona também como servidor DHCP dessa VLAN.
+
+| Dispositivo | Função | VLAN / interface lógica | Observações |
+| :--- | :--- | :--- | :--- |
+| **Switch0** | Núcleo (*core*) | SVI (*Switch Virtual Interface*) da VLAN 100 (gerência) | Não possui servidor DHCP nem portas de acesso. Agrega os enlaces dos switches de acesso e se liga ao roteador por tronco (`g0/1`) |
+| **Switch1** | Acesso | VLAN 10 | Servidor DHCP da VLAN 10; PCs nas portas `Fa0/3` a `Fa0/13` |
+| **Switch2** | Acesso | VLAN 20 | Servidor DHCP da VLAN 20 |
+| **Router1** | *Gateway* das VLANs | Subinterfaces `g0/0.10`, `g0/0.20` e `g0/0.100` | Roteamento inter-VLAN por *router-on-a-stick* |
+| **PCs** | Dispositivos finais | VLANs 10 e 20 | Clientes DHCP |
+
+### 3.2 Topologia
+
+```mermaid
+flowchart TB
+    R["Router1<br>g0/0: subinterfaces .10, .20 e .100"] ---|"Tronco 802.1Q<br>Switch0 g0/1"| SW0["Switch0 (núcleo)<br>SVI VLAN 100"]
+    SW0 ---|"EtherChannel LACP<br>Port-channel 1 (Fa0/1 e Fa0/2)"| SW1["Switch1 (acesso)<br>VLAN 10 · DHCP"]
+    SW0 ---|"EtherChannel LACP<br>Port-channel próprio"| SW2["Switch2 (acesso)<br>VLAN 20 · DHCP"]
+    SW1 --- PC1["PCs da VLAN 10<br>Fa0/3 a Fa0/13"]
+    SW2 --- PC2["PCs da VLAN 20"]
+```
 
 <img width="819" height="457" alt="Topologia do Experimento 05 no Packet Tracer" src="https://github.com/user-attachments/assets/0ee450c5-b149-4766-94eb-67e6c008fa7d" />
- 
+
 > **Topologia Packet Tracer:** [Baixar arquivo do laboratório](./topologias/experimento_05_nao_configurado.pkt)
 
+O diagrama acima mostra a estrutura lógica. As portas exatas de cada enlace constam no arquivo `.pkt` e devem ser conferidas antes da configuração. A redundância vem dos dois enlaces físicos de cada EtherChannel: se um falhar, o outro mantém a conectividade.
 
+### 3.3 Plano de VLANs e Endereçamento
 
+Escolha os blocos de rede de cada VLAN e preencha a tabela, que deve compor o **plano de endereçamento** entregue no relatório (Seção 8).
 
+| VLAN | Uso | Rede e máscara | Gateway (subinterface do Router1) | SVI do switch |
+| :---: | :--- | :--- | :--- | :--- |
+| 10 | Usuários (Switch1) | | | Switch1 |
+| 20 | Usuários (Switch2) | | | Switch2 |
+| 100 | Gerência (núcleo) | | | Switch0 |
 
+Requisitos para a escolha dos blocos:
+
+- Os blocos das três VLANs não podem se sobrepor.
+- O servidor DHCP de cada switch **exclui os endereços de `.1` a `.49`**, que ficam reservados à infraestrutura: o *gateway* do roteador, a SVI do switch e eventuais equipamentos com IP fixo. Os clientes recebem endereços a partir de `.50`.
+- Cada bloco deve comportar os 49 endereços excluídos mais os clientes. Com 11 portas de acesso no Switch1 (`Fa0/3` a `Fa0/13`), um `/24` atende com ampla folga.
+- O *gateway* (subinterface) e a SVI de cada VLAN usam endereços da própria sub-rede, dentro da faixa excluída do DHCP.
+- Nos switches de acesso, a SVI está na própria VLAN de usuário, pois o servidor DHCP do switch escolhe a pool pelo endereço da interface que recebe a requisição (observação da Seção 4.1).
+
+### 3.4 Papéis das Portas: Confiáveis e Não Confiáveis
+
+O DHCP Snooping e o DAI só funcionam se cada porta tiver o papel correto. Defina-o antes de configurar:
+
+| Porta ou enlace | Liga-se a | DHCP Snooping | DAI |
+| :--- | :--- | :---: | :---: |
+| Portas de acesso (`Fa0/3` a `Fa0/13`) | PCs (dispositivos finais) | Não confiável | Não confiável |
+| EtherChannel entre acesso e núcleo (`Port-channel` e portas-membro) | Outros switches | Confiável | Confiável |
+| `g0/1` do Switch0 | Router1 (tronco) | Confiável | Confiável |
+| Portas não utilizadas | Nada | Desativadas (`shutdown`) | Desativadas (`shutdown`) |
+
+Uma porta de usuário marcada como confiável permitiria que um servidor DHCP falso respondesse aos clientes; um enlace entre switches ou com o roteador marcado como não confiável faria o switch descartar respostas DHCP e requisições ARP legítimas, derrubando a comunicação.
+
+### 3.5 Ordem de Implementação
+
+| Etapa | Atividade | Onde | Seção |
+| :---: | :--- | :--- | :---: |
+| 1 | Escolher os blocos de rede (Seção 3.3) | Planejamento | 3.3 |
+| 2 | Nome, acesso SSH, segurança básica e banner | Switches | 4.1 |
+| 3 | Criar VLANs e configurar a SVI de gerência | Switches | 4.1 |
+| 4 | Configurar as portas de acesso dos PCs | Switches de acesso | 4.1 |
+| 5 | Configurar o servidor DHCP, excluindo os endereços de `.1` a `.49` | Switches de acesso | 4.1 |
+| 6 | Implementar DHCP Snooping e DAI | Todos os switches | 4.1 |
+| 7 | Configurar a agregação de links (EtherChannel) entre acesso e núcleo | Todos os switches | 4.1 |
+| 8 | Desligar as portas não utilizadas | Todos os switches | 4.1 |
+| 9 | Configurar as subinterfaces que servem de *gateway* das VLANs | Router1 | 4.2 |
+
+A ordem importa: o DHCP Snooping e o DAI devem ser habilitados com as portas confiáveis já definidas, e o roteador só responde pelas VLANs depois que o tronco do Switch0 estiver configurado.
 
 ## 4. Roteiro Prático Passo a Passo
 

@@ -7,7 +7,7 @@
 - **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
 - **Tema:** Projeto e implantação autônoma de uma rede de filial com switch Cisco 2960 e roteador Cisco 1921
 
-> **Pré-requisito:** Este laboratório consolida os **Experimentos 02** (senhas e SSH), **03** (VLSM), **04** (VLANs e roteamento inter-VLAN) e **05** (DHCP em roteador Cisco). O conceito de DHCP é revisado no **Experimento 07**.
+> **Pré-requisito:** Este laboratório consolida os **Experimentos [02](02_roteiro.md)** (senhas e SSH), **[03](03_roteiro.md)** (VLSM), **[04](04_roteiro.md)** (VLANs e roteamento inter-VLAN) e **[05](05_roteiro.md)** (DHCP em roteador Cisco). O conceito de DHCP é revisado no [**Experimento 07**](07_roteiro.md).
 
 ---
 
@@ -66,7 +66,7 @@ Além do IEEE 802.1Q, do DHCP ([**RFC 2131**](https://datatracker.ietf.org/doc/h
 | :--- | :--- | :--- |
 | Endereçamento privado | [**RFC 1918**](https://datatracker.ietf.org/doc/html/rfc1918) | Faixas `10.10.0.0/24` (Grupo A) e `10.20.0.0/24` (Grupo B) do projeto |
 | IP e encaminhamento | [**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791), [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Roteamento entre as VLANs pelas subinterfaces do roteador |
-| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | Resolução do MAC do *gateway* e interpretação da tabela ARP |
+| Resolução de endereços | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | Resolução do MAC do *gateway* e interpretação da tabela ARP (*Address Resolution Protocol*) |
 | Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | Testes de aceite com `ping` |
 | Endereço *link-local* | [**RFC 3927**](https://datatracker.ietf.org/doc/html/rfc3927) | Estação que recebe `169.254.x.x` quando o DHCP não é alcançado |
 | Acesso remoto seguro | [**RFC 854**](https://datatracker.ietf.org/doc/html/rfc854), [**RFC 4251**](https://datatracker.ietf.org/doc/html/rfc4251), [**RFC 4252**](https://datatracker.ietf.org/doc/html/rfc4252), [**RFC 4253**](https://datatracker.ietf.org/doc/html/rfc4253) | Comparação entre Telnet (texto claro) e SSH versão 2 (criptografado e autenticado) |
@@ -79,7 +79,7 @@ Além do IEEE 802.1Q, do DHCP ([**RFC 2131**](https://datatracker.ietf.org/doc/h
 
 Uma empresa abre uma pequena filial e contrata a equipe para implantar a rede local. A filial terá três redes lógicas: uma **operacional**, uma de **atendimento** e uma de **gerência** dos equipamentos de rede. O acesso administrativo ao switch e ao roteador deve ser feito exclusivamente por SSH, e os equipamentos devem ser endereçados em uma rede de gerência própria. As estações das duas primeiras redes devem receber o endereçamento por DHCP.
 
-A filial deve ser implantada **sem acesso à Internet ou a outras filiais**. A interligação com a outra equipe ocorrerá somente no Experimento 11.
+A filial deve ser implantada **sem acesso à Internet ou a outras filiais**. A interligação com a outra equipe ocorrerá somente no [Experimento 11](11_roteiro.md).
 
 ### 3.2 Regras
 
@@ -118,7 +118,7 @@ As interfaces `Gi0/1` do switch e `Gi0/0` do roteador **não** recebem cabos de 
 
 ### 4.3 Reset de Fábrica dos Equipamentos
 
-> **Convenção dos blocos `cisco`:** o texto após `!` é comentário explicativo e **não deve ser digitado** na CLI do IOS.
+> **Convenção dos blocos `cisco`:** o texto após `!` é comentário explicativo e **não deve ser digitado** na CLI (*Command-Line Interface*) do IOS (*Internetworking Operating System*).
 
 Os equipamentos são reutilizados por várias turmas e chegam à bancada com configurações de uso anterior (VLANs, senhas, chaves SSH, pools DHCP). Antes de iniciar a Seção 5, cada equipe deve **restaurar o estado de fábrica** do switch e do roteador. Uma configuração residual é uma das causas mais frequentes de falhas inexplicáveis neste experimento.
 
@@ -324,16 +324,16 @@ O grupo deve implementar todos os requisitos abaixo. A coluna "Consultar" indica
 
 | ID | Requisito | Consultar |
 | :---: | :--- | :--- |
-| **R1** | Elaborar o plano de endereçamento VLSM: rede, máscara (decimal e CIDR), faixa utilizável, *gateway* e *broadcast* de cada VLAN, respeitando a Seção 5.3 | Exp. 03 |
-| **R2** | Identificar os equipamentos: `hostname` (`SW-A`/`R-A` ou `SW-B`/`R-B`) e nome de domínio `lab.local` | Exp. 02 |
-| **R3** | Proteger o acesso: `enable secret`, senhas armazenadas de forma criptografada, usuário local, *banner* de aviso e SSH versão 2 nos dois equipamentos, com Telnet desabilitado nas linhas `vty` | Exp. 02 |
-| **R4** | Criar as VLANs 10, 20 e 99 com os nomes da Seção 5.2 e associar as portas `Fa0/1`, `Fa0/2` e `Fa0/3` | Exp. 04 e 05 |
-| **R5** | Configurar `Gi0/1` do switch como tronco 802.1Q | Exp. 04 e 05 |
-| **R6** | Configurar o endereço de gerência do switch na VLAN 99 e o *default gateway* do switch | Exp. 04 |
-| **R7** | Configurar no roteador uma subinterface por VLAN em `Gi0/0`, com o *gateway* de cada rede | Exp. 04 e 05 |
-| **R8** | Configurar uma pool DHCP para a VLAN 10 e outra para a VLAN 20 no roteador, com as exclusões da Seção 5.3 | Exp. 05 e 07 |
-| **R9** | Configurar PC1 e PC2 para obter endereço por DHCP e PC3 com o IP estático definido na Seção 5.3 | Exp. 07 |
-| **R10** | Registrar as configurações finais de ambos os equipamentos com `copy running-config startup-config` | Exp. 02 |
+| **R1** | Elaborar o plano de endereçamento VLSM: rede, máscara (decimal e CIDR), faixa utilizável, *gateway* e *broadcast* de cada VLAN, respeitando a Seção 5.3 | Exp. [03](03_roteiro.md) |
+| **R2** | Identificar os equipamentos: `hostname` (`SW-A`/`R-A` ou `SW-B`/`R-B`) e nome de domínio `lab.local` | Exp. [02](02_roteiro.md) |
+| **R3** | Proteger o acesso: `enable secret`, senhas armazenadas de forma criptografada, usuário local, *banner* de aviso e SSH versão 2 nos dois equipamentos, com Telnet desabilitado nas linhas `vty` | Exp. [02](02_roteiro.md) |
+| **R4** | Criar as VLANs 10, 20 e 99 com os nomes da Seção 5.2 e associar as portas `Fa0/1`, `Fa0/2` e `Fa0/3` | Exp. [04](04_roteiro.md) e [05](05_roteiro.md) |
+| **R5** | Configurar `Gi0/1` do switch como tronco 802.1Q | Exp. [04](04_roteiro.md) e [05](05_roteiro.md) |
+| **R6** | Configurar o endereço de gerência do switch na VLAN 99 e o *default gateway* do switch | Exp. [04](04_roteiro.md) |
+| **R7** | Configurar no roteador uma subinterface por VLAN em `Gi0/0`, com o *gateway* de cada rede | Exp. [04](04_roteiro.md) e [05](05_roteiro.md) |
+| **R8** | Configurar uma pool DHCP para a VLAN 10 e outra para a VLAN 20 no roteador, com as exclusões da Seção 5.3 | Exp. [05](05_roteiro.md) e [07](07_roteiro.md) |
+| **R9** | Configurar PC1 e PC2 para obter endereço por DHCP e PC3 com o IP estático definido na Seção 5.3 | Exp. [07](07_roteiro.md) |
+| **R10** | Registrar as configurações finais de ambos os equipamentos com `copy running-config startup-config` | Exp. [02](02_roteiro.md) |
 
 ---
 
@@ -400,7 +400,7 @@ Utilize a metodologia em camadas: **física e enlace → endereçamento → VLAN
 
 ## 9. Organização da Equipe
 
-Cada grupo possui 5 estudantes. Os papéis **giram a cada experimento** (o Papel 1 do Experimento 09 passa a ser o Papel 2 no Experimento 10, e assim por diante), de modo que todos atuem em todas as funções.
+Cada grupo possui 5 estudantes. Os papéis **giram a cada experimento** (o Papel 1 do Experimento 09 passa a ser o Papel 2 no [Experimento 10](10_roteiro.md), e assim por diante), de modo que todos atuem em todas as funções.
 
 | Papel | Responsabilidade |
 | :---: | :--- |
@@ -458,7 +458,7 @@ Cada grupo submete **um único relatório técnico**, contendo:
 
 ## 13. Conclusão
 
-Neste experimento, a equipe percorreu o ciclo completo de implantação de uma rede de filial: projeto do endereçamento, segmentação em VLANs, roteamento entre VLANs com um switch de camada 2, distribuição automática de endereços e proteção do acesso administrativo. A atividade conduzida por requisitos e critérios de aceite exercita a autonomia técnica, e a documentação gerada servirá de base para os Experimentos 10 e 11, nos quais a filial será protegida contra falhas e interligada à outra equipe.
+Neste experimento, a equipe percorreu o ciclo completo de implantação de uma rede de filial: projeto do endereçamento, segmentação em VLANs, roteamento entre VLANs com um switch de camada 2, distribuição automática de endereços e proteção do acesso administrativo. A atividade conduzida por requisitos e critérios de aceite exercita a autonomia técnica, e a documentação gerada servirá de base para os Experimentos [10](10_roteiro.md) e [11](11_roteiro.md), nos quais a filial será protegida contra falhas e interligada à outra equipe.
 
 ---
 

@@ -57,8 +57,8 @@ As VLANs e os troncos são definidos pelo padrão IEEE 802.1Q (não há RFC equi
 | :--- | :--- | :--- |
 | Encaminhamento e roteamento estático | [**RFC 1812**](https://datatracker.ietf.org/doc/html/rfc1812) | Requisitos de roteadores IPv4, inclusive escolha de rota e rota padrão, aplicados nas subinterfaces e rotas estáticas |
 | Protocolo IP | [**RFC 791**](https://datatracker.ietf.org/doc/html/rfc791) | Endereçamento e encaminhamento dos datagramas entre as sub-redes de cada VLAN |
-| Resolução do *gateway* | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | ARP: o *host* resolve o MAC do *gateway* da VLAN antes de encaminhar o tráfego a outra sub-rede |
-| Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | Mensagens ICMP usadas por `ping` na validação entre VLANs |
+| Resolução do *gateway* | [**RFC 826**](https://datatracker.ietf.org/doc/html/rfc826) | ARP (*Address Resolution Protocol*): o *host* resolve o MAC do *gateway* da VLAN antes de encaminhar o tráfego a outra sub-rede |
+| Teste de conectividade | [**RFC 792**](https://datatracker.ietf.org/doc/html/rfc792) | Mensagens ICMP (*Internet Control Message Protocol*) usadas por `ping` na validação entre VLANs |
 
 ---
 
@@ -74,13 +74,15 @@ Você foi designado para projetar e implementar a configuração dos equipamento
 
 O prédio da empresa possui **3 andares** e **4 departamentos**: Administrativo, Diretoria, Marketing e Tecnologia. A distribuição dos equipamentos por andar e departamento segue a **Tabela 1**.
 
-Considere ainda que:
+Os requisitos do caso orientam diretamente as decisões de projeto:
 
-- a maior parte do tráfego é **intradepartamental**;
-- VLANs devem ser utilizadas para separar os domínios de *broadcast*;
-- deve existir **uma VLAN exclusiva para gerência** dos dispositivos de rede;
-- não há restrições quanto à disposição física das portas dos switches;
-- existe uma sala de telecomunicações em cada andar.
+| Requisito do caso | Consequência no projeto |
+| :--- | :--- |
+| A maior parte do tráfego é **intradepartamental** | Cada departamento forma uma VLAN própria; o tráfego entre VLANs, que passa pelo roteador, tende a ser minoritário |
+| VLANs devem separar os domínios de *broadcast* | Uma VLAN e uma sub-rede IP por departamento |
+| Deve existir **uma VLAN exclusiva para gerência** dos dispositivos de rede | VLAN 99, sem usuários, que concentra os endereços dos switches |
+| Não há restrições quanto à disposição física das portas | Qualquer porta de qualquer switch pode ser associada a qualquer VLAN |
+| Existe uma sala de telecomunicações em cada andar | Um switch por andar, alojado na sala de telecomunicações |
 
 ### 3.2 Tabela 1 - Lista de Equipamentos
 
@@ -113,14 +115,28 @@ Considere ainda que:
 | 3º | Impressora | 1 | Tecnologia |
 | **3º** | **Total** | **18** | - |
 
+#### 3.2.1 Resumo por Departamento e Andar
+
+A tabela abaixo consolida o total de dispositivos de cada departamento em cada andar. Ela mostra em quais andares cada VLAN precisa existir e quantos hosts cada sub-rede comporta.
+
+| Departamento | 1º andar | 2º andar | 3º andar | Total |
+| :--- | :---: | :---: | :---: | :---: |
+| Administrativo | 4 | 4 | 1 | 9 |
+| Diretoria | - | 3 | 7 | 10 |
+| Marketing | - | 10 | 7 | 17 |
+| Tecnologia | 11 | - | 3 | 14 |
+| **Total por andar** | **15** | **17** | **18** | **50** |
+
 ### 3.3 Projeto da Rede
 
-Uma possível solução de projeto considera:
+Uma possível solução de projeto, com a justificativa de cada decisão:
 
-- um **switch por andar**, visto que todos possuem menos de 24 dispositivos;
-- interligação entre switches por meio de **uplinks em modo tronco (IEEE 802.1Q)**;
-- um roteador com uma interface Fast Ethernet conectada ao Sw1;
-- cinco VLANs: quatro departamentais e uma de gerência.
+| Decisão | Justificativa |
+| :--- | :--- |
+| Um **switch por andar** | Nenhum andar tem mais de 18 dispositivos; somadas até 3 portas de interligação (*uplinks* e roteador), o maior caso é 21 portas, dentro das 24 de um switch |
+| Interligação entre switches por **uplinks em modo tronco (IEEE 802.1Q)** | Departamentos se estendem por mais de um andar (por exemplo, o Administrativo está nos três). O tronco leva as várias VLANs por um único enlace |
+| Um roteador com **uma interface Fast Ethernet** conectada ao Sw1 | O tráfego entre VLANs precisa de um dispositivo de camada 3. Com uma só interface física, o roteador atende todas as VLANs por subinterfaces (*router-on-a-stick*) |
+| **Cinco VLANs**: quatro departamentais e uma de gerência | Uma VLAN por departamento e uma para os endereços de gerência dos switches |
 
 #### 3.3.1 Plano de Endereçamento IP
 
@@ -132,6 +148,15 @@ Uma possível solução de projeto considera:
 | 5 | TECNOLOGIA | Tecnologia | 10.0.50.0/24 | 10.0.50.254 |
 | 99 | GERENCIA | Gerência | 10.0.10.0/24 | 10.0.10.254 |
 
+Convenções adotadas no plano:
+
+- as redes pertencem à faixa privada `10.0.0.0/8` ([**RFC 1918**](https://datatracker.ietf.org/doc/html/rfc1918));
+- o terceiro octeto identifica a VLAN (`20`, `30`, `40` e `50` para as VLANs 2 a 5), e a rede de gerência usa `10` mesmo com o VID 99;
+- o *gateway* de cada VLAN é o **último host utilizável** (`.254`) da sub-rede;
+- os nomes das VLANs são escritos sem acentos, por compatibilidade com o IOS (*Internetworking Operating System*).
+
+Cada sub-rede `/24` oferece 254 endereços utilizáveis. O maior departamento (Marketing) tem 17 dispositivos, e a rede de gerência precisa de apenas 4 endereços (3 switches e o *gateway*). O dimensionamento é folgado de propósito: simplifica o plano e deixa espaço para crescimento, ao custo de endereços não utilizados, o que é aceitável em faixa privada. O [Experimento 03](03_roteiro.md) trata do dimensionamento justo com VLSM (*Variable Length Subnet Mask*).
+
 #### 3.3.2 Endereçamento das Subinterfaces do Roteador
 
 | Subinterface | Endereço IP | VLAN ID |
@@ -142,9 +167,37 @@ Uma possível solução de projeto considera:
 | Fa0/0.4 | 10.0.40.254/24 | 4 |
 | Fa0/0.5 | 10.0.50.254/24 | 5 |
 
+A interface física `Fa0/0` não recebe endereço IP. Cada subinterface usa o endereço de *gateway* da sua VLAN, e o número após o ponto é apenas um rótulo, escolhido aqui igual ao VID para facilitar a leitura.
+
+#### 3.3.3 VLANs Necessárias em Cada Switch
+
+Considerando o Sw1, o Sw2 e o Sw3 nos 1º, 2º e 3º andares, respectivamente, e a Tabela 1, cada switch precisa conter as VLANs dos departamentos presentes no seu andar, além da VLAN de gerência:
+
+| Switch | Andar | VLANs com portas de acesso | VLAN de gerência |
+| :--- | :---: | :--- | :---: |
+| Sw1 | 1º | 2 (Administrativo) e 5 (Tecnologia) | 99 |
+| Sw2 | 2º | 2 (Administrativo), 3 (Diretoria) e 4 (Marketing) | 99 |
+| Sw3 | 3º | 2 (Administrativo), 3 (Diretoria), 4 (Marketing) e 5 (Tecnologia) | 99 |
+
+Os troncos devem permitir **todas** as VLANs (2 a 5 e 99), pois o tráfego de um departamento pode atravessar um switch onde ele não tem portas de acesso, e os enlaces carregam a gerência de todos os switches.
+
+#### 3.3.4 Topologia Física e Visão Lógica
+
 <img width="766" height="567" alt="Topologia do Experimento 04 no Packet Tracer" src="https://github.com/user-attachments/assets/44657322-8eaa-4457-a598-d7e3bb2fe86d" />
 
 O roteador fica no **primeiro andar**, conectado diretamente ao **Sw1** por uma interface Fast Ethernet, pois o equipamento não possui interface Gigabit Ethernet.
+
+Visão lógica do roteamento entre VLANs: um único enlace tronco leva as cinco VLANs até o roteador, que as separa em subinterfaces, cada uma com o *gateway* da respectiva VLAN.
+
+```mermaid
+flowchart LR
+    SW1["Sw1<br>1º andar"] ---|"Tronco 802.1Q<br>VLANs 2 a 5 e 99"| RF["Roteador<br>Fa0/0 (sem IP)"]
+    RF --- S99["Fa0/0.99<br>VLAN 99<br>10.0.10.254/24"]
+    RF --- S2["Fa0/0.2<br>VLAN 2<br>10.0.20.254/24"]
+    RF --- S3["Fa0/0.3<br>VLAN 3<br>10.0.30.254/24"]
+    RF --- S4["Fa0/0.4<br>VLAN 4<br>10.0.40.254/24"]
+    RF --- S5["Fa0/0.5<br>VLAN 5<br>10.0.50.254/24"]
+```
 
 ---
 

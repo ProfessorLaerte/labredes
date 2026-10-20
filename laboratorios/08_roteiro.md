@@ -7,13 +7,13 @@
 - **Professor responsável:** Prof. Dr. Laerte Peotta de Melo
 - **Tema:** Configuração e validação de serviço DNS autoritativo (BIND 9) integrado ao escopo DHCP
 
-> **Pré-requisito:** Este laboratório dá continuidade direta à infraestrutura implementada no **Experimento 07**.
+> **Pré-requisito:** Este laboratório dá continuidade direta à infraestrutura implementada no [**Experimento 07**](07_roteiro.md).
 
 ---
 
 ## 1. Objetivo
 
-Este laboratório dá continuidade direta à infraestrutura implementada no **Experimento 07**, integrando o serviço **DNS (*Domain Name System*)** à rede local gerenciada por DHCP. O objetivo é configurar um servidor DNS autoritativo simples em ambiente Linux para resolução de nomes locais, atualizar o escopo DHCP para fornecer as configurações de DNS aos clientes e validar a resolução direta e de apelidos (*aliases*).
+Este laboratório dá continuidade direta à infraestrutura implementada no [**Experimento 07**](07_roteiro.md), integrando o serviço **DNS (*Domain Name System*)** à rede local gerenciada por DHCP. O objetivo é configurar um servidor DNS autoritativo simples em ambiente Linux para resolução de nomes locais, atualizar o escopo DHCP para fornecer as configurações de DNS aos clientes e validar a resolução direta e de apelidos (*aliases*).
 
 Ao final da atividade, o estudante deverá ser capaz de:
 
@@ -21,7 +21,7 @@ Ao final da atividade, o estudante deverá ser capaz de:
 - instalar e configurar o servidor **BIND 9** para atuar como autoridade de uma zona direta simples (`lab.local`);
 - criar e manipular registros de recursos básicos (**SOA**, **NS**, **A** e **CNAME**), sem a complexidade de transferência de zonas;
 - configurar encaminhadores (*forwarders*) para resolver consultas de domínios externos que não pertencem à zona local;
-- atualizar as opções de escopo do servidor DHCP instalado no Experimento 07 para distribuir o endereço do servidor DNS local aos clientes;
+- atualizar as opções de escopo do servidor DHCP instalado no [Experimento 07](07_roteiro.md) para distribuir o endereço do servidor DNS local aos clientes;
 - validar a obtenção dinâmica das configurações de DNS nos clientes via renovação de concessão (*lease*);
 - executar consultas de diagnóstico de resolução de nomes utilizando `dig`, `nslookup` e `ping`;
 - inspecionar e analisar o tráfego de requisições e respostas DNS sobre a camada de transporte (UDP porta 53) com o `tcpdump`.
@@ -70,7 +70,7 @@ Em um arquivo de zona direta, cada linha representa um Registro de Recurso (*Res
 
 ### 2.3 Integração entre DHCP e Resolução de Nomes
 
-No Experimento 07, o servidor DHCP distribuía aos clientes servidores DNS públicos genéricos (`8.8.8.8` e `1.1.1.1`). Como esses servidores públicos não possuem conhecimento sobre domínios locais privados, as estações de trabalho não conseguiam resolver nomes internos. 
+No [Experimento 07](07_roteiro.md), o servidor DHCP distribuía aos clientes servidores DNS públicos genéricos (`8.8.8.8` e `1.1.1.1`). Como esses servidores públicos não possuem conhecimento sobre domínios locais privados, as estações de trabalho não conseguiam resolver nomes internos. 
 
 Ao atualizar o parâmetro `domain-name-servers` do servidor DHCP para apontar para o endereço IP local `192.168.0.1`, todos os clientes da rede passam a consultar o servidor local, permitindo a comunicação entre hosts por seus nomes legíveis.
 
@@ -78,7 +78,7 @@ Ao atualizar o parâmetro `domain-name-servers` do servidor DHCP para apontar pa
 
 ## 3. Topologia e Cenário
 
-A infraestrutura aproveita integralmente a topologia construída e validada no **Experimento 07**, sem adição de novas máquinas virtuais ou alteração no endereçamento da rede:
+A infraestrutura aproveita integralmente a topologia construída e validada no [**Experimento 07**](07_roteiro.md), sem adição de novas máquinas virtuais ou alteração no endereçamento da rede:
 
 - **Rede Local Única:** `192.168.0.0/24`.
 - **1 Servidor Linux:** endereço IP fixo `192.168.0.1/24`, acumulando os papéis de Servidor DHCP e Servidor DNS.
@@ -121,7 +121,7 @@ flowchart TB
 | **Cliente 3** | eth0 | 192.168.0.103 | 255.255.255.0 | 192.168.0.1 | Cliente DHCP / Host `pc3.lab.local` |
 | **Cliente 4** | eth0 | 192.168.0.104 | 255.255.255.0 | 192.168.0.1 | Cliente DHCP / Host `pc4.lab.local` |
 
-> *Nota:* Para que os registros `A` da zona permaneçam válidos, cada cliente recebe um endereço fixo por **reserva DHCP** associada ao endereço MAC (Seção 5.6), técnica apresentada no Experimento 07 (Seção 15). Sem a reserva, os endereços dinâmicos da faixa `192.168.0.100` a `192.168.0.150` poderiam diferir dos registrados.
+> *Nota:* Para que os registros `A` da zona permaneçam válidos, cada cliente recebe um endereço fixo por **reserva DHCP** associada ao endereço MAC (Seção 5.6), técnica apresentada no [Experimento 07](07_roteiro.md) (Seção 15). Sem a reserva, os endereços dinâmicos da faixa `192.168.0.100` a `192.168.0.150` poderiam diferir dos registrados.
 
 ### 4.2 Tabela de Registros DNS da Zona `lab.local`
 
@@ -143,7 +143,7 @@ flowchart TB
 
 ### 5.1 Verificação do Ponto de Partida no Servidor
 
-Inicie a topologia no PNetLab proveniente do Experimento 07. No **Servidor**, confirme que o endereço IP estático e o serviço DHCP continuam ativos:
+Inicie a topologia no PNetLab proveniente do [Experimento 07](07_roteiro.md). No **Servidor**, confirme que o endereço IP estático e o serviço DHCP continuam ativos:
 
 ```bash
 # Verificar a interface de rede eth0
@@ -482,7 +482,7 @@ O estudante deverá submeter relatório técnico individual ou em dupla contendo
 
 ## 10. Conclusão
 
-Neste experimento, os estudantes consolidaram a integração entre os serviços essenciais de infraestrutura de rede local: **DHCP** e **DNS**. A partir da topologia pré-existente do Experimento 07, foi demonstrado como a alocação dinâmica de endereços se articula com a resolução de nomes locais, eliminando a dependência de endereços IP numéricos fixados manualmente nas aplicações. A configuração de uma zona direta simples no BIND 9 e a análise de tráfego com o `tcpdump` reforçaram o entendimento dos papéis de registros canônicos e apelidos sobre o protocolo de transporte UDP, estabelecendo a base necessária para a futura publicação de serviços de aplicação (como servidores Web e correio eletrônico).
+Neste experimento, os estudantes consolidaram a integração entre os serviços essenciais de infraestrutura de rede local: **DHCP** e **DNS**. A partir da topologia pré-existente do [Experimento 07](07_roteiro.md), foi demonstrado como a alocação dinâmica de endereços se articula com a resolução de nomes locais, eliminando a dependência de endereços IP numéricos fixados manualmente nas aplicações. A configuração de uma zona direta simples no BIND 9 e a análise de tráfego com o `tcpdump` reforçaram o entendimento dos papéis de registros canônicos e apelidos sobre o protocolo de transporte UDP, estabelecendo a base necessária para a futura publicação de serviços de aplicação (como servidores Web e correio eletrônico).
 
 ---
 
