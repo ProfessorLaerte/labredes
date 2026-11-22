@@ -65,27 +65,27 @@ Cada laboratório possui um roteiro próprio, com cabeçalho institucional, tema
 
 | Laboratório | Tema | Roteiro | Packet Tracer |
 |:------------:|:------|:-------:|:-------------:|
-| **01** | Introdução aos Dispositivos de Redes | [Acessar](./laboratorios/01_roteiro.md) | - |
-| **02** | Configurar Senhas Seguras e SSH | [Acessar](./laboratorios/02_roteiro.md) | - |
-| **03** | Configurar Sub-redes com VLSM | [Acessar](./laboratorios/03_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
-| **04** | VLAN e Roteamento Estático | [Acessar](./laboratorios/04_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
-| **05** | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN, DHCP Snooping e *Dynamic ARP Inspection* (DAI) | [Acessar](./laboratorios/05_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
-| **06** | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](./laboratorios/06_roteiro.md) | [Baixar Arquivo](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
+| **01** | Introdução aos Dispositivos de Redes | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/01) | - |
+| **02** | Configurar Senhas Seguras e SSH | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/02) | - |
+| **03** | Configurar Sub-redes com VLSM | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/03) | [Baixar Arquivo](./laboratorios/topologias/experimento_03_nao_configurado.pkt) |
+| **04** | VLAN e Roteamento Estático | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/04) | [Baixar Arquivo](./laboratorios/topologias/experimento_04_nao_configurado.pkt) |
+| **05** | Topologia Redundante com VLANs, EtherChannel, Roteamento Inter-VLAN, DHCP Snooping e *Dynamic ARP Inspection* (DAI) | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/05) | [Baixar Arquivo](./laboratorios/topologias/experimento_05_nao_configurado.pkt) |
+| **06** | Desafio de Resolução de Problemas (Troubleshooting) | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/06) | [Baixar Arquivo](./laboratorios/topologias/experimento_06_nao_resolvido.pkt) |
 
 ### 5.2 Laboratórios de Serviços de Rede
 
 | Laboratório | Tema | Roteiro | Ambiente / Simulador |
 |:------------:|:------|:-------:|:--------------------:|
-| **07** | Configuração e Análise do Protocolo DHCP | [Acessar](./laboratorios/07_roteiro.md) | PNetLab (Linux) |
-| **08** | Configuração e Análise do Serviço DNS | [Acessar](./laboratorios/08_roteiro.md) | PNetLab (Linux) |
+| **07** | Configuração e Análise do Protocolo DHCP | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/07) | PNetLab (Linux) |
+| **08** | Configuração e Análise do Serviço DNS | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/08) | PNetLab (Linux) |
 
 ### 5.3 Laboratórios Integradores com Equipamentos Físicos
 
 | Laboratório | Tema | Roteiro | Ambiente / Equipamentos |
 |:------------:|:------|:-------:|:-----------------------:|
-| **09** | Filial Isolada: VLANs, Roteamento Inter-VLAN, DHCP e Acesso Seguro em Equipamentos Físicos | [Acessar](./laboratorios/09_roteiro.md) | Cisco 2960-24TT e 1921 |
-| **10** | A Filial Cresce: Expansão, DHCP Snooping, DAI e Diagnóstico de Falhas Provocadas | [Acessar](./laboratorios/10_roteiro.md) | Cisco 2960-24TT e 1921 |
-| **11** | Interligação de Filiais com Roteamento Estático | [Acessar](./laboratorios/11_roteiro.md) | Cisco 2960-24TT, 1921 e 1941 |
+| **09** | Filial Isolada: VLANs, Roteamento Inter-VLAN, DHCP e Acesso Seguro em Equipamentos Físicos | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/09) | Cisco 2960-24TT e 1921 |
+| **10** | A Filial Cresce: Expansão, DHCP Snooping, DAI e Diagnóstico de Falhas Provocadas | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/10) | Cisco 2960-24TT e 1921 |
+| **11** | Interligação de Filiais com Roteamento Estático | [Acessar](https://professorlaerte.github.io/labredes/labs/#/lab/11) | Cisco 2960-24TT, 1921 e 1941 |
 
 ### 5.4 Simuladores Complementares
 
