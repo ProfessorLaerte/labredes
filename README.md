@@ -104,6 +104,31 @@ O hub [**Simul-Net**](https://peotta.github.io/Simul-Net/) reúne simuladores vi
 | [ARP](https://peotta.github.io/Simul-Net/#/sim/arp) | 05, 10 |
 | [ICMP (*Internet Control Message Protocol*: ping e traceroute)](https://peotta.github.io/Simul-Net/#/sim/icmp) | 11 |
 
+### 5.5 Cronograma do Semestre 2027/1
+
+Período letivo: 15 de março a 16 de julho de 2027 (100 dias letivos). As aulas ocorrem às sextas-feiras, das 8h às 9h50, exceto na Sexta-feira Santa (26/03/2027). A partir do Laboratório 07, cada laboratório ocupa duas aulas: uma de **teoria**, com a fundamentação do tema, e outra de **prática**, com a execução do roteiro.
+
+| Aula | Data | Atividade | Laboratório |
+|:----:|:----:|:----------|:-----------:|
+| 01 | 19/03/2027 | Prática | 01 |
+| 02 | 02/04/2027 | Prática | 02 |
+| 03 | 09/04/2027 | Prática | 03 |
+| 04 | 16/04/2027 | Prática | 04 |
+| 05 | 23/04/2027 | Prática | 05 |
+| 06 | 30/04/2027 | Prática | 06 |
+| 07 | 07/05/2027 | Teoria | 07 |
+| 08 | 14/05/2027 | Prática | 07 |
+| 09 | 21/05/2027 | Teoria | 08 |
+| 10 | 28/05/2027 | Prática | 08 |
+| 11 | 04/06/2027 | Teoria | 09 |
+| 12 | 11/06/2027 | Prática | 09 |
+| 13 | 18/06/2027 | Teoria | 10 |
+| 14 | 25/06/2027 | Prática | 10 |
+| 15 | 02/07/2027 | Teoria | 11 |
+| 16 | 09/07/2027 | Prática | 11 |
+
+A sexta-feira 16/07/2027 fica reservada para reposição, tutoria e recuperação de atividades. O cronograma pode ser ajustado conforme o calendário acadêmico oficial e as necessidades da turma.
+
 ---
 
 ## 6. Metodologia
@@ -114,17 +139,31 @@ As atividades laboratoriais serão desenvolvidas de forma **prática e supervisi
 - Observação do comportamento da rede;
 - Registro técnico dos comandos e evidências.
 
+Nos Experimentos 01 a 06, cada laboratório ocupa uma aula. A partir do Experimento 07, cada laboratório ocupa duas aulas, uma teórica e outra prática.
+
 O aluno deve seguir rigorosamente os roteiros e registrar os resultados conforme solicitado.
 
 ---
 
 ## 7. Avaliação
 
-A avaliação da disciplina será baseada em:
-- Execução correta dos laboratórios, verificada pelos testes de aceite e de conectividade;
+A avaliação da disciplina é feita **exclusivamente pela entrega dos laboratórios**. Cada um dos 11 laboratórios recebe nota de 0,0 a 10,0 pontos, conforme a rubrica do respectivo roteiro, com os seguintes pesos:
+
+| Laboratórios | Modalidade | Peso na nota final |
+|:------------:|:-----------|:------------------:|
+| 01 a 08 | Individual | 7,0 pontos |
+| 09 a 11 | Em grupo (um relatório por grupo) | 3,0 pontos |
+
+A **Nota Final** é calculada por:
+
+$$\text{Nota Final} = 0{,}7 \times \overline{N}_{01\text{--}08} + 0{,}3 \times \overline{N}_{09\text{--}11}$$
+
+em que $\overline{N}$ é a média aritmética das notas (0,0 a 10,0) dos laboratórios indicados. Assim, cada laboratório individual contribui com até 0,875 ponto e cada laboratório em grupo com até 1,0 ponto. É aprovado o estudante com Nota Final igual ou superior a 5,0 e frequência igual ou superior a 75%.
+
+Cada laboratório é avaliado com base em:
+- Execução correta, verificada pelos testes de aceite e de conectividade;
 - Qualidade dos relatórios técnicos e respostas às questões de análise;
-- Participação e envolvimento durante as práticas;
-- Cumprimento dos prazos de entrega estabelecidos.
+- Cumprimento dos prazos de entrega estabelecidos (cada dia de atraso desconta 5% da nota, até o limite de 50%).
 
 ---
 
@@ -162,7 +201,7 @@ A avaliação da disciplina será baseada em:
 ## 10. Observações Importantes
 
 - Os arquivos `.pkt` disponíveis na pasta `laboratorios/topologias/` devem ser abertos utilizando a versão recomendada do Cisco Packet Tracer.
-- As evidências de execução (telas de teste de conectividade, tabelas de roteamento e saídas da CLI) devem ser anexadas aos relatórios de cada prática (individuais ou em dupla nos Experimentos 01 a 08, conforme o roteiro; um único relatório por grupo nos Experimentos 09 a 11).
+- As evidências de execução (telas de teste de conectividade, tabelas de roteamento e saídas da CLI) devem ser anexadas aos relatórios de cada prática (individuais nos Experimentos 01 a 08, conforme o roteiro; um único relatório por grupo nos Experimentos 09 a 11).
 
 ---
 
