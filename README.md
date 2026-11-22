@@ -106,7 +106,7 @@ O hub [**Simul-Net**](https://peotta.github.io/Simul-Net/) reúne simuladores vi
 
 ### 5.5 Cronograma do Semestre 2027/1
 
-Período letivo: 15 de março a 16 de julho de 2027 (100 dias letivos). As aulas ocorrem às sextas-feiras, das 8h às 9h50, exceto na Sexta-feira Santa (26/03/2027). A partir do Laboratório 07, cada laboratório ocupa duas aulas: uma de **teoria**, com a fundamentação do tema, e outra de **prática**, com a execução do roteiro.
+Período letivo: 15 de março a 16 de julho de 2027 (100 dias letivos). As aulas ocorrem às sextas-feiras, exceto na Sexta-feira Santa (26/03/2027). A partir do Laboratório 07, cada laboratório ocupa duas aulas: uma de **teoria**, com a fundamentação do tema, e outra de **prática**, com a execução do roteiro.
 
 | Aula | Data | Atividade | Laboratório |
 |:----:|:----:|:----------|:-----------:|
